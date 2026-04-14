@@ -16,16 +16,18 @@ export default function Home() {
       {/* Navigation */}
       <nav className="sticky top-0 z-50 bg-background/95 backdrop-blur border-b border-border">
         <div className="container flex items-center justify-between py-6">
-          <div className="flex items-center gap-3">
-            <div className="w-10 h-10 bg-accent rounded-full flex items-center justify-center">
-              <span className="text-charcoal font-bold text-lg">S</span>
-            </div>
+          <a href="/" className="flex items-center gap-3 hover:opacity-80 transition-opacity">
+            <img 
+              src="https://d2xsxph8kpxj0f.cloudfront.net/310519663390111230/Ncij7Gh2r2BW57bAh4gHVB/stiemfield-logo_e689c952.jpg"
+              alt="Stiemfield"
+              className="w-10 h-10 rounded-full object-cover"
+            />
             <span className="font-display text-xl font-semibold text-accent">STIEMFIELD</span>
-          </div>
+          </a>
           <div className="hidden md:flex items-center gap-8">
             <a href="#framework" className="hover-gold text-sm font-medium">Framework</a>
             <a href="#services" className="hover-gold text-sm font-medium">Services</a>
-            <a href="#values" className="hover-gold text-sm font-medium">Values</a>
+            <a href="/insights" className="hover-gold text-sm font-medium">Insights</a>
             <Button className="btn-premium text-xs">Get Started</Button>
           </div>
         </div>
@@ -286,12 +288,14 @@ export default function Home() {
         <div className="container py-12">
           <div className="grid md:grid-cols-4 gap-8 mb-8">
             <div>
-              <div className="flex items-center gap-2 mb-4">
-                <div className="w-8 h-8 bg-accent rounded-full flex items-center justify-center">
-                  <span className="text-charcoal font-bold text-sm">S</span>
-                </div>
-                <span className="font-display font-semibold text-accent">STIEMFIELD</span>
-              </div>
+            <div className="flex items-center gap-2 mb-4">
+              <img 
+                src="https://d2xsxph8kpxj0f.cloudfront.net/310519663390111230/Ncij7Gh2r2BW57bAh4gHVB/stiemfield-logo_e689c952.jpg"
+                alt="Stiemfield"
+                className="w-8 h-8 rounded-full object-cover"
+              />
+              <span className="font-display font-semibold text-accent">STIEMFIELD</span>
+            </div>
               <p className="text-sm text-muted-foreground">Convergence Firm</p>
             </div>
             <div>
