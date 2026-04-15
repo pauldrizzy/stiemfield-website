@@ -90,8 +90,9 @@ export default function Insights() {
           </a>
           <div className="hidden md:flex items-center gap-8">
             <a href="/" className="hover-gold text-sm font-medium">Home</a>
-            <a href="/#framework" className="hover-gold text-sm font-medium">Framework</a>
-            <a href="/#services" className="hover-gold text-sm font-medium">Services</a>
+            <a href="/about" className="hover-gold text-sm font-medium">About</a>
+            <a href="/case-studies" className="hover-gold text-sm font-medium">Case Studies</a>
+            <a href="/contact" className="hover-gold text-sm font-medium">Contact</a>
             <Button className="btn-premium text-xs">Get Started</Button>
           </div>
         </div>
@@ -250,9 +251,9 @@ export default function Insights() {
             <div>
               <h4 className="font-semibold mb-4">Company</h4>
               <ul className="space-y-2 text-sm text-muted-foreground">
-                <li><a href="/" className="hover-gold">About</a></li>
-                <li><a href="/insights" className="hover-gold">Insights</a></li>
-                <li><a href="/" className="hover-gold">Contact</a></li>
+                <li><a href="/about" className="hover-gold">About</a></li>
+                <li><a href="/case-studies" className="hover-gold">Case Studies</a></li>
+                <li><a href="/contact" className="hover-gold">Contact</a></li>
               </ul>
             </div>
             <div>
