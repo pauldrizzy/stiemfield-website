@@ -105,32 +105,40 @@ export default function About() {
         </div>
       </section>
 
-      {/* Team Section */}
+      {/* Founder Section */}
       <section className="section-padding bg-background">
         <div className="container">
-          <h2 className="text-4xl font-display font-bold mb-16 text-center">Leadership</h2>
-          
-          <div className="grid md:grid-cols-3 gap-12 max-w-5xl mx-auto">
-            {[
-              { name: "Founder & CEO", title: "Strategy & Vision", bio: "BSc Business Management. Served as LGA Project Manager and State Project Manager for DL4All CDS Group during NYSC service. Built Stiemfield on the conviction that organizational transformation requires convergence of all five forces—not sequential handoffs between disciplines." },
-              { name: "Chief Operating Officer", title: "Execution & Delivery", bio: "Former COO at major consulting firm. Expert in program management and organizational change. Ensures every engagement delivers measurable results." },
-              { name: "Chief Technology Officer", title: "Technology & Innovation", bio: "Tech entrepreneur and digital transformation expert. Brings deep expertise in AI, cloud infrastructure, and technology-enabled transformation." }
-            ].map((member, idx) => (
-              <div key={idx} className="text-center space-y-6">
-                <div className="w-32 h-32 mx-auto rounded-full bg-gradient-to-br from-accent to-accent/60 flex items-center justify-center">
-                  <img 
-                    src="https://d2xsxph8kpxj0f.cloudfront.net/310519663390111230/Ncij7Gh2r2BW57bAh4gHVB/team-placeholder-MJxjWo78SHZJsY9DKbCF5D.webp"
-                    alt={member.name}
-                    className="w-32 h-32 rounded-full object-cover"
-                  />
-                </div>
+          <div className="max-w-3xl mx-auto space-y-12">
+            <div className="text-center space-y-4">
+              <div className="accent-line mx-auto"></div>
+              <h2 className="text-4xl font-display font-bold">The Founder</h2>
+              <p className="text-lg text-muted-foreground">Solo convergence practice. Full attention. Complete STIEM lens.</p>
+            </div>
+
+            <div className="flex flex-col md:flex-row gap-12 items-center">
+              <div className="w-48 h-48 flex-shrink-0 rounded-lg bg-gradient-to-br from-accent to-accent/60 overflow-hidden">
+                <img 
+                  src="https://d2xsxph8kpxj0f.cloudfront.net/310519663390111230/Ncij7Gh2r2BW57bAh4gHVB/team-placeholder-MJxjWo78SHZJsY9DKbCF5D.webp"
+                  alt="Founder"
+                  className="w-full h-full object-cover"
+                />
+              </div>
+              <div className="space-y-6">
                 <div>
-                  <h3 className="text-xl font-display font-bold mb-1">{member.name}</h3>
-                  <p className="text-accent text-sm font-semibold mb-3">{member.title}</p>
-                  <p className="text-muted-foreground text-sm leading-relaxed">{member.bio}</p>
+                  <h3 className="text-3xl font-display font-bold mb-2">Founder & Principal Advisor</h3>
+                  <p className="text-accent text-sm font-semibold mb-4">Convergence Architect</p>
+                  <p className="text-muted-foreground leading-relaxed mb-4">
+                    BSc Business Management. Served as LGA Project Manager and State Project Manager for DL4All CDS Group during NYSC service. Built Stiemfield on the conviction that organizational transformation requires convergence of all five forces—not sequential handoffs between disciplines.
+                  </p>
+                </div>
+                <div className="bg-card border border-border rounded-lg p-6 space-y-3">
+                  <p className="text-accent font-semibold text-sm uppercase tracking-wider">Why Solo?</p>
+                  <p className="text-muted-foreground text-sm leading-relaxed">
+                    Every client engages directly with the full STIEM lens. No handoffs. No dilution of thinking. Maximum focus on your transformation. This is the model that works.
+                  </p>
                 </div>
               </div>
-            ))}
+            </div>
           </div>
         </div>
       </section>
