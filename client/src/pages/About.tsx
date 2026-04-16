@@ -112,7 +112,7 @@ export default function About() {
           
           <div className="grid md:grid-cols-3 gap-12 max-w-5xl mx-auto">
             {[
-              { name: "Founder & CEO", title: "Strategy & Vision", bio: "20+ years in strategy consulting. Led transformation programs across 15+ African countries. Built Stiemfield on the belief that convergence is the only model that works." },
+              { name: "Founder & CEO", title: "Strategy & Vision", bio: "BSc Business Management. Served as LGA Project Manager and State Project Manager for DL4All CDS Group during NYSC service. Built Stiemfield on the conviction that organizational transformation requires convergence of all five forces—not sequential handoffs between disciplines." },
               { name: "Chief Operating Officer", title: "Execution & Delivery", bio: "Former COO at major consulting firm. Expert in program management and organizational change. Ensures every engagement delivers measurable results." },
               { name: "Chief Technology Officer", title: "Technology & Innovation", bio: "Tech entrepreneur and digital transformation expert. Brings deep expertise in AI, cloud infrastructure, and technology-enabled transformation." }
             ].map((member, idx) => (
