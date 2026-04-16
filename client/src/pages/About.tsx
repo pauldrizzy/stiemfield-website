@@ -23,8 +23,10 @@ export default function About() {
           </a>
           <div className="hidden md:flex items-center gap-8">
             <a href="/" className="hover-gold text-sm font-medium">Home</a>
-            <a href="/#framework" className="hover-gold text-sm font-medium">Framework</a>
+            <a href="/about" className="hover-gold text-sm font-medium">About</a>
+            <a href="/case-studies" className="hover-gold text-sm font-medium">Case Studies</a>
             <a href="/insights" className="hover-gold text-sm font-medium">Insights</a>
+            <a href="/contact" className="hover-gold text-sm font-medium">Contact</a>
             <Button className="btn-premium text-xs">Get Started</Button>
           </div>
         </div>
@@ -44,10 +46,10 @@ export default function About() {
           <div className="max-w-3xl space-y-6">
             <div className="accent-line"></div>
             <h1 className="text-6xl md:text-7xl font-display font-bold leading-tight">
-              Why <span className="text-accent">Stiemfield</span> Exists
+              Why <span className="text-accent">Convergence</span>
             </h1>
             <p className="text-xl text-muted-foreground leading-relaxed">
-              We saw a pattern. Brilliant organizations failing at transformation not because they lacked capability, but because their capabilities were fragmented. We built Stiemfield to fix that.
+              Most consulting firms are organized around a single discipline. We are organized around the client's actual problem — which never respects disciplinary boundaries.
             </p>
           </div>
         </div>

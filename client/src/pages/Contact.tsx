@@ -47,7 +47,10 @@ export default function Contact() {
           <div className="hidden md:flex items-center gap-8">
             <a href="/" className="hover-gold text-sm font-medium">Home</a>
             <a href="/about" className="hover-gold text-sm font-medium">About</a>
+            <a href="/case-studies" className="hover-gold text-sm font-medium">Case Studies</a>
             <a href="/insights" className="hover-gold text-sm font-medium">Insights</a>
+            <a href="/contact" className="hover-gold text-sm font-medium">Contact</a>
+            <Button className="btn-premium text-xs">Get Started</Button>
           </div>
         </div>
       </nav>
