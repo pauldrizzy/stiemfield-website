@@ -62,9 +62,9 @@ export default function CaseStudies() {
               <div className="space-y-8">
                 <div>
                   <span className="text-accent text-sm font-semibold uppercase tracking-wider">Case Study 01</span>
-                  <h2 className="text-4xl font-display font-bold mt-2 mb-4">Pan-African Fintech</h2>
+                  <h2 className="text-4xl font-display font-bold mt-2 mb-4">Global Fintech Scale-Up</h2>
                   <p className="text-muted-foreground text-lg leading-relaxed">
-                    A rapidly growing fintech company with brilliant product but fragmented operations. Strategy was siloed from execution. Technology wasn't aligned with business goals. Management couldn't keep pace with growth.
+                    A rapidly growing fintech company operating across multiple markets with brilliant product but fragmented operations. Strategy was siloed from execution. Technology wasn't aligned with business goals. Management couldn't keep pace with growth.
                   </p>
                 </div>
 
@@ -168,7 +168,7 @@ export default function CaseStudies() {
               <div className="order-1 md:order-2 space-y-8">
                 <div>
                   <span className="text-accent text-sm font-semibold uppercase tracking-wider">Case Study 02</span>
-                  <h2 className="text-4xl font-display font-bold mt-2 mb-4">Pan-African Manufacturing</h2>
+                  <h2 className="text-4xl font-display font-bold mt-2 mb-4">Manufacturing Transformation</h2>
                   <p className="text-muted-foreground text-lg leading-relaxed">
                     A legacy manufacturing company with strong market position but outdated operations. Digital transformation initiatives had failed. Management resisted change. Innovation was stifled by bureaucracy.
                   </p>
@@ -212,7 +212,7 @@ export default function CaseStudies() {
               <div className="space-y-8">
                 <div>
                   <span className="text-accent text-sm font-semibold uppercase tracking-wider">Case Study 03</span>
-                  <h2 className="text-4xl font-display font-bold mt-2 mb-4">African Tech Startup</h2>
+                  <h2 className="text-4xl font-display font-bold mt-2 mb-4">High-Growth Tech Startup</h2>
                   <p className="text-muted-foreground text-lg leading-relaxed">
                     A high-growth tech startup with brilliant founders but scaling challenges. Product innovation was strong but execution was chaotic. Strategy wasn't clear. Management systems didn't exist.
                   </p>
@@ -275,7 +275,7 @@ export default function CaseStudies() {
                   <p className="text-muted-foreground text-sm leading-relaxed italic">
                     "Stiemfield helped us scale from startup to enterprise without losing our edge. The STIEM framework gave us the architecture to grow while staying innovative. We're now a serious company."
                   </p>
-                  <p className="text-accent font-semibold text-sm mt-4">— Founder & CEO, African Tech Startup</p>
+                  <p className="text-accent font-semibold text-sm mt-4">— Founder & CEO, Tech Startup</p>
                 </div>
               </div>
             </div>
@@ -336,13 +336,15 @@ export default function CaseStudies() {
             <div>
               <div className="flex items-center gap-2 mb-4">
                 <img 
-                  src="https://d2xsxph8kpxj0f.cloudfront.net/310519663390111230/Ncij7Gh2r2BW57bAh4gHVB/stiemfield-logo_e689c952.jpg"
+                  src="/stiemfield-logo.jpg"
                   alt="Stiemfield"
                   className="w-8 h-8 rounded-full object-cover"
                 />
                 <span className="font-display font-semibold text-accent">STIEMFIELD</span>
               </div>
               <p className="text-sm text-muted-foreground">Convergence Firm</p>
+              <p className="text-xs text-muted-foreground mt-2">terungwa@stiemfield.com</p>
+              <p className="text-xs text-muted-foreground">Makurdi, Benue State, Nigeria</p>
             </div>
             <div>
               <h4 className="font-semibold mb-4">Services</h4>

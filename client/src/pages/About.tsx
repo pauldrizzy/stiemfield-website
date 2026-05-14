@@ -128,7 +128,7 @@ export default function About() {
                   <h3 className="text-3xl font-display font-bold mb-2">Terungwa Paul Asar</h3>
                   <p className="text-accent text-sm font-semibold mb-4">Founding Partner & Convergence Architect</p>
                   <p className="text-muted-foreground leading-relaxed mb-4">
-                    BSc Business Management. During NYSC service, Terungwa served as LGA Project Manager and State Project Manager for the Digital Literacy for All Community Development Service in Benue State—managing multi-stakeholder transformation programs, coordinating technology deployment, and building execution frameworks under genuine resource and infrastructure constraints. This field experience is the empirical foundation of the STIEM Framework. Stiemfield is his direct response to the transformation failure problem he witnessed.
+                    BSc Business Management (Benue State origin). During NYSC service in Osun State, Terungwa served as LGA Project Manager and State Project Manager for the Digital Literacy for All Community Development Service—managing multi-stakeholder transformation programs, coordinating technology deployment, and building execution frameworks under genuine resource and infrastructure constraints. This field experience is the empirical foundation of the STIEM Framework. Stiemfield is his direct response to the transformation failure problem he witnessed.
                   </p>
                 </div>
                 <div className="bg-card border border-border rounded-lg p-6 space-y-3">
@@ -218,13 +218,15 @@ export default function About() {
             <div>
               <div className="flex items-center gap-2 mb-4">
                 <img 
-                  src="https://d2xsxph8kpxj0f.cloudfront.net/310519663390111230/Ncij7Gh2r2BW57bAh4gHVB/stiemfield-logo_e689c952.jpg"
+                  src="/stiemfield-logo.jpg"
                   alt="Stiemfield"
                   className="w-8 h-8 rounded-full object-cover"
                 />
                 <span className="font-display font-semibold text-accent">STIEMFIELD</span>
               </div>
               <p className="text-sm text-muted-foreground">Convergence Firm</p>
+              <p className="text-xs text-muted-foreground mt-2">terungwa@stiemfield.com</p>
+              <p className="text-xs text-muted-foreground">Makurdi, Benue State, Nigeria</p>
             </div>
             <div>
               <h4 className="font-semibold mb-4">Services</h4>

@@ -413,6 +413,8 @@ export default function Home() {
                 <span className="font-display font-semibold text-accent">STIEMFIELD</span>
               </div>
               <p className="text-sm text-muted-foreground">Convergence Firm</p>
+              <p className="text-xs text-muted-foreground mt-2">terungwa@stiemfield.com</p>
+              <p className="text-xs text-muted-foreground">Makurdi, Benue State, Nigeria</p>
             </div>
             <div>
               <h4 className="font-semibold mb-4">Services</h4>
