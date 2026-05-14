@@ -15,7 +15,7 @@ export default function CaseStudies() {
         <div className="container flex items-center justify-between py-6">
           <a href="/" className="flex items-center gap-3 hover:opacity-80 transition-opacity">
             <img 
-              src="https://d2xsxph8kpxj0f.cloudfront.net/310519663390111230/Ncij7Gh2r2BW57bAh4gHVB/stiemfield-logo_e689c952.jpg"
+              src="/stiemfield-logo.jpg"
               alt="Stiemfield"
               className="w-10 h-10 rounded-full object-cover"
             />
