@@ -29,8 +29,8 @@ const insights: InsightArticle[] = [
   },
   {
     id: "2",
-    title: "The African Advantage: Context as Competitive Edge",
-    excerpt: "African firms operate in unique market conditions. Rather than viewing these as constraints, leading organizations are leveraging them as sources of innovation and competitive advantage.",
+    title: "Transformation Expertise: From African Context to Global Scale",
+    excerpt: "Organizations that master transformation in complex African markets develop capabilities that translate globally. We share how deep expertise in challenging contexts becomes a competitive advantage worldwide.",
     author: "Stiemfield Team",
     date: "April 3, 2026",
     category: "Strategy",
@@ -121,7 +121,7 @@ export default function Insights() {
                 Why Single-Discipline Consulting Fails Transformation
               </h2>
               <p className="text-muted-foreground text-lg leading-relaxed">
-                Most organizations fail at transformation not because their strategy is wrong, but because strategy, technology, execution, and management are misaligned. We explore why convergence is the only model that works.
+                Most organizations fail at transformation not because their strategy is wrong, but because strategy, technology, innovation, execution, and management are misaligned. We explore why convergence across all five forces is the only model that works.
               </p>
               <div className="flex items-center gap-6 text-sm text-muted-foreground">
                 <div className="flex items-center gap-2">

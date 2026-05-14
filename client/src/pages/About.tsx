@@ -80,12 +80,12 @@ export default function About() {
             </div>
 
             <div className="space-y-6">
-              <h2 className="text-4xl font-display font-bold">Why Africa</h2>
+              <h2 className="text-4xl font-display font-bold">Global Firm, Grounded in African Expertise</h2>
               <p className="text-lg text-muted-foreground leading-relaxed">
-                Stiemfield is positioned as the most trusted convergence firm on the African continent. This isn't geographic limitation. It's strategic focus. African organizations operate in unique market conditions—regulatory complexity, infrastructure constraints, talent dynamics, competitive intensity. These aren't disadvantages to overcome. They're sources of insight.
+                Stiemfield is a global convergence consulting firm serving private sector organizations and development agencies. Our positioning is built on deep expertise in African markets and the unique transformation challenges they present. African organizations operate in distinct market conditions—regulatory complexity, infrastructure constraints, talent dynamics, competitive intensity. These aren't disadvantages to overcome. They're sources of insight that translate globally.
               </p>
               <p className="text-lg text-muted-foreground leading-relaxed">
-                Organizations that master transformation in the African context develop capabilities that translate globally. We've chosen to build our expertise where the problem is hardest and the insight is deepest.
+                Organizations that master transformation in the African context develop capabilities that translate globally. We've built our expertise where the problem is hardest and the insight is deepest. That expertise is now available to organizations worldwide.
               </p>
             </div>
 
@@ -125,16 +125,16 @@ export default function About() {
               </div>
               <div className="space-y-6">
                 <div>
-                  <h3 className="text-3xl font-display font-bold mb-2">Founder & Principal Advisor</h3>
-                  <p className="text-accent text-sm font-semibold mb-4">Convergence Architect</p>
+                  <h3 className="text-3xl font-display font-bold mb-2">Terungwa Paul Asar</h3>
+                  <p className="text-accent text-sm font-semibold mb-4">Founding Partner & Convergence Architect</p>
                   <p className="text-muted-foreground leading-relaxed mb-4">
-                    BSc Business Management. Served as LGA Project Manager and State Project Manager for DL4All CDS Group during NYSC service. Built Stiemfield on the conviction that organizational transformation requires convergence of all five forces—not sequential handoffs between disciplines.
+                    BSc Business Management. During NYSC service, Terungwa served as LGA Project Manager and State Project Manager for the Digital Literacy for All Community Development Service in Benue State—managing multi-stakeholder transformation programs, coordinating technology deployment, and building execution frameworks under genuine resource and infrastructure constraints. This field experience is the empirical foundation of the STIEM Framework. Stiemfield is his direct response to the transformation failure problem he witnessed.
                   </p>
                 </div>
                 <div className="bg-card border border-border rounded-lg p-6 space-y-3">
                   <p className="text-accent font-semibold text-sm uppercase tracking-wider">Why Solo?</p>
                   <p className="text-muted-foreground text-sm leading-relaxed">
-                    Every client engages directly with the full STIEM lens. No handoffs. No dilution of thinking. Maximum focus on your transformation. This is the model that works.
+                    Every client engages directly with Terungwa and the full STIEM lens. No handoffs. No dilution of thinking. Maximum focus on your transformation. This is the model that works.
                   </p>
                 </div>
               </div>

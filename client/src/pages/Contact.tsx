@@ -85,22 +85,22 @@ export default function Contact() {
             <div className="bg-background border border-border rounded-lg p-8 hover:border-accent transition-colors">
               <Mail className="w-8 h-8 text-accent mb-4" />
               <h3 className="text-lg font-semibold mb-2">Email</h3>
-              <p className="text-muted-foreground text-sm">hello@stiemfield.com</p>
+              <p className="text-muted-foreground text-sm">terungwa@stiemfield.com</p>
               <p className="text-muted-foreground text-xs mt-2">We respond within 24 hours</p>
             </div>
 
             <div className="bg-background border border-border rounded-lg p-8 hover:border-accent transition-colors">
               <Phone className="w-8 h-8 text-accent mb-4" />
               <h3 className="text-lg font-semibold mb-2">Phone</h3>
-              <p className="text-muted-foreground text-sm">+27 (0) 11 XXX XXXX</p>
-              <p className="text-muted-foreground text-xs mt-2">Monday - Friday, 9am - 5pm SAST</p>
+              <p className="text-muted-foreground text-sm">Available for calls with advance scheduling</p>
+              <p className="text-muted-foreground text-xs mt-2">Starlink-connected, flexible timezone</p>
             </div>
 
             <div className="bg-background border border-border rounded-lg p-8 hover:border-accent transition-colors">
               <MapPin className="w-8 h-8 text-accent mb-4" />
               <h3 className="text-lg font-semibold mb-2">Location</h3>
-              <p className="text-muted-foreground text-sm">Johannesburg, South Africa</p>
-              <p className="text-muted-foreground text-xs mt-2">Global reach, local insight</p>
+              <p className="text-muted-foreground text-sm">Makurdi, Benue State, Nigeria</p>
+              <p className="text-muted-foreground text-xs mt-2">Global reach, grounded in African context</p>
             </div>
           </div>
         </div>
@@ -227,7 +227,7 @@ export default function Contact() {
             {[
               {
                 q: "How much does Fieldscan cost?",
-                a: "Fieldscan is a fixed-fee engagement. Pricing depends on your organization's size and complexity, but typically ranges from $25,000 to $75,000. We'll provide a detailed proposal after an initial conversation."
+                a: "Fieldscan is a fixed-fee engagement. Pricing depends on your organization's size and complexity, but typically ranges from NGN 2,500,000 to NGN 5,000,000. We'll provide a detailed proposal after an initial conversation."
               },
               {
                 q: "How long does Fieldscan take?",
@@ -235,7 +235,11 @@ export default function Contact() {
               },
               {
                 q: "Do you work with organizations outside Africa?",
-                a: "We're positioned as the most trusted convergence firm on the African continent. That said, we work with organizations globally that are operating in African markets or want to learn from African transformation expertise."
+                a: "Yes. Stiemfield is a global convergence consulting firm serving private sector organizations and development agencies worldwide. We bring deep expertise in African transformation contexts, and that expertise translates globally."
+              },
+              {
+                q: "What sectors do you typically work in?",
+                a: "We serve private sector organizations across all industries. Our primary focus in Years 1-4 is fintech, agritech, healthtech, renewable energy, and mid-market manufacturing. From Year 4 onward, we also work with development agencies and international organizations."
               },
               {
                 q: "What if we're not ready for transformation?",

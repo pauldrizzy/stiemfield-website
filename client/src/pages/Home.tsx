@@ -61,8 +61,8 @@ export default function Home() {
       description: "We bring the full weight of the STIEM framework to every problem, and we listen before we prescribe."
     },
     {
-      title: "Context as competitive advantage",
-      description: "We understand the African business environment not as a constraint but as the source of our deepest insight."
+      title: "Grounded expertise",
+      description: "We understand African business contexts deeply. That expertise translates globally. We serve organizations worldwide."
     },
     {
       title: "Trust as infrastructure",
@@ -161,8 +161,8 @@ export default function Home() {
             <h1 className="text-7xl md:text-8xl font-display font-bold leading-tight">
               Convergence on a <span className="text-accent">Single Field</span>
             </h1>
-            <p className="text-2xl text-muted-foreground leading-relaxed max-w-3xl">
-              We bring Strategy, Technology, Innovation, Execution, and Management into alignment on a single field. When those five forces converge, the outcome is transformation that actually sticks.
+            <p className="text-xl text-muted-foreground leading-relaxed max-w-3xl">
+              We are a global convergence consulting firm. We bring Strategy, Technology, Innovation, Execution, and Management into alignment on a single field. When those five forces converge, the outcome is transformation that actually sticks.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 pt-4">
               <Button className="btn-premium flex items-center gap-2 text-base px-8 py-4">
@@ -191,7 +191,7 @@ export default function Home() {
               <div className="accent-line"></div>
               <h2 className="text-4xl font-display font-bold">Our Vision</h2>
               <p className="text-xl text-muted-foreground leading-relaxed">
-                To become the most trusted convergence firm on the African continent — and the model that proves integrated advisory produces better outcomes than any single-discipline alternative.
+                To become the most trusted convergence firm globally — proving that integrated advisory across all five STIEM forces produces better transformation outcomes than any single-discipline alternative.
               </p>
             </div>
           </div>
