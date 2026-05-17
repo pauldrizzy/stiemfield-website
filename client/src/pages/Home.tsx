@@ -78,7 +78,6 @@ export default function Home() {
       duration: "4–8 weeks",
       delivery: "Fully virtual",
       output: "The Stiemfield Convergence Map",
-      pricing: "Fixed fee",
       features: [
         "Stakeholder interviews across all five dimensions",
         "Document and data review",
@@ -94,7 +93,6 @@ export default function Home() {
       duration: "6–18 months",
       delivery: "Hybrid (virtual + in-person milestones)",
       output: "Measurable transformation across STIEM dimensions",
-      pricing: "Outcome-based",
       features: [
         "Milestone gates across all five forces",
         "90-day quick wins + medium-term structural work",
@@ -110,7 +108,6 @@ export default function Home() {
       duration: "12+ months (ongoing)",
       delivery: "Monthly sessions + on-call advisory",
       output: "Sustained alignment across STIEM forces",
-      pricing: "Monthly retainer",
       features: [
         "Monthly strategic sessions",
         "On-call advisory support",
@@ -130,7 +127,7 @@ export default function Home() {
             <img 
               src="/stiemfield-logo.jpg"
               alt="Stiemfield"
-              className="h-10 object-contain group-hover:scale-110 transition-transform"
+              className="w-10 h-10 rounded-full object-cover group-hover:scale-110 transition-transform"
             />
             <span className="font-display text-xl font-semibold text-accent">STIEMFIELD</span>
           </a>
@@ -170,7 +167,7 @@ export default function Home() {
                   Start with Fieldscan <ArrowRight className="w-5 h-5" />
                 </Button>
               </a>
-              <a href="/contact">
+              <a href="https://calendly.com/asarpaul8/30min" target="_blank" rel="noopener noreferrer">
                 <Button className="btn-primary-outline flex items-center gap-2 text-base px-8 py-4">
                   Schedule a Call
                 </Button>
@@ -313,13 +310,9 @@ export default function Home() {
                       <p className="text-accent font-semibold">Delivery</p>
                       <p className="text-muted-foreground">{service.delivery}</p>
                     </div>
-                    <div>
+                    <div className="col-span-2">
                       <p className="text-accent font-semibold">Output</p>
                       <p className="text-muted-foreground">{service.output}</p>
-                    </div>
-                    <div>
-                      <p className="text-accent font-semibold">Pricing</p>
-                      <p className="text-muted-foreground">{service.pricing}</p>
                     </div>
                   </div>
 
@@ -400,7 +393,7 @@ export default function Home() {
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center pt-4">
             <a href="/contact?service=fieldscan"><Button className="btn-premium">Start Your Fieldscan</Button></a>
-            <a href="/contact"><Button className="btn-primary-outline">Schedule a Call</Button></a>
+            <a href="https://calendly.com/asarpaul8/30min" target="_blank" rel="noopener noreferrer"><Button className="btn-primary-outline">Schedule a Call</Button></a>
           </div>
         </div>
       </section>
@@ -414,7 +407,7 @@ export default function Home() {
                 <img
                   src="/stiemfield-logo.jpg"
                   alt="Stiemfield"
-                  className="h-8 object-contain"
+                  className="w-8 h-8 rounded-full object-cover"
                 />
                 <span className="font-display font-semibold text-accent">STIEMFIELD</span>
               </div>

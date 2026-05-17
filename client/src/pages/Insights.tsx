@@ -111,7 +111,7 @@ export default function Insights() {
             <img 
               src="/stiemfield-logo.jpg"
               alt="Stiemfield"
-              className="h-10 object-contain"
+              className="w-10 h-10 rounded-full object-cover"
             />
             <span className="font-display text-xl font-semibold text-accent">STIEMFIELD</span>
           </a>
@@ -276,7 +276,7 @@ export default function Insights() {
                 <img 
                   src="/stiemfield-logo.jpg"
                   alt="Stiemfield"
-                  className="h-8 object-contain"
+                  className="w-8 h-8 rounded-full object-cover"
                 />
                 <span className="font-display font-semibold text-accent">STIEMFIELD</span>
               </div>

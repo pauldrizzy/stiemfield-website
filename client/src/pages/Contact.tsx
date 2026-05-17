@@ -1,5 +1,5 @@
 import { Button } from "@/components/ui/button";
-import { Mail, Phone, MapPin, ArrowRight, CheckCircle, AlertCircle, Loader2 } from "lucide-react";
+import { Mail, Phone, MapPin, ArrowRight, CheckCircle, AlertCircle, Loader2, Calendar } from "lucide-react";
 import { useState, useEffect } from "react";
 
 export default function Contact() {
@@ -57,7 +57,7 @@ export default function Contact() {
             <img 
               src="/stiemfield-logo.jpg"
               alt="Stiemfield"
-              className="h-10 object-contain"
+              className="w-10 h-10 rounded-full object-cover"
             />
             <span className="font-display text-xl font-semibold text-accent">STIEMFIELD</span>
           </a>
@@ -106,18 +106,18 @@ export default function Contact() {
               <p className="text-muted-foreground text-xs mt-2">We respond within 24 hours</p>
             </div>
 
-            <div className="bg-background border border-border rounded-lg p-8 hover:border-accent transition-colors">
-              <Phone className="w-8 h-8 text-accent mb-4" />
-              <h3 className="text-lg font-semibold mb-2">Phone</h3>
-              <p className="text-muted-foreground text-sm">Available for scheduled consultations</p>
-              <p className="text-muted-foreground text-xs mt-2">WAT timezone, flexible scheduling</p>
-            </div>
+            <a href="https://calendly.com/asarpaul8/30min" target="_blank" rel="noopener noreferrer" className="bg-background border border-border rounded-lg p-8 hover:border-accent transition-colors block">
+              <Calendar className="w-8 h-8 text-accent mb-4" />
+              <h3 className="text-lg font-semibold mb-2">Book a Scope Meeting</h3>
+              <p className="text-muted-foreground text-sm">Schedule a free 30-minute call</p>
+              <p className="text-accent text-xs mt-2 font-semibold">Book now →</p>
+            </a>
 
             <div className="bg-background border border-border rounded-lg p-8 hover:border-accent transition-colors">
               <MapPin className="w-8 h-8 text-accent mb-4" />
               <h3 className="text-lg font-semibold mb-2">Location</h3>
               <p className="text-muted-foreground text-sm">Central Business District, Abuja (Virtual)</p>
-              <p className="text-muted-foreground text-xs mt-2">Nigerian firm, global reach</p>
+              <p className="text-muted-foreground text-xs mt-2">Global reach, rooted in Africa</p>
             </div>
           </div>
         </div>
@@ -265,8 +265,8 @@ export default function Contact() {
           <div className="max-w-3xl mx-auto space-y-6">
             {[
               {
-                q: "How much does Fieldscan cost?",
-                a: "Fieldscan is a fixed-fee engagement. Pricing depends on your organization's size and complexity, but typically ranges from NGN 2,500,000 to NGN 5,000,000. We'll provide a detailed proposal after an initial conversation."
+                q: "How do I get started?",
+                a: "Every engagement begins with a free scope meeting. Book a 30-minute call and we'll discuss your organization's challenges, determine if Fieldscan is the right first step, and outline next steps together."
               },
               {
                 q: "How long does Fieldscan take?",
@@ -309,8 +309,13 @@ export default function Contact() {
             Ready to Start Your <span className="text-accent">Transformation</span>?
           </h2>
           <p className="text-muted-foreground text-lg max-w-2xl mx-auto">
-            Fill out the form above or reach out directly. We'll respond within 24 hours with next steps.
+            Book a free 30-minute scope meeting to discuss your organization's challenges and explore how convergence can help.
           </p>
+          <a href="https://calendly.com/asarpaul8/30min" target="_blank" rel="noopener noreferrer">
+            <Button className="btn-premium flex items-center gap-2 mx-auto">
+              Book a Scope Meeting <ArrowRight className="w-4 h-4" />
+            </Button>
+          </a>
         </div>
       </section>
 
@@ -323,7 +328,7 @@ export default function Contact() {
                 <img
                   src="/stiemfield-logo.jpg"
                   alt="Stiemfield"
-                  className="h-8 object-contain"
+                  className="w-8 h-8 rounded-full object-cover"
                 />
                 <span className="font-display font-semibold text-accent">STIEMFIELD</span>
               </div>

@@ -17,7 +17,7 @@ export default function CaseStudies() {
             <img 
               src="/stiemfield-logo.jpg"
               alt="Stiemfield"
-              className="h-10 object-contain"
+              className="w-10 h-10 rounded-full object-cover"
             />
             <span className="font-display text-xl font-semibold text-accent">STIEMFIELD</span>
           </a>
@@ -330,7 +330,7 @@ export default function CaseStudies() {
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center pt-4">
             <a href="/contact?service=fieldscan"><Button className="btn-premium">Start Your Fieldscan</Button></a>
-            <a href="/contact"><Button className="btn-primary-outline">Schedule a Call</Button></a>
+            <a href="https://calendly.com/asarpaul8/30min" target="_blank" rel="noopener noreferrer"><Button className="btn-primary-outline">Schedule a Call</Button></a>
           </div>
         </div>
       </section>
@@ -344,7 +344,7 @@ export default function CaseStudies() {
                 <img 
                   src="/stiemfield-logo.jpg"
                   alt="Stiemfield"
-                  className="h-8 object-contain"
+                  className="w-8 h-8 rounded-full object-cover"
                 />
                 <span className="font-display font-semibold text-accent">STIEMFIELD</span>
               </div>
