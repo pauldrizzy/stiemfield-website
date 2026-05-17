@@ -124,7 +124,7 @@ export default function Home() {
   return (
     <div className="min-h-screen bg-background text-foreground">
       {/* Navigation */}
-      <nav className="sticky top-0 z-50 bg-background/95 backdrop-blur border-b border-border">
+      <nav aria-label="Main navigation" className="sticky top-0 z-50 bg-background/95 backdrop-blur border-b border-border">
         <div className="container flex items-center justify-between py-6">
           <a href="/" className="flex items-center gap-3 hover:opacity-80 transition-opacity group">
             <img 
@@ -405,8 +405,8 @@ export default function Home() {
           <div className="grid md:grid-cols-4 gap-8 mb-8">
             <div>
               <div className="flex items-center gap-2 mb-4">
-                <img 
-                  src="https://d2xsxph8kpxj0f.cloudfront.net/310519663390111230/Ncij7Gh2r2BW57bAh4gHVB/stiemfield-logo_e689c952.jpg"
+                <img
+                  src="/stiemfield-logo.jpg"
                   alt="Stiemfield"
                   className="w-8 h-8 rounded-full object-cover"
                 />
@@ -435,9 +435,8 @@ export default function Home() {
             <div>
               <h4 className="font-semibold mb-4">Connect</h4>
               <ul className="space-y-2 text-sm text-muted-foreground">
-                <li><a href="#" className="hover-gold">LinkedIn</a></li>
-                <li><a href="#" className="hover-gold">Twitter</a></li>
-                <li><a href="#" className="hover-gold">Email</a></li>
+                <li><a href="https://linkedin.com/in/terungwa-asar" target="_blank" rel="noopener noreferrer" className="hover-gold">LinkedIn</a></li>
+                <li><a href="mailto:terungwa@stiemfield.com" className="hover-gold">Email</a></li>
               </ul>
             </div>
           </div>

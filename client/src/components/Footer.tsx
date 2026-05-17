@@ -1,4 +1,4 @@
-import { Facebook, Twitter, Linkedin, Instagram } from 'lucide-react'
+import { Linkedin, Mail } from 'lucide-react'
 
 export default function Footer() {
   const currentYear = new Date().getFullYear()
@@ -70,24 +70,22 @@ export default function Footer() {
               Follow Us
             </h4>
             <div className="flex gap-4">
-              {[
-                { icon: Facebook, label: 'Facebook' },
-                { icon: Twitter, label: 'Twitter' },
-                { icon: Linkedin, label: 'LinkedIn' },
-                { icon: Instagram, label: 'Instagram' },
-              ].map((social) => {
-                const Icon = social.icon
-                return (
-                  <a
-                    key={social.label}
-                    href="#"
-                    aria-label={social.label}
-                    className="text-[#f5f3f0]/70 hover:text-[#d4a574] transition-colors"
-                  >
-                    <Icon size={20} />
-                  </a>
-                )
-              })}
+              <a
+                href="https://linkedin.com/in/terungwa-asar"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="LinkedIn"
+                className="text-[#f5f3f0]/70 hover:text-[#d4a574] transition-colors"
+              >
+                <Linkedin size={20} />
+              </a>
+              <a
+                href="mailto:terungwa@stiemfield.com"
+                aria-label="Email"
+                className="text-[#f5f3f0]/70 hover:text-[#d4a574] transition-colors"
+              >
+                <Mail size={20} />
+              </a>
             </div>
           </div>
         </div>
