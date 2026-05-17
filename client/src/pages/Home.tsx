@@ -140,7 +140,7 @@ export default function Home() {
             <a href="/case-studies" className="hover-gold text-sm font-medium">Case Studies</a>
             <a href="/insights" className="hover-gold text-sm font-medium">Insights</a>
             <a href="/contact" className="hover-gold text-sm font-medium">Contact</a>
-            <Button className="btn-premium text-xs">Get Started</Button>
+            <a href="/contact"><Button className="btn-premium text-xs">Get Started</Button></a>
           </div>
         </div>
       </nav>
@@ -165,12 +165,16 @@ export default function Home() {
               We are a global convergence consulting firm. We bring Strategy, Technology, Innovation, Execution, and Management into alignment on a single field. When those five forces converge, the outcome is transformation that actually sticks.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 pt-4">
-              <Button className="btn-premium flex items-center gap-2 text-base px-8 py-4">
-                Start with Fieldscan <ArrowRight className="w-5 h-5" />
-              </Button>
-              <Button className="btn-primary-outline flex items-center gap-2 text-base px-8 py-4">
-                Schedule a Call
-              </Button>
+              <a href="/contact?service=fieldscan">
+                <Button className="btn-premium flex items-center gap-2 text-base px-8 py-4">
+                  Start with Fieldscan <ArrowRight className="w-5 h-5" />
+                </Button>
+              </a>
+              <a href="/contact">
+                <Button className="btn-primary-outline flex items-center gap-2 text-base px-8 py-4">
+                  Schedule a Call
+                </Button>
+              </a>
             </div>
           </div>
         </div>
@@ -330,9 +334,11 @@ export default function Home() {
                 </div>
 
                 <div className="p-8 border-t border-border/50">
-                  <Button className="btn-premium w-full flex items-center justify-center gap-2">
-                    Learn More <ArrowRight className="w-4 h-4" />
-                  </Button>
+                  <a href={`/contact?service=${service.name.toLowerCase()}`}>
+                    <Button className="btn-premium w-full flex items-center justify-center gap-2">
+                      Learn More <ArrowRight className="w-4 h-4" />
+                    </Button>
+                  </a>
                 </div>
               </div>
             ))}
@@ -393,8 +399,8 @@ export default function Home() {
             Every transformation begins with a Fieldscan. Discover where your five forces are misaligned. Build a roadmap for transformation that compounds.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center pt-4">
-            <Button className="btn-premium">Start Your Fieldscan</Button>
-            <Button className="btn-primary-outline">Schedule a Call</Button>
+            <a href="/contact?service=fieldscan"><Button className="btn-premium">Start Your Fieldscan</Button></a>
+            <a href="/contact"><Button className="btn-primary-outline">Schedule a Call</Button></a>
           </div>
         </div>
       </section>

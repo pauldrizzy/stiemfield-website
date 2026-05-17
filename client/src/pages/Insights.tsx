@@ -1,5 +1,6 @@
 import { Button } from "@/components/ui/button";
-import { ArrowRight, Calendar, User } from "lucide-react";
+import { ArrowRight, Calendar, User, CheckCircle, Loader2 } from "lucide-react";
+import { useState } from "react";
 
 /**
  * Stiemfield Insights Page
@@ -75,6 +76,32 @@ const insights: InsightArticle[] = [
 ];
 
 export default function Insights() {
+  const [newsletterEmail, setNewsletterEmail] = useState("");
+  const [newsletterStatus, setNewsletterStatus] = useState<"idle" | "submitting" | "success" | "error">("idle");
+
+  const handleNewsletter = async (e: React.FormEvent) => {
+    e.preventDefault();
+    if (!newsletterEmail) return;
+    setNewsletterStatus("submitting");
+
+    const body = new URLSearchParams();
+    body.append("form-name", "newsletter");
+    body.append("email", newsletterEmail);
+
+    try {
+      const res = await fetch("/", {
+        method: "POST",
+        headers: { "Content-Type": "application/x-www-form-urlencoded" },
+        body: body.toString(),
+      });
+      if (!res.ok) throw new Error("Failed");
+      setNewsletterStatus("success");
+      setNewsletterEmail("");
+    } catch {
+      setNewsletterStatus("error");
+    }
+  };
+
   return (
     <div className="min-h-screen bg-background text-foreground">
       {/* Navigation */}
@@ -93,7 +120,7 @@ export default function Insights() {
             <a href="/about" className="hover-gold text-sm font-medium">About</a>
             <a href="/case-studies" className="hover-gold text-sm font-medium">Case Studies</a>
             <a href="/contact" className="hover-gold text-sm font-medium">Contact</a>
-            <Button className="btn-premium text-xs">Get Started</Button>
+            <a href="/contact"><Button className="btn-premium text-xs">Get Started</Button></a>
           </div>
         </div>
       </nav>
@@ -134,9 +161,11 @@ export default function Insights() {
                 </div>
                 <span>8 min read</span>
               </div>
-              <Button className="btn-premium flex items-center gap-2 w-fit">
-                Read Article <ArrowRight className="w-4 h-4" />
-              </Button>
+              <a href="/contact">
+                <Button className="btn-premium flex items-center gap-2 w-fit">
+                  Read Article <ArrowRight className="w-4 h-4" />
+                </Button>
+              </a>
             </div>
             <div className="bg-card border border-border rounded-lg p-8 h-96 flex items-center justify-center">
               <div className="text-center text-muted-foreground">
@@ -214,14 +243,27 @@ export default function Insights() {
           <p className="text-muted-foreground text-lg">
             Get insights on transformation, strategy, and organizational change delivered to your inbox.
           </p>
-          <div className="flex flex-col sm:flex-row gap-3">
-            <input
-              type="email"
-              placeholder="Enter your email"
-              className="flex-1 px-6 py-3 bg-background border border-border rounded-lg text-foreground placeholder:text-muted-foreground focus:outline-none focus:border-accent transition-colors"
-            />
-            <Button className="btn-premium">Subscribe</Button>
-          </div>
+          {newsletterStatus === "success" ? (
+            <div className="flex items-center gap-2 justify-center text-accent">
+              <CheckCircle className="w-5 h-5" />
+              <span>You're subscribed! We'll be in touch.</span>
+            </div>
+          ) : (
+            <form onSubmit={handleNewsletter} className="flex flex-col sm:flex-row gap-3">
+              <input type="hidden" name="form-name" value="newsletter" />
+              <input
+                type="email"
+                required
+                value={newsletterEmail}
+                onChange={(e) => setNewsletterEmail(e.target.value)}
+                placeholder="Enter your email"
+                className="flex-1 px-6 py-3 bg-background border border-border rounded-lg text-foreground placeholder:text-muted-foreground focus:outline-none focus:border-accent transition-colors"
+              />
+              <Button type="submit" disabled={newsletterStatus === "submitting"} className="btn-premium">
+                {newsletterStatus === "submitting" ? <Loader2 className="w-4 h-4 animate-spin" /> : "Subscribe"}
+              </Button>
+            </form>
+          )}
         </div>
       </section>
 

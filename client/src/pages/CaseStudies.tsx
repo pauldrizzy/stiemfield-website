@@ -25,7 +25,7 @@ export default function CaseStudies() {
             <a href="/" className="hover-gold text-sm font-medium">Home</a>
             <a href="/about" className="hover-gold text-sm font-medium">About</a>
             <a href="/insights" className="hover-gold text-sm font-medium">Insights</a>
-            <Button className="btn-premium text-xs">Get Started</Button>
+            <a href="/contact"><Button className="btn-premium text-xs">Get Started</Button></a>
           </div>
         </div>
       </nav>
@@ -93,9 +93,11 @@ export default function CaseStudies() {
                   </ul>
                 </div>
 
-                <Button className="btn-premium flex items-center gap-2">
-                  Read Full Case Study <ArrowRight className="w-4 h-4" />
-                </Button>
+                <a href="/contact?service=fieldscan">
+                  <Button className="btn-premium flex items-center gap-2">
+                    Read Full Case Study <ArrowRight className="w-4 h-4" />
+                  </Button>
+                </a>
               </div>
 
               <div className="bg-card border border-border rounded-lg p-10 space-y-8">
@@ -199,9 +201,11 @@ export default function CaseStudies() {
                   </ul>
                 </div>
 
-                <Button className="btn-premium flex items-center gap-2">
-                  Read Full Case Study <ArrowRight className="w-4 h-4" />
-                </Button>
+                <a href="/contact?service=fieldscan">
+                  <Button className="btn-premium flex items-center gap-2">
+                    Read Full Case Study <ArrowRight className="w-4 h-4" />
+                  </Button>
+                </a>
               </div>
             </div>
           </div>
@@ -243,9 +247,11 @@ export default function CaseStudies() {
                   </ul>
                 </div>
 
-                <Button className="btn-premium flex items-center gap-2">
-                  Read Full Case Study <ArrowRight className="w-4 h-4" />
-                </Button>
+                <a href="/contact?service=fieldscan">
+                  <Button className="btn-premium flex items-center gap-2">
+                    Read Full Case Study <ArrowRight className="w-4 h-4" />
+                  </Button>
+                </a>
               </div>
 
               <div className="bg-card border border-border rounded-lg p-10 space-y-8">
@@ -323,8 +329,8 @@ export default function CaseStudies() {
             Start with Fieldscan. Discover where your five forces are misaligned. Build a roadmap for transformation that compounds.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center pt-4">
-            <Button className="btn-premium">Start Your Fieldscan</Button>
-            <Button className="btn-primary-outline">Schedule a Call</Button>
+            <a href="/contact?service=fieldscan"><Button className="btn-premium">Start Your Fieldscan</Button></a>
+            <a href="/contact"><Button className="btn-primary-outline">Schedule a Call</Button></a>
           </div>
         </div>
       </section>

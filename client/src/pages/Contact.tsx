@@ -1,34 +1,51 @@
 import { Button } from "@/components/ui/button";
-import { Mail, Phone, MapPin, ArrowRight } from "lucide-react";
-import { useState } from "react";
-
-/**
- * Stiemfield Contact Page
- * Design System: Architectural Minimalism with Gold Accents
- * Professional inquiry form with service selection
- */
+import { Mail, Phone, MapPin, ArrowRight, CheckCircle, AlertCircle, Loader2 } from "lucide-react";
+import { useState, useEffect } from "react";
 
 export default function Contact() {
+  const params = new URLSearchParams(window.location.search);
+  const initialService = params.get("service") || "fieldscan";
+
   const [formData, setFormData] = useState({
     name: "",
     company: "",
     email: "",
     phone: "",
-    service: "fieldscan",
+    service: initialService,
     message: ""
   });
+  const [status, setStatus] = useState<"idle" | "submitting" | "success" | "error">("idle");
+
+  useEffect(() => {
+    const s = new URLSearchParams(window.location.search).get("service");
+    if (s) setFormData(prev => ({ ...prev, service: s }));
+  }, []);
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
     const { name, value } = e.target;
     setFormData(prev => ({ ...prev, [name]: value }));
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    // In a real app, this would send to a backend
-    console.log("Form submitted:", formData);
-    alert("Thank you for your inquiry. We'll be in touch within 24 hours.");
-    setFormData({ name: "", company: "", email: "", phone: "", service: "fieldscan", message: "" });
+    setStatus("submitting");
+
+    const body = new URLSearchParams();
+    body.append("form-name", "contact");
+    Object.entries(formData).forEach(([key, value]) => body.append(key, value));
+
+    try {
+      const res = await fetch("/", {
+        method: "POST",
+        headers: { "Content-Type": "application/x-www-form-urlencoded" },
+        body: body.toString(),
+      });
+      if (!res.ok) throw new Error("Submission failed");
+      setStatus("success");
+      setFormData({ name: "", company: "", email: "", phone: "", service: "fieldscan", message: "" });
+    } catch {
+      setStatus("error");
+    }
   };
 
   return (
@@ -50,7 +67,7 @@ export default function Contact() {
             <a href="/case-studies" className="hover-gold text-sm font-medium">Case Studies</a>
             <a href="/insights" className="hover-gold text-sm font-medium">Insights</a>
             <a href="/contact" className="hover-gold text-sm font-medium">Contact</a>
-            <Button className="btn-premium text-xs">Get Started</Button>
+            <a href="/contact"><Button className="btn-premium text-xs">Get Started</Button></a>
           </div>
         </div>
       </nav>
@@ -117,7 +134,17 @@ export default function Contact() {
               </p>
             </div>
 
+            {status === "success" ? (
+              <div className="bg-card border border-accent rounded-lg p-10 text-center space-y-4">
+                <CheckCircle className="w-16 h-16 text-accent mx-auto" />
+                <h3 className="text-2xl font-display font-bold">Thank You</h3>
+                <p className="text-muted-foreground">Your inquiry has been received. We'll be in touch within 24 hours.</p>
+                <Button className="btn-premium" onClick={() => setStatus("idle")}>Send Another Inquiry</Button>
+              </div>
+            ) : (
             <form onSubmit={handleSubmit} className="space-y-6 bg-card border border-border rounded-lg p-10">
+              <input type="hidden" name="form-name" value="contact" />
+              <input type="hidden" name="bot-field" />
               {/* Name and Company Row */}
               <div className="grid md:grid-cols-2 gap-6">
                 <div className="space-y-2">
@@ -203,10 +230,21 @@ export default function Contact() {
                 />
               </div>
 
+              {status === "error" && (
+                <div className="flex items-center gap-2 text-red-400 text-sm">
+                  <AlertCircle className="w-4 h-4" />
+                  <span>Something went wrong. Please try again or email us directly.</span>
+                </div>
+              )}
+
               {/* Submit Button */}
               <div className="pt-4">
-                <Button type="submit" className="btn-premium w-full flex items-center justify-center gap-2">
-                  Send Inquiry <ArrowRight className="w-4 h-4" />
+                <Button type="submit" disabled={status === "submitting"} className="btn-premium w-full flex items-center justify-center gap-2">
+                  {status === "submitting" ? (
+                    <><Loader2 className="w-4 h-4 animate-spin" /> Sending...</>
+                  ) : (
+                    <>Send Inquiry <ArrowRight className="w-4 h-4" /></>
+                  )}
                 </Button>
               </div>
 
@@ -214,6 +252,7 @@ export default function Contact() {
                 We respect your privacy. Your information will only be used to respond to your inquiry.
               </p>
             </form>
+            )}
           </div>
         </div>
       </section>
