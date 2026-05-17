@@ -130,7 +130,7 @@ export default function Home() {
             <img 
               src="/stiemfield-logo.jpg"
               alt="Stiemfield"
-              className="w-10 h-10 rounded-full object-cover group-hover:scale-110 transition-transform"
+              className="h-10 object-contain group-hover:scale-110 transition-transform"
             />
             <span className="font-display text-xl font-semibold text-accent">STIEMFIELD</span>
           </a>
@@ -414,13 +414,13 @@ export default function Home() {
                 <img
                   src="/stiemfield-logo.jpg"
                   alt="Stiemfield"
-                  className="w-8 h-8 rounded-full object-cover"
+                  className="h-8 object-contain"
                 />
                 <span className="font-display font-semibold text-accent">STIEMFIELD</span>
               </div>
               <p className="text-sm text-muted-foreground">Convergence Firm</p>
               <p className="text-xs text-muted-foreground mt-2">terungwa@stiemfield.com</p>
-              <p className="text-xs text-muted-foreground">Makurdi, Benue State, Nigeria</p>
+              <p className="text-xs text-muted-foreground">Central Business District, Abuja (Virtual)</p>
             </div>
             <div>
               <h4 className="font-semibold mb-4">Services</h4>

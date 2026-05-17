@@ -57,7 +57,7 @@ export default function Contact() {
             <img 
               src="/stiemfield-logo.jpg"
               alt="Stiemfield"
-              className="w-10 h-10 rounded-full object-cover"
+              className="h-10 object-contain"
             />
             <span className="font-display text-xl font-semibold text-accent">STIEMFIELD</span>
           </a>
@@ -109,15 +109,15 @@ export default function Contact() {
             <div className="bg-background border border-border rounded-lg p-8 hover:border-accent transition-colors">
               <Phone className="w-8 h-8 text-accent mb-4" />
               <h3 className="text-lg font-semibold mb-2">Phone</h3>
-              <p className="text-muted-foreground text-sm">Available for calls with advance scheduling</p>
-              <p className="text-muted-foreground text-xs mt-2">Starlink-connected, flexible timezone</p>
+              <p className="text-muted-foreground text-sm">Available for scheduled consultations</p>
+              <p className="text-muted-foreground text-xs mt-2">WAT timezone, flexible scheduling</p>
             </div>
 
             <div className="bg-background border border-border rounded-lg p-8 hover:border-accent transition-colors">
               <MapPin className="w-8 h-8 text-accent mb-4" />
               <h3 className="text-lg font-semibold mb-2">Location</h3>
-              <p className="text-muted-foreground text-sm">Makurdi, Benue State, Nigeria</p>
-              <p className="text-muted-foreground text-xs mt-2">Global reach, grounded in African context</p>
+              <p className="text-muted-foreground text-sm">Central Business District, Abuja (Virtual)</p>
+              <p className="text-muted-foreground text-xs mt-2">Nigerian firm, global reach</p>
             </div>
           </div>
         </div>
@@ -195,7 +195,7 @@ export default function Contact() {
                     value={formData.phone}
                     onChange={handleChange}
                     className="w-full bg-background border border-border rounded-lg px-4 py-3 text-foreground placeholder-muted-foreground focus:outline-none focus:border-accent transition-colors"
-                    placeholder="+27 (0) 11 XXX XXXX"
+                    placeholder="+234 800 000 0000"
                   />
                 </div>
               </div>
@@ -323,7 +323,7 @@ export default function Contact() {
                 <img
                   src="/stiemfield-logo.jpg"
                   alt="Stiemfield"
-                  className="w-8 h-8 rounded-full object-cover"
+                  className="h-8 object-contain"
                 />
                 <span className="font-display font-semibold text-accent">STIEMFIELD</span>
               </div>
