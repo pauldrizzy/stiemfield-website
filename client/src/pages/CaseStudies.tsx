@@ -1,15 +1,29 @@
 import { Button } from "@/components/ui/button";
 import { ArrowRight, TrendingUp } from "lucide-react";
-
-/**
- * Stiemfield Case Studies Page
- * Design System: Architectural Minimalism with Gold Accents
- * Showcases real transformation outcomes and client success stories
- */
+import SEOHead from "@/components/SEOHead";
 
 export default function CaseStudies() {
   return (
     <div className="min-h-screen bg-background text-foreground">
+      <SEOHead
+        title="Case Studies"
+        description="Real transformation outcomes from Stiemfield's convergence model. See how organizations achieved 3x revenue growth, 40% efficiency gains, and Series B funding through the STIEM Framework."
+        path="/case-studies"
+        schema={{
+          "@context": "https://schema.org",
+          "@type": "WebPage",
+          "name": "Case Studies — Stiemfield Transformation Outcomes",
+          "description": "Real transformation outcomes from Stiemfield's convergence model across fintech, manufacturing, and high-growth tech sectors.",
+          "url": "https://www.stiemfield.com/case-studies",
+          "breadcrumb": {
+            "@type": "BreadcrumbList",
+            "itemListElement": [
+              { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://www.stiemfield.com" },
+              { "@type": "ListItem", "position": 2, "name": "Case Studies", "item": "https://www.stiemfield.com/case-studies" }
+            ]
+          }
+        }}
+      />
       {/* Navigation */}
       <nav className="sticky top-0 z-50 bg-background/95 backdrop-blur border-b border-border">
         <div className="container flex items-center justify-between py-6">
@@ -341,10 +355,11 @@ export default function CaseStudies() {
           <div className="grid md:grid-cols-4 gap-8 mb-8">
             <div>
               <div className="flex items-center gap-2 mb-4">
-                <img 
+                <img
                   src="/stiemfield-logo.jpg"
                   alt="Stiemfield"
                   className="w-8 h-8 rounded-full object-cover"
+                  loading="lazy"
                 />
                 <span className="font-display font-semibold text-accent">STIEMFIELD</span>
               </div>

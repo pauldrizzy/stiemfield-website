@@ -1,15 +1,29 @@
 import { Button } from "@/components/ui/button";
 import { ArrowRight } from "lucide-react";
-
-/**
- * Stiemfield About Page
- * Design System: Architectural Minimalism with Gold Accents
- * Tells the story of why Stiemfield exists and what drives the firm
- */
+import SEOHead from "@/components/SEOHead";
 
 export default function About() {
   return (
     <div className="min-h-screen bg-background text-foreground">
+      <SEOHead
+        title="About"
+        description="Stiemfield is a global convergence consulting firm rooted in Africa. Learn why convergence across Strategy, Technology, Innovation, Execution, and Management produces transformation that sticks."
+        path="/about"
+        schema={{
+          "@context": "https://schema.org",
+          "@type": "AboutPage",
+          "name": "About Stiemfield",
+          "description": "The story behind the convergence model — why Stiemfield exists and how five forces operating on a single field produce transformation that compounds.",
+          "url": "https://www.stiemfield.com/about",
+          "breadcrumb": {
+            "@type": "BreadcrumbList",
+            "itemListElement": [
+              { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://www.stiemfield.com" },
+              { "@type": "ListItem", "position": 2, "name": "About", "item": "https://www.stiemfield.com/about" }
+            ]
+          }
+        }}
+      />
       {/* Navigation */}
       <nav className="sticky top-0 z-50 bg-background/95 backdrop-blur border-b border-border">
         <div className="container flex items-center justify-between py-6">
@@ -117,10 +131,11 @@ export default function About() {
 
             <div className="flex flex-col md:flex-row gap-12 items-center">
               <div className="w-48 h-48 flex-shrink-0 rounded-lg bg-gradient-to-br from-accent to-accent/60 overflow-hidden">
-                <img 
+                <img
                   src="https://d2xsxph8kpxj0f.cloudfront.net/310519663390111230/Ncij7Gh2r2BW57bAh4gHVB/team-placeholder-MJxjWo78SHZJsY9DKbCF5D.webp"
                   alt="Founder"
                   className="w-full h-full object-cover"
+                  loading="lazy"
                 />
               </div>
               <div className="space-y-6">
@@ -219,10 +234,11 @@ export default function About() {
           <div className="grid md:grid-cols-4 gap-8 mb-8">
             <div>
               <div className="flex items-center gap-2 mb-4">
-                <img 
+                <img
                   src="/stiemfield-logo.jpg"
                   alt="Stiemfield"
                   className="w-8 h-8 rounded-full object-cover"
+                  loading="lazy"
                 />
                 <span className="font-display font-semibold text-accent">STIEMFIELD</span>
               </div>

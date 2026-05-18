@@ -1,6 +1,17 @@
 import { Button } from "@/components/ui/button";
 import { Mail, Phone, MapPin, ArrowRight, CheckCircle, AlertCircle, Loader2, Calendar } from "lucide-react";
 import { useState, useEffect } from "react";
+import SEOHead from "@/components/SEOHead";
+
+const FAQ_ITEMS = [
+  { q: "How do I get started?", a: "Every engagement begins with a free scope meeting. Book a 30-minute call and we'll discuss your organization's challenges, determine if Fieldscan is the right first step, and outline next steps together." },
+  { q: "How long does Fieldscan take?", a: "Fieldscan typically takes 4-8 weeks. The exact timeline depends on your organization's complexity and how quickly you can provide access to key stakeholders." },
+  { q: "Do you work with organizations outside Africa?", a: "Yes. Stiemfield is a global convergence consulting firm serving private sector organizations and development agencies worldwide. We bring deep expertise in African transformation contexts, and that expertise translates globally." },
+  { q: "What sectors do you typically work in?", a: "We serve private sector organizations across all industries. Our primary focus in Years 1-4 is fintech, agritech, healthtech, renewable energy, and mid-market manufacturing. From Year 4 onward, we also work with development agencies and international organizations." },
+  { q: "What if we're not ready for transformation?", a: "That's exactly what Fieldscan is for. We'll diagnose whether your organization is ready, what needs to happen first, and what the roadmap looks like. Sometimes the answer is 'wait 6 months and build this capability first.'" },
+  { q: "Can we do this virtually?", a: "Fieldscan is fully virtual. Fieldforce is hybrid — we typically spend 2-3 days per month on-site, with the rest virtual. Fieldpartner is flexible based on your needs." },
+  { q: "What if we've already tried transformation and failed?", a: "That's actually the most common scenario. Most organizations we work with have tried transformation before. The difference with Stiemfield is the convergence model — we diagnose why the previous attempt failed and design a program that works." }
+];
 
 export default function Contact() {
   const params = new URLSearchParams(window.location.search);
@@ -50,11 +61,34 @@ export default function Contact() {
 
   return (
     <div className="min-h-screen bg-background text-foreground">
+      <SEOHead
+        title="Contact"
+        description="Book a free 30-minute scope meeting with Stiemfield. Discuss your organization's transformation challenges and discover how convergence across Strategy, Technology, Innovation, Execution, and Management can help."
+        path="/contact"
+        schema={{
+          "@context": "https://schema.org",
+          "@type": "FAQPage",
+          "name": "Contact Stiemfield — Book a Scope Meeting",
+          "url": "https://www.stiemfield.com/contact",
+          "mainEntity": FAQ_ITEMS.map(faq => ({
+            "@type": "Question",
+            "name": faq.q,
+            "acceptedAnswer": { "@type": "Answer", "text": faq.a }
+          })),
+          "breadcrumb": {
+            "@type": "BreadcrumbList",
+            "itemListElement": [
+              { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://www.stiemfield.com" },
+              { "@type": "ListItem", "position": 2, "name": "Contact", "item": "https://www.stiemfield.com/contact" }
+            ]
+          }
+        }}
+      />
       {/* Navigation */}
       <nav className="sticky top-0 z-50 bg-background/95 backdrop-blur border-b border-border">
         <div className="container flex items-center justify-between py-6">
           <a href="/" className="flex items-center gap-3 hover:opacity-80 transition-opacity">
-            <img 
+            <img
               src="/stiemfield-logo.jpg"
               alt="Stiemfield"
               className="w-10 h-10 rounded-full object-cover"
@@ -263,36 +297,7 @@ export default function Contact() {
           <h2 className="text-4xl font-display font-bold mb-12 text-center">Frequently Asked Questions</h2>
           
           <div className="max-w-3xl mx-auto space-y-6">
-            {[
-              {
-                q: "How do I get started?",
-                a: "Every engagement begins with a free scope meeting. Book a 30-minute call and we'll discuss your organization's challenges, determine if Fieldscan is the right first step, and outline next steps together."
-              },
-              {
-                q: "How long does Fieldscan take?",
-                a: "Fieldscan typically takes 4-8 weeks. The exact timeline depends on your organization's complexity and how quickly you can provide access to key stakeholders."
-              },
-              {
-                q: "Do you work with organizations outside Africa?",
-                a: "Yes. Stiemfield is a global convergence consulting firm serving private sector organizations and development agencies worldwide. We bring deep expertise in African transformation contexts, and that expertise translates globally."
-              },
-              {
-                q: "What sectors do you typically work in?",
-                a: "We serve private sector organizations across all industries. Our primary focus in Years 1-4 is fintech, agritech, healthtech, renewable energy, and mid-market manufacturing. From Year 4 onward, we also work with development agencies and international organizations."
-              },
-              {
-                q: "What if we're not ready for transformation?",
-                a: "That's exactly what Fieldscan is for. We'll diagnose whether your organization is ready, what needs to happen first, and what the roadmap looks like. Sometimes the answer is 'wait 6 months and build this capability first.'"
-              },
-              {
-                q: "Can we do this virtually?",
-                a: "Fieldscan is fully virtual. Fieldforce is hybrid—we typically spend 2-3 days per month on-site, with the rest virtual. Fieldpartner is flexible based on your needs."
-              },
-              {
-                q: "What if we've already tried transformation and failed?",
-                a: "That's actually the most common scenario. Most organizations we work with have tried transformation before. The difference with Stiemfield is the convergence model—we diagnose why the previous attempt failed and design a program that works."
-              }
-            ].map((faq, idx) => (
+            {FAQ_ITEMS.map((faq, idx) => (
               <div key={idx} className="bg-background border border-border rounded-lg p-8 hover:border-accent transition-colors">
                 <h3 className="text-lg font-semibold mb-3 text-accent">{faq.q}</h3>
                 <p className="text-muted-foreground leading-relaxed">{faq.a}</p>
@@ -329,6 +334,7 @@ export default function Contact() {
                   src="/stiemfield-logo.jpg"
                   alt="Stiemfield"
                   className="w-8 h-8 rounded-full object-cover"
+                  loading="lazy"
                 />
                 <span className="font-display font-semibold text-accent">STIEMFIELD</span>
               </div>

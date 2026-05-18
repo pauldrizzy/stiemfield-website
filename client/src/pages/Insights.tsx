@@ -1,12 +1,7 @@
 import { Button } from "@/components/ui/button";
 import { ArrowRight, Calendar, User, CheckCircle, Loader2 } from "lucide-react";
 import { useState } from "react";
-
-/**
- * Stiemfield Insights Page
- * Design System: Architectural Minimalism with Gold Accents
- * Thought leadership and industry perspectives
- */
+import SEOHead from "@/components/SEOHead";
 
 interface InsightArticle {
   id: string;
@@ -104,6 +99,25 @@ export default function Insights() {
 
   return (
     <div className="min-h-screen bg-background text-foreground">
+      <SEOHead
+        title="Insights"
+        description="Thought leadership on organizational transformation, convergence strategy, and the STIEM Framework. Perspectives from Stiemfield on building transformation that compounds."
+        path="/insights"
+        schema={{
+          "@context": "https://schema.org",
+          "@type": "WebPage",
+          "name": "Insights — Stiemfield Thought Leadership",
+          "description": "Thought leadership on organizational transformation, convergence strategy, and the STIEM Framework.",
+          "url": "https://www.stiemfield.com/insights",
+          "breadcrumb": {
+            "@type": "BreadcrumbList",
+            "itemListElement": [
+              { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://www.stiemfield.com" },
+              { "@type": "ListItem", "position": 2, "name": "Insights", "item": "https://www.stiemfield.com/insights" }
+            ]
+          }
+        }}
+      />
       {/* Navigation */}
       <nav className="sticky top-0 z-50 bg-background/95 backdrop-blur border-b border-border">
         <div className="container flex items-center justify-between py-6">
@@ -273,10 +287,11 @@ export default function Insights() {
           <div className="grid md:grid-cols-4 gap-8 mb-8">
             <div>
               <div className="flex items-center gap-2 mb-4">
-                <img 
+                <img
                   src="/stiemfield-logo.jpg"
                   alt="Stiemfield"
                   className="w-8 h-8 rounded-full object-cover"
+                  loading="lazy"
                 />
                 <span className="font-display font-semibold text-accent">STIEMFIELD</span>
               </div>

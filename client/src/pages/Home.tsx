@@ -1,17 +1,6 @@
 import { Button } from "@/components/ui/button";
 import { ArrowRight, Zap, Target, Users, TrendingUp, Lightbulb, CheckCircle } from "lucide-react";
-
-/**
- * Stiemfield Home Page
- * Design System: Architectural Minimalism with Gold Accents
- * Positioning: Convergence Firm - Strategy, Technology, Innovation, Execution, Management
- * 
- * Key principles from handbook:
- * - Convergence over silos: all five forces operating simultaneously
- * - Results over reports: transformation that actually sticks
- * - Transformation is the outcome, not the service
- * - The Field is where five forces converge
- */
+import SEOHead from "@/components/SEOHead";
 
 export default function Home() {
   const stiemForces = [
@@ -120,6 +109,22 @@ export default function Home() {
 
   return (
     <div className="min-h-screen bg-background text-foreground">
+      <SEOHead
+        title="Global Convergence Consulting Firm"
+        description="Stiemfield converges Strategy, Technology, Innovation, Execution, and Management on a single field to produce organizational transformation that actually sticks. Rooted in Africa, serving globally."
+        path="/"
+        schema={{
+          "@context": "https://schema.org",
+          "@type": "WebPage",
+          "name": "Stiemfield — Global Convergence Consulting Firm",
+          "description": "Stiemfield converges Strategy, Technology, Innovation, Execution, and Management on a single field to produce organizational transformation that actually sticks.",
+          "url": "https://www.stiemfield.com",
+          "breadcrumb": {
+            "@type": "BreadcrumbList",
+            "itemListElement": [{ "@type": "ListItem", "position": 1, "name": "Home", "item": "https://www.stiemfield.com" }]
+          }
+        }}
+      />
       {/* Navigation */}
       <nav aria-label="Main navigation" className="sticky top-0 z-50 bg-background/95 backdrop-blur border-b border-border">
         <div className="container flex items-center justify-between py-6">
@@ -408,6 +413,7 @@ export default function Home() {
                   src="/stiemfield-logo.jpg"
                   alt="Stiemfield"
                   className="w-8 h-8 rounded-full object-cover"
+                  loading="lazy"
                 />
                 <span className="font-display font-semibold text-accent">STIEMFIELD</span>
               </div>
