@@ -78,33 +78,24 @@ export default function CaseStudies() {
                   <span className="text-accent text-sm font-semibold uppercase tracking-wider">Case Study 01</span>
                   <h2 className="text-4xl font-display font-bold mt-2 mb-4">Global Fintech Scale-Up</h2>
                   <p className="text-muted-foreground text-lg leading-relaxed">
-                    A rapidly growing fintech company operating across multiple markets with brilliant product but fragmented operations. Strategy was siloed from execution. Technology wasn't aligned with business goals. Management couldn't keep pace with growth.
+                    A multi-market fintech with strong product but fragmented operations. Strategy, technology, and execution were misaligned — stalling growth.
                   </p>
                 </div>
 
                 <div className="space-y-4">
                   <h3 className="font-semibold text-accent">The Challenge</h3>
                   <ul className="space-y-2 text-muted-foreground">
-                    <li>• Revenue growth stalling despite strong product-market fit</li>
-                    <li>• Strategic initiatives not translating to execution</li>
-                    <li>• Technology debt accumulating faster than capacity to address it</li>
-                    <li>• Organizational structure not scaling with ambition</li>
-                    <li>• Leadership team misaligned on priorities</li>
+                    <li>• Revenue stalling despite strong product-market fit</li>
+                    <li>• Strategy not translating to execution</li>
+                    <li>• Leadership misaligned on priorities</li>
                   </ul>
                 </div>
 
                 <div className="space-y-4">
                   <h3 className="font-semibold text-accent">The Intervention</h3>
                   <p className="text-muted-foreground text-sm">
-                    Fieldscan diagnosed the pattern: brilliant strategy that wasn't operationalized. Fieldforce activated a 12-month convergence program that realigned all five STIEM forces.
+                    Fieldscan diagnosed the pattern. Fieldforce activated a 12-month convergence program across all five STIEM forces.
                   </p>
-                  <ul className="space-y-2 text-muted-foreground text-sm">
-                    <li>• Rebuilt strategy framework with execution accountability</li>
-                    <li>• Architected technology roadmap aligned to business strategy</li>
-                    <li>• Restructured organization for scaled execution</li>
-                    <li>• Built management systems to sustain growth</li>
-                    <li>• Embedded innovation process into operations</li>
-                  </ul>
                 </div>
 
                 <a href="/contact?service=fieldscan">
@@ -186,33 +177,24 @@ export default function CaseStudies() {
                   <span className="text-accent text-sm font-semibold uppercase tracking-wider">Case Study 02</span>
                   <h2 className="text-4xl font-display font-bold mt-2 mb-4">Manufacturing Transformation</h2>
                   <p className="text-muted-foreground text-lg leading-relaxed">
-                    A legacy manufacturing company with strong market position but outdated operations. Digital transformation initiatives had failed. Management resisted change. Innovation was stifled by bureaucracy.
+                    A legacy manufacturer with strong market position but failed digital transformation. Technology was being implemented without management readiness.
                   </p>
                 </div>
 
                 <div className="space-y-4">
                   <h3 className="font-semibold text-accent">The Challenge</h3>
                   <ul className="space-y-2 text-muted-foreground">
-                    <li>• Losing market share to more agile competitors</li>
                     <li>• Previous digital transformation initiative failed</li>
-                    <li>• Organizational resistance to change deeply embedded</li>
-                    <li>• Cost structure uncompetitive</li>
-                    <li>• Talent drain to more innovative companies</li>
+                    <li>• Deep organizational resistance to change</li>
+                    <li>• Uncompetitive cost structure</li>
                   </ul>
                 </div>
 
                 <div className="space-y-4">
                   <h3 className="font-semibold text-accent">The Intervention</h3>
                   <p className="text-muted-foreground text-sm">
-                    Fieldscan revealed the root cause: technology was being implemented without management readiness. Fieldforce rebuilt the organization from the ground up using the convergence model.
+                    Fieldscan revealed the root cause. Fieldforce rebuilt the organization using the convergence model — aligning technology with management readiness.
                   </p>
-                  <ul className="space-y-2 text-muted-foreground text-sm">
-                    <li>• Redesigned organizational structure for agility</li>
-                    <li>• Built management capability to lead digital transformation</li>
-                    <li>• Implemented technology with proper change management</li>
-                    <li>• Created innovation framework embedded in operations</li>
-                    <li>• Rebuilt culture around continuous improvement</li>
-                  </ul>
                 </div>
 
                 <a href="/contact?service=fieldscan">
@@ -232,7 +214,7 @@ export default function CaseStudies() {
                   <span className="text-accent text-sm font-semibold uppercase tracking-wider">Case Study 03</span>
                   <h2 className="text-4xl font-display font-bold mt-2 mb-4">High-Growth Tech Startup</h2>
                   <p className="text-muted-foreground text-lg leading-relaxed">
-                    A high-growth tech startup with brilliant founders but scaling challenges. Product innovation was strong but execution was chaotic. Strategy wasn't clear. Management systems didn't exist.
+                    Brilliant founders, strong innovation — but chaotic execution and no management systems. The founder-led model wasn't scaling.
                   </p>
                 </div>
 
@@ -240,25 +222,16 @@ export default function CaseStudies() {
                   <h3 className="font-semibold text-accent">The Challenge</h3>
                   <ul className="space-y-2 text-muted-foreground">
                     <li>• Hypergrowth creating organizational chaos</li>
-                    <li>• Founder-led model not scaling</li>
-                    <li>• No clear strategic direction beyond product</li>
+                    <li>• No strategic direction beyond product</li>
                     <li>• Execution inconsistent and unpredictable</li>
-                    <li>• Talent retention becoming critical issue</li>
                   </ul>
                 </div>
 
                 <div className="space-y-4">
                   <h3 className="font-semibold text-accent">The Intervention</h3>
                   <p className="text-muted-foreground text-sm">
-                    Fieldscan identified the pattern: brilliant innovation without organizational infrastructure. Fieldforce built the five STIEM forces in parallel.
+                    Fieldscan identified the gap. Fieldforce built all five STIEM forces in parallel — giving the startup enterprise-grade infrastructure without losing its edge.
                   </p>
-                  <ul className="space-y-2 text-muted-foreground text-sm">
-                    <li>• Built strategic framework aligned to market opportunity</li>
-                    <li>• Architected technology for scale</li>
-                    <li>• Created structured innovation process</li>
-                    <li>• Built management team and systems</li>
-                    <li>• Scaled execution capability</li>
-                  </ul>
                 </div>
 
                 <a href="/contact?service=fieldscan">

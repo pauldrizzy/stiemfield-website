@@ -7,31 +7,31 @@ export default function Home() {
     {
       letter: "S",
       name: "Strategy",
-      description: "The direction force — answering where to play and how to win. Defines competitive choices, constantly interrogated by the other four forces.",
+      description: "The direction force — where to play and how to win.",
       icon: Target
     },
     {
       letter: "T",
       name: "Technology",
-      description: "The enabling force — digital and AI infrastructure. Technology enables strategy, powers innovation, makes execution measurable, gives management real-time visibility.",
+      description: "The enabling force — digital infrastructure that powers everything else.",
       icon: Zap
     },
     {
       letter: "I",
       name: "Innovation",
-      description: "The creative force — finding non-obvious paths to value. Prevents strategy from becoming conservative, execution from becoming merely efficient.",
+      description: "The creative force — finding non-obvious paths to value.",
       icon: Lightbulb
     },
     {
       letter: "E",
       name: "Execution",
-      description: "The delivery force — the commitment that results are real. Covers project management, milestone tracking, accountability structures, real-time monitoring.",
+      description: "The delivery force — the commitment that results are real.",
       icon: CheckCircle
     },
     {
       letter: "M",
       name: "Management",
-      description: "The sustaining force — building organizational capacity to own transformation. Without this, transformation collapses when consultants leave.",
+      description: "The sustaining force — building capacity to own the transformation.",
       icon: Users
     }
   ];
@@ -39,23 +39,23 @@ export default function Home() {
   const coreValues = [
     {
       title: "Convergence over silos",
-      description: "We hold all five forces together, always, because the client's problem does not respect disciplinary boundaries."
+      description: "All five forces operate together because real problems don't respect disciplinary boundaries."
     },
     {
       title: "Results over reports",
-      description: "Every engagement is measured against outcomes, not deliverables. Transformation that actually sticks."
+      description: "We measure success against outcomes, not deliverables."
     },
     {
       title: "Rigor with humility",
-      description: "We bring the full weight of the STIEM framework to every problem, and we listen before we prescribe."
+      description: "We listen before we prescribe."
     },
     {
       title: "Grounded expertise",
-      description: "We understand African business contexts deeply. That expertise translates globally. We serve organizations worldwide."
+      description: "Deep African context. Global application."
     },
     {
       title: "Trust as infrastructure",
-      description: "Every Fieldscan, every Fieldforce program, every Fieldpartner relationship is a long-term trust investment, not a transaction."
+      description: "Long-term partnership, not a transaction."
     }
   ];
 
@@ -63,47 +63,26 @@ export default function Home() {
     {
       name: "Fieldscan",
       tagline: "The convergence diagnostic",
-      description: "Where every engagement begins. Fieldscan answers the master question: why has this organization not yet transformed — and which of the five STIEM forces is most broken, most misaligned, or most absent?",
+      description: "The entry point. A focused diagnostic that identifies which STIEM forces are misaligned and why transformation hasn't happened yet.",
       duration: "4–8 weeks",
       delivery: "Fully virtual",
-      output: "The Stiemfield Convergence Map",
-      features: [
-        "Stakeholder interviews across all five dimensions",
-        "Document and data review",
-        "Cross-force synthesis and pattern identification",
-        "Prioritized intervention architecture",
-        "Roadmap for next steps (Fieldforce or Fieldpartner)"
-      ]
+      output: "The Stiemfield Convergence Map"
     },
     {
       name: "Fieldforce",
       tagline: "The transformation engine",
-      description: "Convergence activated at full depth. Fieldforce takes the Convergence Map and runs the program that does the realigning. It manages interdependencies across all five forces simultaneously.",
+      description: "Full-depth convergence activation. We take the diagnostic and run the program that realigns all five forces simultaneously.",
       duration: "6–18 months",
-      delivery: "Hybrid (virtual + in-person milestones)",
-      output: "Measurable transformation across STIEM dimensions",
-      features: [
-        "Milestone gates across all five forces",
-        "90-day quick wins + medium-term structural work",
-        "Dynamic adjustment as execution reveals insights",
-        "Real-time convergence architecture",
-        "Embedded transformation program"
-      ]
+      delivery: "Hybrid",
+      output: "Measurable transformation across STIEM dimensions"
     },
     {
       name: "Fieldpartner",
       tagline: "The long game",
-      description: "Retained convergence advisory at senior level. After transformation, organizations need sustained alignment. Fieldpartner is the monthly advisory relationship that keeps the five forces converged.",
-      duration: "12+ months (ongoing)",
-      delivery: "Monthly sessions + on-call advisory",
-      output: "Sustained alignment across STIEM forces",
-      features: [
-        "Monthly strategic sessions",
-        "On-call advisory support",
-        "Quarterly convergence reviews",
-        "Trusted outside voice at leadership table",
-        "Thinking partnership across all five dimensions"
-      ]
+      description: "Retained advisory at senior level. Monthly sessions and on-call support to keep the five forces aligned after transformation.",
+      duration: "12+ months",
+      delivery: "Monthly sessions + on-call",
+      output: "Sustained STIEM alignment"
     }
   ];
 
@@ -164,7 +143,7 @@ export default function Home() {
               Convergence on a <span className="text-accent">Single Field</span>
             </h1>
             <p className="text-xl text-muted-foreground leading-relaxed max-w-3xl">
-              We are a global convergence consulting firm. We bring Strategy, Technology, Innovation, Execution, and Management into alignment on a single field. When those five forces converge, the outcome is transformation that actually sticks.
+              We converge Strategy, Technology, Innovation, Execution, and Management on a single field. When those five forces align, transformation actually sticks.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 pt-4">
               <a href="/contact?service=fieldscan">
@@ -190,14 +169,14 @@ export default function Home() {
               <div className="accent-line"></div>
               <h2 className="text-4xl font-display font-bold">Our Mission</h2>
               <p className="text-xl text-muted-foreground leading-relaxed">
-                To produce organizational transformation by converging strategy, technology, innovation, execution, and management on a single client engagement — eliminating the fragmentation that makes transformation fail.
+                To produce organizational transformation by converging all five STIEM forces on a single engagement — eliminating the fragmentation that makes transformation fail.
               </p>
             </div>
             <div className="space-y-6">
               <div className="accent-line"></div>
               <h2 className="text-4xl font-display font-bold">Our Vision</h2>
               <p className="text-xl text-muted-foreground leading-relaxed">
-                To become the most trusted convergence firm globally — proving that integrated advisory across all five STIEM forces produces better transformation outcomes than any single-discipline alternative.
+                To become the most trusted convergence firm globally — proving that integrated advisory produces better outcomes than any single-discipline alternative.
               </p>
             </div>
           </div>
@@ -231,20 +210,12 @@ export default function Home() {
             
             <div className="bg-background border border-border rounded-lg p-12 space-y-6">
               <p className="text-lg text-muted-foreground leading-relaxed">
-                The Field is the central concept of the Stiemfield model. It is the zone of convergence: the engagement space where all five STIEM forces operate simultaneously, share the same client context, and produce a unified output.
-              </p>
-              
-              <p className="text-lg text-muted-foreground leading-relaxed">
-                The Field is not a physical place. It is an architectural commitment. When Stiemfield enters a client engagement, it does not bring a strategy team that later hands off to an execution team. It brings a convergence lens — one integrated understanding of the client across all five dimensions — and maintains that lens throughout the engagement.
-              </p>
-
-              <p className="text-lg text-muted-foreground leading-relaxed">
-                When five forces operate in a field together, they correct each other's blind spots in real time. Strategy that ignores execution constraints gets corrected before it becomes a plan. Technology choices that misalign with management capacity get caught before they become procurement decisions. Innovation that outpaces the organization's readiness gets calibrated before it becomes a distraction.
+                The Field is the zone of convergence — where all five STIEM forces operate simultaneously on a single client engagement, producing a unified output rather than siloed handoffs.
               </p>
 
               <div className="border-t border-border/50 pt-6">
                 <p className="text-accent font-semibold italic">
-                  "The Field is what the client buys. It is the reason Fieldscan, Fieldforce, and Fieldpartner all carry that word in their names."
+                  "The Field is what the client buys. It's why every service carries that word in its name."
                 </p>
               </div>
             </div>
@@ -320,15 +291,6 @@ export default function Home() {
                       <p className="text-muted-foreground">{service.output}</p>
                     </div>
                   </div>
-
-                  <div className="space-y-2">
-                    {service.features.map((feature, fidx) => (
-                      <div key={fidx} className="flex gap-3 text-sm">
-                        <CheckCircle className="w-4 h-4 text-accent flex-shrink-0 mt-0.5" />
-                        <span className="text-muted-foreground">{feature}</span>
-                      </div>
-                    ))}
-                  </div>
                 </div>
 
                 <div className="p-8 border-t border-border/50">
@@ -355,32 +317,22 @@ export default function Home() {
 
             <div className="bg-card border border-border rounded-lg p-12 space-y-6">
               <p className="text-lg text-muted-foreground leading-relaxed">
-                Transformation is not what we sell. It is what we produce. When transformation is what you sell, you compete with every other firm that sells transformation. When transformation is what your model produces, you occupy a different position entirely: you are the firm whose architecture is designed to make transformation happen.
+                Transformation is not what we sell — it's what our model produces. A measurable, durable change in how your organization competes, operates, or grows.
               </p>
 
-              <div className="bg-background border border-border/50 rounded-lg p-8 space-y-4">
-                <p className="font-semibold text-accent uppercase text-sm tracking-wider">Our Definition</p>
-                <p className="text-lg text-muted-foreground leading-relaxed">
-                  Transformation is a measurable, durable change in how the client organization competes, operates, or grows — a change that the organization can sustain and build upon after the engagement ends.
+              <div className="space-y-3 pt-4 border-t border-border/50">
+                <p className="text-muted-foreground flex gap-3">
+                  <span className="text-accent">✗</span>
+                  <span>Not a reorganization that reverts</span>
                 </p>
-                <div className="space-y-3 pt-4 border-t border-border/50">
-                  <p className="text-muted-foreground flex gap-3">
-                    <span className="text-accent">✗</span>
-                    <span>Not a reorganization that reverts</span>
-                  </p>
-                  <p className="text-muted-foreground flex gap-3">
-                    <span className="text-accent">✗</span>
-                    <span>Not a technology implementation that goes unused</span>
-                  </p>
-                  <p className="text-muted-foreground flex gap-3">
-                    <span className="text-accent">✗</span>
-                    <span>Not a strategy document that sits on a shelf</span>
-                  </p>
-                  <p className="text-accent flex gap-3 pt-2 font-semibold">
-                    <span>✓</span>
-                    <span>Transformation that compounds</span>
-                  </p>
-                </div>
+                <p className="text-muted-foreground flex gap-3">
+                  <span className="text-accent">✗</span>
+                  <span>Not a strategy document that sits on a shelf</span>
+                </p>
+                <p className="text-accent flex gap-3 pt-2 font-semibold">
+                  <span>✓</span>
+                  <span>Transformation that compounds</span>
+                </p>
               </div>
             </div>
           </div>

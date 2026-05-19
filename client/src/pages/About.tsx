@@ -76,43 +76,28 @@ export default function About() {
             <div className="space-y-6">
               <h2 className="text-4xl font-display font-bold">The Origin</h2>
               <p className="text-lg text-muted-foreground leading-relaxed">
-                Stiemfield was born from frustration. Our founders spent years at leading global consulting firms, watching the same pattern repeat: organizations would engage a strategy firm, get brilliant recommendations, then hand off to an implementation team. The strategy would get watered down. The technology would misalign with the strategy. The execution would lose momentum. The organization would revert to the status quo.
-              </p>
-              <p className="text-lg text-muted-foreground leading-relaxed">
-                We realized the problem wasn't the quality of the work. It was the architecture. When five critical forces—Strategy, Technology, Innovation, Execution, and Management—operate in silos, even brilliant work in each silo produces mediocre results.
+                Stiemfield was born from a simple observation: when Strategy, Technology, Innovation, Execution, and Management operate in silos, even brilliant work in each silo produces mediocre results. The problem was never the quality of work — it was the architecture.
               </p>
             </div>
 
             <div className="bg-background border border-border rounded-lg p-12 space-y-6">
               <h3 className="text-2xl font-display font-bold text-accent">The Insight</h3>
               <p className="text-muted-foreground leading-relaxed">
-                What if those five forces didn't operate sequentially? What if they operated simultaneously on a single field, each interrogating and informing the others? What if transformation was designed as a convergence problem, not a sequential problem?
-              </p>
-              <p className="text-muted-foreground leading-relaxed">
-                That insight became Stiemfield. Not a firm that sells transformation. A firm whose architecture is designed to produce transformation.
+                What if those five forces operated simultaneously on a single field instead of sequentially? That insight became Stiemfield — a firm whose architecture is designed to produce transformation, not just sell it.
               </p>
             </div>
 
             <div className="space-y-6">
-              <h2 className="text-4xl font-display font-bold">Global Firm, Grounded in African Expertise</h2>
+              <h2 className="text-4xl font-display font-bold">Global Firm, Rooted in Africa</h2>
               <p className="text-lg text-muted-foreground leading-relaxed">
-                Stiemfield is a global convergence consulting firm serving private sector organizations and development agencies. Our positioning is built on deep expertise in African markets and the unique transformation challenges they present. African organizations operate in distinct market conditions—regulatory complexity, infrastructure constraints, talent dynamics, competitive intensity. These aren't disadvantages to overcome. They're sources of insight that translate globally.
-              </p>
-              <p className="text-lg text-muted-foreground leading-relaxed">
-                Organizations that master transformation in the African context develop capabilities that translate globally. We've built our expertise where the problem is hardest and the insight is deepest. That expertise is now available to organizations worldwide.
+                We built our expertise where transformation challenges are hardest — and that insight translates globally. Deep African context. Worldwide application.
               </p>
             </div>
 
             <div className="space-y-6">
               <h2 className="text-4xl font-display font-bold">How We Work</h2>
               <p className="text-lg text-muted-foreground leading-relaxed">
-                Stiemfield operates differently from traditional consulting. We don't hand off. We don't produce reports that sit on shelves. We don't optimize for billable hours. We optimize for transformation that compounds.
-              </p>
-              <p className="text-lg text-muted-foreground leading-relaxed">
-                Every engagement starts with Fieldscan—a diagnostic that scans all five STIEM forces simultaneously. We identify where your organization is broken. Then we build a roadmap. Then we activate it with Fieldforce. Then we stay embedded with Fieldpartner to ensure transformation compounds.
-              </p>
-              <p className="text-lg text-muted-foreground leading-relaxed">
-                This is the convergence model. Five forces. One field. Transformation that sticks.
+                Every engagement starts with Fieldscan, activates through Fieldforce, and sustains with Fieldpartner. No handoffs. No shelf reports. Transformation that compounds.
               </p>
             </div>
           </div>
@@ -143,13 +128,13 @@ export default function About() {
                   <h3 className="text-3xl font-display font-bold mb-2">Terungwa Paul Asar</h3>
                   <p className="text-accent text-sm font-semibold mb-4">Founding Partner & Convergence Architect</p>
                   <p className="text-muted-foreground leading-relaxed mb-4">
-                    BSc Business Management (Benue State origin). During NYSC service in Osun State, Terungwa served as LGA Project Manager and State Project Manager for the Digital Literacy for All Community Development Service—managing multi-stakeholder transformation programs, coordinating technology deployment, and building execution frameworks under genuine resource and infrastructure constraints. This field experience is the empirical foundation of the STIEM Framework. Stiemfield is his direct response to the transformation failure problem he witnessed.
+                    BSc Business Management. Built the STIEM Framework from hands-on experience managing multi-stakeholder transformation programs across Nigeria — where the gap between strategy and execution is sharpest. Stiemfield is his direct response to the transformation failure problem.
                   </p>
                 </div>
                 <div className="bg-card border border-border rounded-lg p-6 space-y-3">
                   <p className="text-accent font-semibold text-sm uppercase tracking-wider">Why Solo?</p>
                   <p className="text-muted-foreground text-sm leading-relaxed">
-                    Every client engages directly with Terungwa and the full STIEM lens. No handoffs. No dilution of thinking. Maximum focus on your transformation. This is the model that works.
+                    Every client engages directly with the full STIEM lens. No handoffs. No dilution.
                   </p>
                 </div>
               </div>
@@ -167,42 +152,42 @@ export default function About() {
             <div className="space-y-4">
               <h3 className="text-2xl font-display font-bold text-accent">Convergence Over Silos</h3>
               <p className="text-muted-foreground leading-relaxed">
-                We don't believe in single-discipline consulting. Strategy without execution is fantasy. Technology without management is waste. We hold all five forces together because that's what transformation requires.
+                All five forces operate together because transformation requires it.
               </p>
             </div>
 
             <div className="space-y-4">
               <h3 className="text-2xl font-display font-bold text-accent">Results Over Reports</h3>
               <p className="text-muted-foreground leading-relaxed">
-                We measure success against outcomes, not deliverables. A beautiful deck that doesn't change behavior is failure. A messy journey that produces measurable transformation is success.
+                We measure outcomes, not deliverables.
               </p>
             </div>
 
             <div className="space-y-4">
               <h3 className="text-2xl font-display font-bold text-accent">Rigor With Humility</h3>
               <p className="text-muted-foreground leading-relaxed">
-                We bring the full weight of the STIEM framework to every problem. And we listen before we prescribe. Your organization knows itself better than we ever will. Our job is to ask the right questions and help you find the answers.
+                We listen before we prescribe. Your organization knows itself best.
               </p>
             </div>
 
             <div className="space-y-4">
               <h3 className="text-2xl font-display font-bold text-accent">Context as Advantage</h3>
               <p className="text-muted-foreground leading-relaxed">
-                We understand the African business environment not as a constraint but as the source of our deepest insight. The complexity you navigate daily is the competitive advantage you're building.
+                African complexity isn't a constraint — it's the source of our deepest insight.
               </p>
             </div>
 
             <div className="space-y-4">
               <h3 className="text-2xl font-display font-bold text-accent">Trust as Infrastructure</h3>
               <p className="text-muted-foreground leading-relaxed">
-                Every Fieldscan, every Fieldforce program, every Fieldpartner relationship is a long-term trust investment. We're not here for a transaction. We're here to build a partnership that compounds.
+                Long-term partnership, not a transaction.
               </p>
             </div>
 
             <div className="space-y-4">
               <h3 className="text-2xl font-display font-bold text-accent">Transformation That Compounds</h3>
               <p className="text-muted-foreground leading-relaxed">
-                We don't measure success at the end of an engagement. We measure it five years later. Did the transformation stick? Did it compound? Did your organization become more capable?
+                We measure success five years later, not at the end of an engagement.
               </p>
             </div>
           </div>

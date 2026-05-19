@@ -4,13 +4,13 @@ import { useState, useEffect } from "react";
 import SEOHead from "@/components/SEOHead";
 
 const FAQ_ITEMS = [
-  { q: "How do I get started?", a: "Every engagement begins with a free scope meeting. Book a 30-minute call and we'll discuss your organization's challenges, determine if Fieldscan is the right first step, and outline next steps together." },
-  { q: "How long does Fieldscan take?", a: "Fieldscan typically takes 4-8 weeks. The exact timeline depends on your organization's complexity and how quickly you can provide access to key stakeholders." },
-  { q: "Do you work with organizations outside Africa?", a: "Yes. Stiemfield is a global convergence consulting firm serving private sector organizations and development agencies worldwide. We bring deep expertise in African transformation contexts, and that expertise translates globally." },
-  { q: "What sectors do you typically work in?", a: "We serve private sector organizations across all industries. Our primary focus in Years 1-4 is fintech, agritech, healthtech, renewable energy, and mid-market manufacturing. From Year 4 onward, we also work with development agencies and international organizations." },
-  { q: "What if we're not ready for transformation?", a: "That's exactly what Fieldscan is for. We'll diagnose whether your organization is ready, what needs to happen first, and what the roadmap looks like. Sometimes the answer is 'wait 6 months and build this capability first.'" },
-  { q: "Can we do this virtually?", a: "Fieldscan is fully virtual. Fieldforce is hybrid — we typically spend 2-3 days per month on-site, with the rest virtual. Fieldpartner is flexible based on your needs." },
-  { q: "What if we've already tried transformation and failed?", a: "That's actually the most common scenario. Most organizations we work with have tried transformation before. The difference with Stiemfield is the convergence model — we diagnose why the previous attempt failed and design a program that works." }
+  { q: "How do I get started?", a: "Book a free 30-minute scope meeting. We'll discuss your challenges and outline next steps." },
+  { q: "How long does Fieldscan take?", a: "4-8 weeks, depending on your organization's complexity." },
+  { q: "Do you work outside Africa?", a: "Yes. We're a global firm with deep African expertise that translates worldwide." },
+  { q: "What sectors do you work in?", a: "Fintech, agritech, healthtech, renewable energy, manufacturing, and development agencies." },
+  { q: "What if we're not ready?", a: "That's what Fieldscan is for — we'll diagnose readiness and build the right roadmap." },
+  { q: "Can we do this virtually?", a: "Fieldscan is fully virtual. Fieldforce is hybrid. Fieldpartner is flexible." },
+  { q: "We've tried transformation before and failed.", a: "Most clients have. The convergence model diagnoses why it failed and designs what works." }
 ];
 
 export default function Contact() {

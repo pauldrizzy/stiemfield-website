@@ -17,7 +17,7 @@ const insights: InsightArticle[] = [
   {
     id: "1",
     title: "Why Single-Discipline Consulting Fails Transformation",
-    excerpt: "Most organizations fail at transformation not because their strategy is wrong, but because strategy, technology, execution, and management are misaligned. We explore why convergence is the only model that works.",
+    excerpt: "Strategy, technology, and execution must converge. We explore why fragmented consulting models consistently underdeliver.",
     author: "Stiemfield Team",
     date: "April 10, 2026",
     category: "Transformation",
@@ -25,8 +25,8 @@ const insights: InsightArticle[] = [
   },
   {
     id: "2",
-    title: "Transformation Expertise: From African Context to Global Scale",
-    excerpt: "Organizations that master transformation in complex African markets develop capabilities that translate globally. We share how deep expertise in challenging contexts becomes a competitive advantage worldwide.",
+    title: "From African Context to Global Scale",
+    excerpt: "Deep expertise in complex markets becomes a worldwide competitive advantage.",
     author: "Stiemfield Team",
     date: "April 3, 2026",
     category: "Strategy",
@@ -34,8 +34,8 @@ const insights: InsightArticle[] = [
   },
   {
     id: "3",
-    title: "Technology Without Management is Just Expensive Failure",
-    excerpt: "Digital transformation initiatives fail at alarming rates. The missing piece isn't better technology—it's management systems that can absorb and sustain change. Here's how to fix it.",
+    title: "Technology Without Management is Expensive Failure",
+    excerpt: "The missing piece in digital transformation isn't better technology — it's management readiness.",
     author: "Stiemfield Team",
     date: "March 28, 2026",
     category: "Technology",
@@ -44,7 +44,7 @@ const insights: InsightArticle[] = [
   {
     id: "4",
     title: "Execution Accountability: From Strategy to Results",
-    excerpt: "Strategy documents sit on shelves. Innovation initiatives stall. The difference between firms that transform and those that don't is execution discipline. We break down the framework.",
+    excerpt: "The difference between firms that transform and those that don't is execution discipline.",
     author: "Stiemfield Team",
     date: "March 21, 2026",
     category: "Execution",
@@ -53,7 +53,7 @@ const insights: InsightArticle[] = [
   {
     id: "5",
     title: "Building Innovation Capability That Lasts",
-    excerpt: "Innovation isn't a one-time initiative. Organizations that sustain competitive advantage build innovation into their operating model. Here's how to make it permanent.",
+    excerpt: "Organizations that sustain competitive advantage build innovation into their operating model.",
     author: "Stiemfield Team",
     date: "March 14, 2026",
     category: "Innovation",
@@ -61,8 +61,8 @@ const insights: InsightArticle[] = [
   },
   {
     id: "6",
-    title: "The Five Forces Framework: From Diagnosis to Delivery",
-    excerpt: "Understanding where your organization is broken is the first step. But diagnosis without a clear delivery roadmap is just another consultant report. We explain how we bridge that gap.",
+    title: "From Diagnosis to Delivery",
+    excerpt: "Diagnosis without a delivery roadmap is just another consultant report.",
     author: "Stiemfield Team",
     date: "March 7, 2026",
     category: "Framework",
@@ -162,7 +162,7 @@ export default function Insights() {
                 Why Single-Discipline Consulting Fails Transformation
               </h2>
               <p className="text-muted-foreground text-lg leading-relaxed">
-                Most organizations fail at transformation not because their strategy is wrong, but because strategy, technology, innovation, execution, and management are misaligned. We explore why convergence across all five forces is the only model that works.
+                When strategy, technology, and execution are misaligned, even brilliant work fails. We explore why convergence is the only model that works.
               </p>
               <div className="flex items-center gap-6 text-sm text-muted-foreground">
                 <div className="flex items-center gap-2">
