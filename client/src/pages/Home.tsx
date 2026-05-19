@@ -72,7 +72,7 @@ export default function Home() {
       name: "Fieldforce",
       tagline: "The transformation engine",
       description: "Full-depth convergence activation. We take the diagnostic and run the program that realigns all five forces simultaneously.",
-      duration: "6–18 months",
+      duration: "3–12 months",
       delivery: "Hybrid",
       output: "Measurable transformation across STIEM dimensions"
     },
@@ -80,7 +80,7 @@ export default function Home() {
       name: "Fieldpartner",
       tagline: "The long game",
       description: "Retained advisory at senior level. Monthly sessions and on-call support to keep the five forces aligned after transformation.",
-      duration: "12+ months",
+      duration: "6+ months",
       delivery: "Monthly sessions + on-call",
       output: "Sustained STIEM alignment"
     }
