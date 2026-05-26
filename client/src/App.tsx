@@ -9,6 +9,12 @@ import Insights from "./pages/Insights";
 import About from "./pages/About";
 import Contact from "./pages/Contact";
 import CaseStudies from "./pages/CaseStudies";
+import CommandCenter from "./pages/CommandCenter";
+import MarketLab from "./pages/MarketLab";
+import StrategyStudio from "./pages/StrategyStudio";
+import RiskConsole from "./pages/RiskConsole";
+import Vault from "./pages/Vault";
+import Journal from "./pages/Journal";
 
 
 function Router() {
@@ -19,6 +25,13 @@ function Router() {
       <Route path={"/case-studies"} component={CaseStudies} />
       <Route path={"/contact"} component={Contact} />
       <Route path={"/insights"} component={Insights} />
+      {/* Trading Agent Dashboard */}
+      <Route path={"/app"} component={CommandCenter} />
+      <Route path={"/app/market"} component={MarketLab} />
+      <Route path={"/app/strategy"} component={StrategyStudio} />
+      <Route path={"/app/risk"} component={RiskConsole} />
+      <Route path={"/app/vault"} component={Vault} />
+      <Route path={"/app/journal"} component={Journal} />
       <Route path={"/404"} component={NotFound} />
       {/* Final fallback route */}
       <Route component={NotFound} />
