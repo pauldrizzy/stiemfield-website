@@ -18,7 +18,7 @@
 
 body {
   font-family: 'Lato', sans-serif;
-  background-color: #1a1a1a;
+  background-color: #0a0a0a;
   color: #f5f3f0;
   overflow-x: hidden;
 }
@@ -38,11 +38,11 @@ body {
 }
 
 ::-webkit-scrollbar-track {
-  background: #1a1a1a;
+  background: #0a0a0a;
 }
 
 ::-webkit-scrollbar-thumb {
-  background: #d4a574;
+  background: #c49241;
   border-radius: 4px;
 }
 
@@ -52,19 +52,19 @@ body {
 
 /* Firefox scrollbar */
 * {
-  scrollbar-color: #d4a574 #1a1a1a;
+  scrollbar-color: #c49241 #0a0a0a;
   scrollbar-width: thin;
 }
 
 /* Selection styling */
 ::selection {
-  background-color: #d4a574;
-  color: #1a1a1a;
+  background-color: #c49241;
+  color: #0a0a0a;
 }
 
 ::-moz-selection {
-  background-color: #d4a574;
-  color: #1a1a1a;
+  background-color: #c49241;
+  color: #0a0a0a;
 }
 
 /* Animations */
@@ -124,7 +124,7 @@ body {
 input:focus,
 textarea:focus {
   outline: none;
-  border-color: #d4a574;
+  border-color: #c49241;
   box-shadow: 0 0 0 3px rgba(212, 165, 116, 0.1);
 }
 

@@ -29,7 +29,7 @@ export default function About() {
         <div className="container flex items-center justify-between py-6">
           <a href="/" className="flex items-center gap-3 hover:opacity-80 transition-opacity">
             <img 
-              src="/stiemfield-logo.jpg"
+              src="/stiemfield-logo.png"
               alt="Stiemfield"
               className="w-10 h-10 rounded-full object-cover"
             />
@@ -220,7 +220,7 @@ export default function About() {
             <div>
               <div className="flex items-center gap-2 mb-4">
                 <img
-                  src="/stiemfield-logo.jpg"
+                  src="/stiemfield-logo.png"
                   alt="Stiemfield"
                   className="w-8 h-8 rounded-full object-cover"
                   loading="lazy"

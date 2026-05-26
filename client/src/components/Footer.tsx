@@ -11,12 +11,12 @@ export default function Footer() {
   }
 
   return (
-    <footer className="w-full bg-[#0f0f0f] border-t border-[#d4a574]/20">
+    <footer className="w-full bg-[#0a0a0a] border-t border-[#c49241]/20">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 md:py-16">
         <div className="grid sm:grid-cols-2 md:grid-cols-4 gap-8 md:gap-12 mb-12">
           {/* Brand */}
           <div>
-            <h3 className="font-playfair text-lg md:text-xl font-bold text-[#d4a574] mb-4">STIEM</h3>
+            <h3 className="font-playfair text-lg md:text-xl font-bold text-[#c49241] mb-4">STIEM</h3>
             <p className="font-lato text-[#f5f3f0]/70 text-sm md:text-base">
               Premium convergence firm specializing in strategy, technology, innovation, execution, and management.
             </p>
@@ -36,7 +36,7 @@ export default function Footer() {
                 <li key={link.id}>
                   <button
                     onClick={() => scrollToSection(link.id)}
-                    className="font-lato text-[#f5f3f0]/70 hover:text-[#d4a574] transition-colors text-sm md:text-base"
+                    className="font-lato text-[#f5f3f0]/70 hover:text-[#c49241] transition-colors text-sm md:text-base"
                   >
                     {link.label}
                   </button>
@@ -55,7 +55,7 @@ export default function Footer() {
                 <li key={service}>
                   <a
                     href="#services"
-                    className="font-lato text-[#f5f3f0]/70 hover:text-[#d4a574] transition-colors text-sm md:text-base"
+                    className="font-lato text-[#f5f3f0]/70 hover:text-[#c49241] transition-colors text-sm md:text-base"
                   >
                     {service}
                   </a>
@@ -75,14 +75,14 @@ export default function Footer() {
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label="LinkedIn"
-                className="text-[#f5f3f0]/70 hover:text-[#d4a574] transition-colors"
+                className="text-[#f5f3f0]/70 hover:text-[#c49241] transition-colors"
               >
                 <Linkedin size={20} />
               </a>
               <a
                 href="mailto:terungwa@stiemfield.com"
                 aria-label="Email"
-                className="text-[#f5f3f0]/70 hover:text-[#d4a574] transition-colors"
+                className="text-[#f5f3f0]/70 hover:text-[#c49241] transition-colors"
               >
                 <Mail size={20} />
               </a>
@@ -91,7 +91,7 @@ export default function Footer() {
         </div>
 
         {/* Divider */}
-        <div className="border-t border-[#d4a574]/20 pt-8 md:pt-12">
+        <div className="border-t border-[#c49241]/20 pt-8 md:pt-12">
           <div className="flex flex-col sm:flex-row justify-between items-center gap-4">
             <p className="font-lato text-[#f5f3f0]/70 text-xs md:text-sm text-center sm:text-left">
               © {currentYear} Stiemfield. All rights reserved.
@@ -99,13 +99,13 @@ export default function Footer() {
             <div className="flex gap-6">
               <a
                 href="#"
-                className="font-lato text-[#f5f3f0]/70 hover:text-[#d4a574] transition-colors text-xs md:text-sm"
+                className="font-lato text-[#f5f3f0]/70 hover:text-[#c49241] transition-colors text-xs md:text-sm"
               >
                 Privacy Policy
               </a>
               <a
                 href="#"
-                className="font-lato text-[#f5f3f0]/70 hover:text-[#d4a574] transition-colors text-xs md:text-sm"
+                className="font-lato text-[#f5f3f0]/70 hover:text-[#c49241] transition-colors text-xs md:text-sm"
               >
                 Terms of Service
               </a>
