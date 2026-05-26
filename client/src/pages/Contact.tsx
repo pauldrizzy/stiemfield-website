@@ -2,6 +2,7 @@ import { Button } from "@/components/ui/button";
 import { Mail, Phone, MapPin, ArrowRight, CheckCircle, AlertCircle, Loader2, Calendar } from "lucide-react";
 import { useState, useEffect } from "react";
 import SEOHead from "@/components/SEOHead";
+import { useAnalytics } from "@/hooks/useAnalytics";
 
 const FAQ_ITEMS = [
   { q: "How do I get started?", a: "Book a free 30-minute scope meeting. We'll discuss your challenges and outline next steps." },
@@ -14,6 +15,7 @@ const FAQ_ITEMS = [
 ];
 
 export default function Contact() {
+  const { trackLead, trackConversion } = useAnalytics();
   const params = new URLSearchParams(window.location.search);
   const initialService = params.get("service") || "fieldscan";
 
@@ -52,6 +54,18 @@ export default function Contact() {
         body: body.toString(),
       });
       if (!res.ok) throw new Error("Submission failed");
+
+      // Mirror the lead into Supabase analytics (no-ops if not configured)
+      await trackLead({
+        name: formData.name,
+        email: formData.email,
+        company: formData.company,
+        service_interest: formData.service,
+        message: formData.message,
+        lead_source: "contact_page_form",
+      });
+      await trackConversion("contact_form_submission", undefined, { service: formData.service });
+
       setStatus("success");
       setFormData({ name: "", company: "", email: "", phone: "", service: "fieldscan", message: "" });
     } catch {

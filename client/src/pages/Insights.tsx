@@ -2,6 +2,8 @@ import { Button } from "@/components/ui/button";
 import { ArrowRight, Calendar, User, CheckCircle, Loader2 } from "lucide-react";
 import { useState } from "react";
 import SEOHead from "@/components/SEOHead";
+import { useAnalytics } from "@/hooks/useAnalytics";
+import { AffiliateResourcesSection } from "@/components/MonetizationComponents";
 
 interface InsightArticle {
   id: string;
@@ -71,6 +73,7 @@ const insights: InsightArticle[] = [
 ];
 
 export default function Insights() {
+  useAnalytics();
   const [newsletterEmail, setNewsletterEmail] = useState("");
   const [newsletterStatus, setNewsletterStatus] = useState<"idle" | "submitting" | "success" | "error">("idle");
 
@@ -245,6 +248,13 @@ export default function Insights() {
               </button>
             ))}
           </div>
+        </div>
+      </section>
+
+      {/* Recommended Tools (affiliate) */}
+      <section className="section-padding">
+        <div className="container max-w-6xl">
+          <AffiliateResourcesSection />
         </div>
       </section>
 

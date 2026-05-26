@@ -1,8 +1,10 @@
 import { Button } from "@/components/ui/button";
 import { ArrowRight, Zap, Target, Users, TrendingUp, Lightbulb, CheckCircle } from "lucide-react";
 import SEOHead from "@/components/SEOHead";
+import { useAnalytics } from "@/hooks/useAnalytics";
 
 export default function Home() {
+  useAnalytics();
   const stiemForces = [
     {
       letter: "S",

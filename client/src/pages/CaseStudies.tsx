@@ -1,8 +1,10 @@
 import { Button } from "@/components/ui/button";
 import { ArrowRight, TrendingUp } from "lucide-react";
 import SEOHead from "@/components/SEOHead";
+import { useAnalytics } from "@/hooks/useAnalytics";
 
 export default function CaseStudies() {
+  useAnalytics();
   return (
     <div className="min-h-screen bg-background text-foreground">
       <SEOHead

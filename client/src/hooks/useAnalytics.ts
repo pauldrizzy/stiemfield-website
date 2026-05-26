@@ -1,5 +1,5 @@
 import { useEffect, useState, useCallback } from 'react';
-import { supabase } from '@/lib/supabaseClient';
+import { supabase, isSupabaseConfigured } from '@/lib/supabaseClient';
 
 interface LeadData {
   email: string;
@@ -19,13 +19,15 @@ export const useAnalytics = () => {
     const initializeSession = async () => {
       // Generate or retrieve session ID from localStorage
       let storedSessionId = localStorage.getItem('stiemfield_session_id');
-      
+
       if (!storedSessionId) {
         storedSessionId = `session_${Date.now()}_${Math.random().toString(36).substr(2, 9)}`;
         localStorage.setItem('stiemfield_session_id', storedSessionId);
       }
-      
+
       setSessionId(storedSessionId);
+
+      if (!isSupabaseConfigured) return;
 
       // Get visitor info
       try {
@@ -100,7 +102,7 @@ export const useAnalytics = () => {
   // Track service interest
   const trackServiceInterest = useCallback(
     async (serviceName: string, actionType: string) => {
-      if (!visitorId) return;
+      if (!visitorId || !isSupabaseConfigured) return;
 
       try {
         await supabase.from('service_interests').insert({
@@ -119,6 +121,7 @@ export const useAnalytics = () => {
   // Track lead submission
   const trackLead = useCallback(
     async (leadData: LeadData) => {
+      if (!isSupabaseConfigured) return null;
       try {
         const { data, error } = await supabase
           .from('leads')
@@ -153,7 +156,7 @@ export const useAnalytics = () => {
   // Track conversion (Fieldscan booking, call scheduled, etc.)
   const trackConversion = useCallback(
     async (conversionType: string, valueUsd?: number, details?: Record<string, any>) => {
-      if (!visitorId) return;
+      if (!visitorId || !isSupabaseConfigured) return;
 
       try {
         await supabase.from('conversions').insert({
@@ -173,6 +176,7 @@ export const useAnalytics = () => {
   // Track premium content download
   const trackContentDownload = useCallback(
     async (contentId: string, contentTitle: string, email: string) => {
+      if (!isSupabaseConfigured) return;
       try {
         await supabase.from('content_downloads').insert({
           visitor_id: visitorId,
