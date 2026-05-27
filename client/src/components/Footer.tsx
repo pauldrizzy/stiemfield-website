@@ -71,7 +71,7 @@ export default function Footer() {
             </h4>
             <div className="flex gap-4">
               <a
-                href="https://linkedin.com/in/terungwa-asar"
+                href="https://www.linkedin.com/company/stiemfield"
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label="LinkedIn"

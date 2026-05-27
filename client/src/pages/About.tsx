@@ -252,7 +252,7 @@ export default function About() {
             <div>
               <h4 className="font-semibold mb-4">Connect</h4>
               <ul className="space-y-2 text-sm text-muted-foreground">
-                <li><a href="https://linkedin.com/in/terungwa-asar" target="_blank" rel="noopener noreferrer" className="hover-gold">LinkedIn</a></li>
+                <li><a href="https://www.linkedin.com/company/stiemfield" target="_blank" rel="noopener noreferrer" className="hover-gold">LinkedIn</a></li>
                 <li><a href="mailto:terungwa@stiemfield.com" className="hover-gold">Email</a></li>
               </ul>
             </div>
