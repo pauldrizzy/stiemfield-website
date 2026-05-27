@@ -119,9 +119,10 @@ export default function About() {
             <div className="flex flex-col md:flex-row gap-12 items-center">
               <div className="w-48 h-48 flex-shrink-0 rounded-lg bg-gradient-to-br from-accent to-accent/60 overflow-hidden">
                 <img
-                  src="https://d2xsxph8kpxj0f.cloudfront.net/310519663390111230/Ncij7Gh2r2BW57bAh4gHVB/team-placeholder-MJxjWo78SHZJsY9DKbCF5D.webp"
-                  alt="Founder"
+                  src="/founding-partner.jpg"
+                  alt="Terungwa Paul Asar — Founding Partner & Convergence Architect"
                   className="w-full h-full object-cover"
+                  loading="lazy"
                   loading="lazy"
                 />
               </div>
