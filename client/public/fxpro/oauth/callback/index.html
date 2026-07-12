@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex,nofollow">
+<title>Stiemfield — FxPro Connection</title>
+<style>
+  body{font-family:system-ui,-apple-system,Segoe UI,sans-serif;background:#0b1220;color:#e8edf5;
+       display:flex;align-items:center;justify-content:center;min-height:100vh;margin:0;padding:24px}
+  .card{background:#121b2e;border:1px solid #223052;border-radius:16px;max-width:560px;width:100%;
+        padding:36px;text-align:center;box-shadow:0 10px 40px rgba(0,0,0,.45)}
+  h1{font-size:1.5rem;margin:0 0 6px}
+  .ok{color:#4ade80}.err{color:#f87171}
+  p{color:#9fb0cc;line-height:1.55}
+  .code{font-family:ui-monospace,Consolas,monospace;font-size:1.05rem;background:#0b1220;
+        border:1px dashed #2e4370;border-radius:10px;padding:14px;margin:18px 0;word-break:break-all;
+        user-select:all}
+  .cmd{font-family:ui-monospace,Consolas,monospace;background:#0b1220;border-radius:8px;padding:10px;
+       margin:10px 0;word-break:break-all;color:#7dd3fc;user-select:all}
+  button{background:#2563eb;color:#fff;border:0;border-radius:10px;padding:12px 22px;font-size:1rem;
+         cursor:pointer;margin-top:6px}
+  button:active{transform:scale(.98)}
+  .foot{margin-top:22px;font-size:.8rem;color:#5b6b8c}
+</style>
+</head>
+<body>
+<div class="card">
+  <div id="app"><h1>Checking…</h1></div>
+  <div class="foot">STIEMFIELD · Convergence Firm — this page never stores or transmits anything; the code below stays on your screen.</div>
+</div>
+<script>
+(function () {
+  var app = document.getElementById("app");
+  var q = new URLSearchParams(location.search);
+  var code = q.get("code");
+  if (!code) {
+    app.innerHTML = "<h1 class='err'>No authorization code</h1>" +
+      "<p>This page only has a job right after you approve access on cTrader. " +
+      "Start again from the authorization link if you expected a code here.</p>";
+    return;
+  }
+  var cmd = "/ctradercode " + code;
+  app.innerHTML = "<h1 class='ok'>✅ Authorization received</h1>" +
+    "<p>One step left — send this to your STIEMFIELD bot in Telegram:</p>" +
+    "<div class='cmd' id='cmd'></div>" +
+    "<button id='copy'>Copy command</button>" +
+    "<p style='font-size:.85rem'>The bot exchanges it for tokens server-side and confirms the connection.</p>";
+  document.getElementById("cmd").textContent = cmd;
+  document.getElementById("copy").onclick = function () {
+    navigator.clipboard.writeText(cmd).then(function () {
+      document.getElementById("copy").textContent = "Copied ✓";
+    });
+  };
+})();
+</script>
+</body>
+</html>
