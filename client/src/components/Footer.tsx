@@ -94,7 +94,7 @@ export default function Footer() {
         <div className="border-t border-[#c49241]/20 pt-8 md:pt-12">
           <div className="flex flex-col sm:flex-row justify-between items-center gap-4">
             <p className="font-lato text-[#f5f3f0]/70 text-xs md:text-sm text-center sm:text-left">
-              © {currentYear} Stiemfield. All rights reserved.
+              © {currentYear} Stiemfield Global Convergence Ltd. All rights reserved.
             </p>
             <div className="flex gap-6">
               <a

@@ -379,7 +379,7 @@ export default function Contact() {
             </div>
           </div>
           <div className="border-t border-border pt-8 flex flex-col md:flex-row justify-between items-center text-sm text-muted-foreground">
-            <p>&copy; 2026 Stiemfield. All rights reserved.</p>
+            <p>&copy; 2026 Stiemfield Global Convergence Ltd. All rights reserved.</p>
             <div className="flex gap-6 mt-4 md:mt-0">
               <a href="#" className="hover-gold">Privacy Policy</a>
               <a href="#" className="hover-gold">Terms of Service</a>
