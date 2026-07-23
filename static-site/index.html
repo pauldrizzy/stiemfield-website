@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Stiemfield — Global Convergence Firm, Rooted in Africa</title>
+<meta name="description" content="Stiemfield Global Convergence Ltd diagnoses why digital, business and organisational transformations fail — five forces, evidence-rated. Take the free 10-minute Convergence Self-Check.">
+<style>
+:root{--ink:#0B1B2B;--gold:#D9A511;--paper:#FAF8F3;--soft:#F2ECDF;--line:#E4D9BE;--grey:#5B6672}
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:Georgia,'Times New Roman',serif;color:var(--ink);background:var(--paper);line-height:1.65}
+.wrap{max-width:1080px;margin:0 auto;padding:0 24px}
+header{padding:26px 0;border-bottom:1px solid #E5E0D5}
+.logo{display:flex;align-items:center;gap:14px}
+.logo svg{height:44px;width:auto}
+.hero{padding:88px 0 64px;text-align:left}
+.hero h1{font-size:clamp(2rem,5vw,3.4rem);line-height:1.15;max-width:820px}
+.hero h1 em{font-style:normal;color:var(--gold)}
+.hero p.sub{margin:26px 0 34px;font-size:1.2rem;color:var(--grey);max-width:680px}
+.btn{display:inline-block;background:var(--ink);color:#fff;padding:15px 34px;text-decoration:none;font-size:1.05rem;letter-spacing:.5px;border:none;cursor:pointer}
+.btn.gold{background:var(--gold);color:var(--ink);font-weight:bold}
+.band{background:var(--soft);color:var(--ink);padding:64px 0;border-top:2px solid var(--gold);border-bottom:2px solid var(--gold)}
+.band h2,.sect h2{font-size:1.9rem;margin-bottom:14px}
+.band .gold,.sect .gold{color:var(--gold)}
+.forces{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:18px;margin-top:34px}
+.force{border:1px solid var(--line);background:#fff;padding:22px}
+.force b{display:block;font-size:1.5rem;color:var(--gold);margin-bottom:6px}
+.sect{padding:72px 0}
+.cols{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:26px;margin-top:30px}
+.card{background:#fff;border:1px solid var(--line);padding:30px;box-shadow:0 6px 22px rgba(11,27,43,.05)}
+.card h3{margin-bottom:10px}
+.card .price{color:var(--gold);font-weight:bold;margin:10px 0}
+.quiet{color:var(--grey);font-size:.95rem}
+/* self-check */
+#check{background:#fff;border:2px solid var(--ink);padding:40px;margin-top:30px}
+.q{margin:20px 0;display:none}
+.q.active{display:block}
+.q p{font-size:1.15rem;margin-bottom:14px}
+.scale{display:flex;gap:10px}
+.scale button{flex:1;padding:14px 0;font-size:1.1rem;border:1px solid var(--ink);background:#fff;cursor:pointer;font-family:inherit}
+.scale button:hover{background:var(--gold);border-color:var(--gold)}
+#result{display:none}
+.bar{background:#EEE9DD;height:26px;margin:8px 0 18px;position:relative}
+.bar span{position:absolute;left:0;top:0;bottom:0;background:var(--ink)}
+.bar b{position:absolute;right:8px;top:2px;font-size:.9rem}
+footer{background:var(--soft);color:var(--ink);padding:44px 0;font-size:.95rem;border-top:2px solid var(--gold)}
+footer a{color:#9a7a12;text-decoration:none;font-weight:bold}
+</style>
+</head>
+<body>
+
+<header><div class="wrap logo">
+<svg viewBox="70 58 662 182" xmlns="http://www.w3.org/2000/svg"><g transform="translate(40,30)"><path d="M120 46 A74 74 0 0 0 120 194" fill="none" stroke="#D9A511" stroke-width="3"/><g stroke="#0B1B2B" stroke-width="11" stroke-linecap="round"><line x1="120" y1="94" x2="120" y2="46"/><line x1="101.6" y1="101.6" x2="67.7" y2="67.7"/><line x1="94" y1="120" x2="46" y2="120"/><line x1="101.6" y1="138.4" x2="67.7" y2="172.3"/><line x1="120" y1="146" x2="120" y2="194"/></g><g fill="#0B1B2B"><circle cx="120" cy="46" r="6.5"/><circle cx="67.7" cy="67.7" r="6.5"/><circle cx="46" cy="120" r="6.5"/><circle cx="67.7" cy="172.3" r="6.5"/><circle cx="120" cy="194" r="6.5"/></g><g transform="rotate(45 120 120)"><rect x="98" y="98" width="44" height="44" fill="#D9A511"/><rect x="110" y="110" width="20" height="20" fill="#0B1B2B"/></g><g font-family="Georgia,'Times New Roman',serif"><text x="180" y="151" font-size="88" font-weight="bold" fill="#0B1B2B" textLength="500" lengthAdjust="spacingAndGlyphs">STIEMFIELD</text><g stroke="#D9A511" stroke-width="2.5"><line x1="186" y1="181" x2="350" y2="181"/><line x1="510" y1="181" x2="674" y2="181"/></g><g fill="#D9A511"><rect x="175.5" y="176.5" width="9" height="9" transform="rotate(45 180 181)"/><rect x="345.5" y="176.5" width="9" height="9" transform="rotate(45 350 181)"/><rect x="505.5" y="176.5" width="9" height="9" transform="rotate(45 510 181)"/><rect x="675.5" y="176.5" width="9" height="9" transform="rotate(45 680 181)"/></g><rect x="356" y="171" width="148" height="20" fill="#FAF8F3"/><text x="430" y="188" font-size="19" font-weight="bold" fill="#D9A511" text-anchor="middle" letter-spacing="6">GLOBAL</text></g></g></svg>
+</div></header>
+
+<section class="hero"><div class="wrap">
+<h1>Transformation fails when five forces work in isolation.<br><em>We diagnose the isolation. We architect the convergence.</em></h1>
+<p class="sub">Stiemfield Global Convergence Ltd is a convergence diagnostics firm. We show leadership teams — with evidence, not opinion — why their digital, business and organisational transformations stall, and the exact sequence that closes the gap.</p>
+<a class="btn gold" href="#check">Take the free 10-minute Convergence Self-Check</a>
+</div></section>
+
+<section class="band"><div class="wrap">
+<h2>The <span class="gold">STIEM</span> Framework</h2>
+<p>Five forces govern every organisation. They are multiplicative — a near-zero force nullifies the rest. Our Convergence Map scores each force twice: its strength on its own terms, and how well it connects to the other four. Every score carries an Evidence Reliability rating.</p>
+<div class="forces">
+<div class="force"><b>S</b>Strategy — does it govern real decisions, or decorate a shelf?</div>
+<div class="force"><b>T</b>Technology — deployed, or actually integrated into management?</div>
+<div class="force"><b>I</b>Innovation — do pilots ever scale into operations?</div>
+<div class="force"><b>E</b>Execution — the measurable gap between decision and delivery</div>
+<div class="force"><b>M</b>Management — aligned leadership that builds lasting capacity</div>
+</div></div></section>
+
+<section class="sect"><div class="wrap">
+<h2>Three transformations. <span class="gold">One diagnostic.</span></h2>
+<div class="cols">
+<div class="card"><h3>Digital transformation</h3><p>Technology deployed but bypassed; systems that management never reorganised around. Our founding heritage: delivery leadership inside NITDA's federal digital-literacy programme (DL4ALL) — 500,000+ Nigerians trained.</p></div>
+<div class="card"><h3>Business transformation</h3><p>Strategy that dies between decision and delivery. The Strategy–Execution Gap is the most prevalent pattern in African private-sector organisations — and the most measurable.</p></div>
+<div class="card"><h3>Organisational transformation</h3><p>Restructures that change the chart and nothing else. Management alignment, governance quality and people systems, diagnosed with the same evidence rules as everything else.</p></div>
+</div></div></section>
+
+<section class="sect" style="padding-top:0"><div class="wrap">
+<h2>Ways to <span class="gold">engage</span></h2>
+<div class="cols">
+<div class="card"><h3>STIEM Snapshot</h3><div class="price">from $195 · 3–5 days</div><p>A scored five-force mini-diagnostic from a structured intake and one call. Your primary gap pattern, trajectory read, three priority moves — evidence-rated.</p></div>
+<div class="card"><h3>Fieldscan</h3><div class="price">from ₦1,500,000 · 4–8 weeks</div><p>The defining engagement. Stakeholder interviews across three levels, document analysis, and the Convergence Map — 40–60 pages, authored by the Founding Partner, owned by you in perpetuity.</p></div>
+<div class="card"><h3>Fieldforce &amp; Fieldpartner</h3><div class="price">by engagement</div><p>Implementation that closes the mapped gaps, and the embedded retainer — with the Monthly Convergence Pulse — that keeps convergence from drifting.</p></div>
+</div>
+<p class="quiet" style="margin-top:18px">Diagnosis first, always: implementation engagements require a Fieldscan within the prior twelve months. We hold a maximum of two concurrent Fieldscan engagements — quality is the constraint, deliberately.</p>
+</div></section>
+
+<section class="band"><div class="wrap">
+<h2>Automation &amp; <span class="gold">AI engineering</span></h2>
+<p style="max-width:720px">The Technology force, productised. We build the automation that runs your business while you sleep — and we run our own fully autonomous AI operation, so we automate the way we run the firm.</p>
+<div class="cols" style="margin-top:26px">
+<div class="card"><h3>Business Automation Audit</h3><div class="price">$49 · 3 days</div><p>A custom plan showing exactly what to automate first, in what order, with the tools and AI agents to use and the hours you'll save. Fee credited toward any build.</p></div>
+<div class="card"><h3>Automation build</h3><div class="price">from $300</div><p>AI agents and workflows that connect your tools (Gmail, Sheets, Slack, CRMs) via Zapier or custom Python — tested, documented, and fully yours.</p></div>
+<div class="card"><h3>Project management</h3><div class="price">by engagement</div><p>Certified delivery leadership — plans, tracking, stakeholder reporting — from a State Project Manager on NITDA's federal DL4ALL programme.</p></div>
+</div>
+<a class="btn gold" style="margin-top:28px" href="https://www.freelancer.com/u/terungwa01" target="_blank" rel="noopener">Start an automation project →</a>
+</div></section>
+
+<section class="sect" id="check" style="padding-top:24px"><div class="wrap">
+<h2>The Convergence <span class="gold">Self-Check</span></h2>
+<p>Ten questions, ten minutes. Answer honestly — the instrument only works on evidence. You receive your five-force profile immediately.</p>
+<div id="checkbox"><div id="quiz">
+<div id="qtext" class="q active"><p id="qp"></p><div class="scale">
+<button onclick="ans(1)">1</button><button onclick="ans(2)">2</button><button onclick="ans(3)">3</button><button onclick="ans(4)">4</button><button onclick="ans(5)">5</button>
+</div><p class="quiet" style="margin-top:8px">1 = not at all true of us · 5 = consistently true, with recent evidence</p></div>
+<div id="result">
+<h3 style="margin-bottom:16px">Your five-force profile</h3>
+<div id="bars"></div>
+<p id="verdict" style="margin:14px 0;font-size:1.1rem"></p>
+<a class="btn gold" id="mailcta" href="#">Send my profile to Stiemfield — book a scoping call</a>
+<p class="quiet" style="margin-top:10px">Your answers stay in your browser. The button opens an email with your scores — nothing is sent unless you send it.</p>
+</div></div></div>
+</div></section>
+
+<footer><div class="wrap">
+<p><b style="color:var(--ink)">STIEMFIELD GLOBAL CONVERGENCE LTD</b> — Global Convergence Firm, Rooted in Africa</p>
+<p>Founding Partner: Terungwa Paul Asar · <a href="mailto:terungwa@stiemfield.com">terungwa@stiemfield.com</a></p>
+<p style="margin-top:10px">Work with us:
+<a href="https://www.linkedin.com/in/terungwa-asar" target="_blank" rel="noopener">LinkedIn</a> ·
+<a href="https://www.freelancer.com/u/terungwa01" target="_blank" rel="noopener">Freelancer</a> ·
+<a href="mailto:terungwa@stiemfield.com">Email</a></p>
+<p class="quiet" style="margin-top:8px">Registered in Nigeria under the Companies and Allied Matters Act, 2020. We sell diagnosis, architecture and engineering — never investment advice.</p>
+</div></footer>
+
+<script>
+const QS=[["S","Our strategy visibly governed this quarter's spending and priorities."],
+["S","Leadership states the same top three priorities when asked separately."],
+["T","Our core technology serves the stated strategy, not just operations."],
+["T","Management reorganised around new systems rather than bypassing them."],
+["I","Something moved from pilot to scaled operation in the last 12 months."],
+["I","Ideas that fail are killed quickly and visibly."],
+["E","Decisions made 90 days ago are fully operational today."],
+["E","Most of last quarter's commitments shipped on time."],
+["M","Leadership is aligned on what the strategy actually is."],
+["M","We build capability that would outlast the current leaders."]];
+let i=0;const scores={S:0,T:0,I:0,E:0,M:0};
+function show(){document.getElementById('qp').textContent=(i+1)+" / 10 — "+QS[i][1];}
+function ans(v){scores[QS[i][0]]+=v;i++;if(i<QS.length){show();}else{done();}}
+function done(){
+document.getElementById('qtext').style.display='none';
+const names={S:"Strategy",T:"Technology",I:"Innovation",E:"Execution",M:"Management"};
+let bars="",low="",lowv=11,body="My Convergence Self-Check profile:%0D%0A";
+for(const f of ["S","T","I","E","M"]){const v=scores[f];
+bars+="<div><b>"+names[f]+"</b><div class='bar'><span style='width:"+(v*10)+"%'></span><b>"+v+"/10</b></div></div>";
+body+=names[f]+": "+v+"/10%0D%0A";
+if(v<lowv){lowv=v;low=names[f];}}
+document.getElementById('bars').innerHTML=bars;
+document.getElementById('verdict').innerHTML="Your weakest force is <b>"+low+"</b> ("+lowv+"/10). In our engagements, the score matters less than the connection: a strong force that stands alone produces nothing. A Fieldscan tests both dimensions — with evidence.";
+document.getElementById('mailcta').href="mailto:terungwa@stiemfield.com?subject=Convergence%20Self-Check%20—%20scoping%20call&body="+body+"%0D%0AWeakest force: "+low+"%0D%0A%0D%0AMy organisation: %0D%0AMy role: %0D%0APreferred call times: ";
+document.getElementById('result').style.display='block';}
+show();
+</script>
+</body>
+</html>
