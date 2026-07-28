@@ -60,9 +60,44 @@ header{padding:26px 0;border-bottom:1px solid #E5E0D5}
 .bar b{position:absolute;right:8px;top:2px;font-size:.9rem}
 footer{background:var(--soft);color:var(--ink);padding:44px 0;font-size:.95rem;border-top:2px solid var(--gold)}
 footer a{color:#9a7a12;text-decoration:none;font-weight:bold}
+/* top nav */
+.topnav{position:sticky;top:0;z-index:50;background:rgba(250,248,243,.94);backdrop-filter:blur(6px);border-bottom:1px solid #E5E0D5}
+.navwrap{display:flex;align-items:center;justify-content:space-between;padding:12px 24px}
+.navbrand{font-weight:bold;letter-spacing:2px;color:var(--ink);text-decoration:none;font-size:1.02rem}
+.navlinks{display:flex;gap:22px}
+.navlinks a{color:var(--grey);text-decoration:none;font-size:.97rem}
+.navlinks a:hover{color:var(--gold)}
+.navcta{color:var(--gold)!important;font-weight:bold}
+@media(max-width:720px){.navlinks{gap:14px;font-size:.9rem}.navlinks a:not(.navcta){display:none}}
+section[id]{scroll-margin-top:66px}
+/* process steps */
+.steps{display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:22px;margin-top:40px;counter-reset:step}
+.step{position:relative;padding:26px 24px 22px;border:1px solid var(--line);background:#fff}
+.step::before{counter-increment:step;content:counter(step);position:absolute;top:-17px;left:22px;width:34px;height:34px;background:var(--gold);color:var(--ink);font-weight:bold;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:1.05rem}
+.step h4{margin:6px 0 6px;font-size:1.15rem}
+.step p{color:var(--grey);font-size:.95rem;line-height:1.55}
+/* about founder */
+.about{display:grid;grid-template-columns:210px 1fr;gap:36px;align-items:start;margin-top:24px}
+.about img{width:210px;height:210px;object-fit:cover;border:3px solid var(--gold);box-shadow:0 8px 26px rgba(11,27,43,.12)}
+.about .role{color:var(--gold);font-weight:bold;margin:2px 0 14px;letter-spacing:.4px}
+.about ul{margin:14px 0 0;padding-left:20px;color:var(--grey)}
+.about li{margin-bottom:7px}
+@media(max-width:640px){.about{grid-template-columns:1fr;gap:22px}.about img{width:170px;height:170px}}
 </style>
 </head>
-<body>
+<body id="top">
+
+<nav class="topnav"><div class="navwrap">
+<a class="navbrand" href="#top">STIEMFIELD</a>
+<div class="navlinks">
+<a href="#framework">Framework</a>
+<a href="#process">How we work</a>
+<a href="#services">Services</a>
+<a href="#automation">Automation</a>
+<a href="#about">About</a>
+<a class="navcta" href="#check">Self-Check →</a>
+</div>
+</div></nav>
 
 <header><div class="wrap logo">
 <svg viewBox="70 58 662 182" xmlns="http://www.w3.org/2000/svg"><g transform="translate(40,30)"><path d="M120 46 A74 74 0 0 0 120 194" fill="none" stroke="#D9A511" stroke-width="3"/><g stroke="#0B1B2B" stroke-width="11" stroke-linecap="round"><line x1="120" y1="94" x2="120" y2="46"/><line x1="101.6" y1="101.6" x2="67.7" y2="67.7"/><line x1="94" y1="120" x2="46" y2="120"/><line x1="101.6" y1="138.4" x2="67.7" y2="172.3"/><line x1="120" y1="146" x2="120" y2="194"/></g><g fill="#0B1B2B"><circle cx="120" cy="46" r="6.5"/><circle cx="67.7" cy="67.7" r="6.5"/><circle cx="46" cy="120" r="6.5"/><circle cx="67.7" cy="172.3" r="6.5"/><circle cx="120" cy="194" r="6.5"/></g><g transform="rotate(45 120 120)"><rect x="98" y="98" width="44" height="44" fill="#D9A511"/><rect x="110" y="110" width="20" height="20" fill="#0B1B2B"/></g><g font-family="Georgia,'Times New Roman',serif"><text x="180" y="151" font-size="88" font-weight="bold" fill="#0B1B2B" textLength="500" lengthAdjust="spacingAndGlyphs">STIEMFIELD</text><g stroke="#D9A511" stroke-width="2.5"><line x1="186" y1="181" x2="284" y2="181"/><line x1="576" y1="181" x2="674" y2="181"/></g><g fill="#D9A511"><rect x="175.5" y="176.5" width="9" height="9" transform="rotate(45 180 181)"/><rect x="279.5" y="176.5" width="9" height="9" transform="rotate(45 284 181)"/><rect x="571.5" y="176.5" width="9" height="9" transform="rotate(45 576 181)"/><rect x="675.5" y="176.5" width="9" height="9" transform="rotate(45 680 181)"/></g><rect x="285" y="170" width="290" height="22" fill="#FAF8F3"/><text x="430" y="189" font-size="21" font-weight="bold" fill="#D9A511" text-anchor="middle" letter-spacing="1.5">GLOBAL CONVERGENCE</text></g></g></svg>
@@ -74,7 +109,7 @@ footer a{color:#9a7a12;text-decoration:none;font-weight:bold}
 <a class="btn gold" href="#check">Take the free 10-minute Convergence Self-Check</a>
 </div></section>
 
-<section class="band"><div class="wrap">
+<section class="band" id="framework"><div class="wrap">
 <h2>The <span class="gold">STIEM</span> Framework</h2>
 <p>Five forces govern every organisation. They are multiplicative — a near-zero force nullifies the rest. Our Convergence Map scores each force twice: its strength on its own terms, and how well it connects to the other four. Every score carries an Evidence Reliability rating.</p>
 <div class="forces">
@@ -93,7 +128,17 @@ footer a{color:#9a7a12;text-decoration:none;font-weight:bold}
 <div class="card"><h3>Organisational transformation</h3><p>Restructures that change the chart and nothing else. Management alignment, governance quality and people systems, diagnosed with the same evidence rules as everything else.</p></div>
 </div></div></section>
 
-<section class="sect" style="padding-top:0"><div class="wrap">
+<section class="sect" id="process" style="padding-top:0"><div class="wrap">
+<h2>How we <span class="gold">work</span></h2>
+<p>One disciplined sequence. Diagnosis always comes first — we never architect on opinion.</p>
+<div class="steps">
+<div class="step"><h4>Diagnose</h4><p>Structured intake, stakeholder interviews across three levels, and document analysis — evidence before conclusions.</p></div>
+<div class="step"><h4>Map</h4><p>The Convergence Map scores all five forces twice — strength on its own terms, and connection to the other four — each with an Evidence Reliability rating.</p></div>
+<div class="step"><h4>Architect</h4><p>The exact sequence that closes the gap: three-to-five priority moves, ordered, authored by the Founding Partner and owned by you in perpetuity.</p></div>
+<div class="step"><h4>Embed</h4><p>Implementation that closes the mapped gaps, plus the Monthly Convergence Pulse that keeps the gains from drifting back.</p></div>
+</div></div></section>
+
+<section class="sect" id="services" style="padding-top:0"><div class="wrap">
 <h2>Ways to <span class="gold">engage</span></h2>
 <div class="cols">
 <div class="card"><h3>STIEM Snapshot</h3><div class="price">from $195 · 3–5 days</div><p>A scored five-force mini-diagnostic from a structured intake and one call. Your primary gap pattern, trajectory read, three priority moves — evidence-rated.</p></div>
@@ -103,7 +148,7 @@ footer a{color:#9a7a12;text-decoration:none;font-weight:bold}
 <p class="quiet" style="margin-top:18px">Diagnosis first, always: implementation engagements require a Fieldscan within the prior twelve months. We hold a maximum of two concurrent Fieldscan engagements — quality is the constraint, deliberately.</p>
 </div></section>
 
-<section class="band"><div class="wrap">
+<section class="band" id="automation"><div class="wrap">
 <h2>Automation &amp; <span class="gold">AI engineering</span></h2>
 <p style="max-width:720px">The Technology force, productised. We build the automation that runs your business while you sleep — and we run our own fully autonomous AI operation, so we automate the way we run the firm.</p>
 <div class="cols" style="margin-top:26px">
@@ -113,6 +158,24 @@ footer a{color:#9a7a12;text-decoration:none;font-weight:bold}
 </div>
 <a class="btn gold" style="margin-top:28px" href="https://www.freelancer.com/u/terungwa01" target="_blank" rel="noopener">Start an automation project →</a>
 </div></section>
+
+<section class="sect" id="about" style="padding-top:0"><div class="wrap">
+<h2>The <span class="gold">Founding Partner</span></h2>
+<div class="about">
+<img src="/paul384.jpg" alt="Terungwa Paul Asar, Founding Partner of Stiemfield Global Convergence">
+<div>
+<p style="font-size:1.2rem"><b>Terungwa Paul Asar</b></p>
+<p class="role">Founding Partner · Author of the STIEM Framework</p>
+<p>Stiemfield is built on delivery, not theory. Paul led delivery as a State Project Manager on NITDA's federal <b>DL4ALL</b> digital-literacy programme — an effort that trained <b>500,000+ Nigerians</b> — where he saw first-hand why transformations stall: five forces managed in isolation. The STIEM Framework and the Convergence Map are his answer.</p>
+<ul>
+<li>Business, digital and organisational transformation consultant</li>
+<li>Certified project delivery leadership — plans, tracking, stakeholder reporting</li>
+<li>Builds and runs fully autonomous AI operations — the firm automates the way it runs itself</li>
+<li>Based in Nigeria · works with organisations internationally</li>
+</ul>
+<a class="btn gold" style="margin-top:22px" href="#check">See where your organisation stands →</a>
+</div>
+</div></div></section>
 
 <section class="sect" id="check" style="padding-top:24px"><div class="wrap">
 <h2>The Convergence <span class="gold">Self-Check</span></h2>
