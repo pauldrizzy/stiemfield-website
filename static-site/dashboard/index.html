@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>STIEMFIELD — Trading Operations</title>
+<meta name="description" content="Live operations dashboard for the Stiemfield autonomous trading agents.">
+<meta name="theme-color" content="#0B1B2B">
+<link rel="manifest" href="/dashboard/manifest.webmanifest">
+<link rel="icon" href="/favicon.png">
+<link rel="apple-touch-icon" href="/favicon.png">
+<style>
+:root{--ink:#0B1B2B;--ink2:#12283d;--card:#0f2135;--line:#1e3a52;--gold:#D9A511;--goldd:#b8890c;--paper:#eef2f6;--grey:#8ba0b4;--green:#37c48a;--red:#f0616d}
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Helvetica,Arial,sans-serif;background:radial-gradient(1200px 600px at 50% -10%,#12283d 0%,#0B1B2B 60%);color:var(--paper);min-height:100vh;-webkit-font-smoothing:antialiased;padding:0 0 40px;padding-top:env(safe-area-inset-top)}
+.wrap{max-width:1080px;margin:0 auto;padding:0 16px}
+header{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:20px 0 14px;flex-wrap:wrap}
+.brand{display:flex;align-items:center;gap:12px}
+.brand svg{height:38px;width:auto;flex:none}
+.brand .t{font-weight:700;letter-spacing:2px;font-size:1.05rem}
+.brand .s{color:var(--grey);font-size:.7rem;letter-spacing:2.5px;text-transform:uppercase}
+.status-pills{display:flex;gap:8px;align-items:center;flex-wrap:wrap}
+.pill{font-size:.72rem;font-weight:600;letter-spacing:.5px;padding:5px 11px;border-radius:999px;border:1px solid var(--line);color:var(--grey);white-space:nowrap}
+.pill.demo{color:var(--gold);border-color:rgba(217,165,17,.4);background:rgba(217,165,17,.08)}
+.pill.live{color:var(--green);border-color:rgba(55,196,138,.4)}
+.pill b{color:var(--paper)}
+.dot{display:inline-block;width:7px;height:7px;border-radius:50%;background:var(--green);margin-right:6px;box-shadow:0 0 0 0 rgba(55,196,138,.5);animation:pulse 2s infinite}
+@keyframes pulse{0%{box-shadow:0 0 0 0 rgba(55,196,138,.5)}70%{box-shadow:0 0 0 7px rgba(55,196,138,0)}100%{box-shadow:0 0 0 0 rgba(55,196,138,0)}}
+.kpis{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin:6px 0 18px}
+.kpi{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:16px 16px 15px}
+.kpi .l{color:var(--grey);font-size:.72rem;letter-spacing:.6px;text-transform:uppercase;margin-bottom:8px}
+.kpi .v{font-size:1.5rem;font-weight:700;font-variant-numeric:tabular-nums}
+.kpi .sub{font-size:.75rem;color:var(--grey);margin-top:3px}
+.pos{color:var(--green)}.neg{color:var(--red)}.mut{color:var(--grey)}
+.section-t{font-size:.8rem;letter-spacing:1.5px;text-transform:uppercase;color:var(--grey);margin:22px 4px 12px}
+.agents{display:grid;grid-template-columns:repeat(2,1fr);gap:14px}
+.agent{background:linear-gradient(180deg,#11263c,#0f2135);border:1px solid var(--line);border-radius:16px;padding:18px;position:relative;overflow:hidden}
+.agent::before{content:"";position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,var(--gold),transparent)}
+.agent .top{display:flex;align-items:center;justify-content:space-between;margin-bottom:14px}
+.agent .nm{font-weight:700;font-size:1.05rem}
+.agent .vn{color:var(--grey);font-size:.72rem;letter-spacing:.5px}
+.agent .badge{font-size:.66rem;font-weight:700;letter-spacing:.5px;padding:3px 8px;border-radius:6px;background:rgba(217,165,17,.12);color:var(--gold)}
+.agent .big{font-size:1.7rem;font-weight:700;font-variant-numeric:tabular-nums;line-height:1.1}
+.agent .biglbl{font-size:.72rem;color:var(--grey);margin-bottom:2px}
+.grid2{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:14px}
+.mini .ml{font-size:.68rem;color:var(--grey);text-transform:uppercase;letter-spacing:.5px}
+.mini .mv{font-size:1.02rem;font-weight:600;font-variant-numeric:tabular-nums;margin-top:2px}
+.wr{margin-top:14px}
+.wr .bar{height:7px;border-radius:4px;background:#1b3149;overflow:hidden;margin-top:6px}
+.wr .fill{height:100%;background:linear-gradient(90deg,var(--goldd),var(--gold))}
+.wd{margin-top:13px;padding-top:12px;border-top:1px solid var(--line);display:flex;justify-content:space-between;align-items:center;font-size:.82rem}
+.wd .a{color:var(--gold);font-weight:700;font-variant-numeric:tabular-nums}
+table{width:100%;border-collapse:collapse;background:var(--card);border:1px solid var(--line);border-radius:14px;overflow:hidden}
+th,td{text-align:left;padding:11px 14px;font-size:.85rem;font-variant-numeric:tabular-nums}
+th{color:var(--grey);font-size:.7rem;letter-spacing:.6px;text-transform:uppercase;border-bottom:1px solid var(--line);font-weight:600}
+tr+tr td{border-top:1px solid #16283b}
+.side{font-size:.68rem;font-weight:700;padding:2px 7px;border-radius:5px}
+.side.long{background:rgba(55,196,138,.14);color:var(--green)}
+.side.short{background:rgba(240,97,109,.14);color:var(--red)}
+.deskt{font-size:.66rem;color:var(--grey);letter-spacing:.5px}
+footer{color:var(--grey);font-size:.74rem;text-align:center;margin-top:26px;line-height:1.7}
+footer a{color:var(--goldd);text-decoration:none}
+.err{background:rgba(240,97,109,.1);border:1px solid rgba(240,97,109,.3);color:#ffb4ba;border-radius:12px;padding:14px;font-size:.85rem;margin:14px 0}
+@media(max-width:720px){.kpis{grid-template-columns:1fr 1fr}.agents{grid-template-columns:1fr}.brand .s{display:none}}
+</style>
+</head>
+<body>
+<div class="wrap">
+<header>
+  <div class="brand">
+    <svg viewBox="0 0 240 240" xmlns="http://www.w3.org/2000/svg"><path d="M120 46 A74 74 0 0 0 46 120 A74 74 0 0 0 120 194" fill="none" stroke="#D9A511" stroke-width="10"/><g stroke="#D9A511" stroke-width="12" stroke-linecap="round"><line x1="120" y1="94" x2="120" y2="46"/><line x1="101.6" y1="101.6" x2="67.7" y2="67.7"/><line x1="94" y1="120" x2="46" y2="120"/><line x1="101.6" y1="138.4" x2="67.7" y2="172.3"/><line x1="120" y1="146" x2="120" y2="194"/></g><g fill="#D9A511"><circle cx="120" cy="46" r="7"/><circle cx="67.7" cy="67.7" r="7"/><circle cx="46" cy="120" r="7"/><circle cx="67.7" cy="172.3" r="7"/><circle cx="120" cy="194" r="7"/></g><g transform="rotate(45 120 120)"><rect x="98" y="98" width="44" height="44" fill="#D9A511"/><rect x="110" y="110" width="20" height="20" fill="#0B1B2B"/></g></svg>
+    <div><div class="t">STIEMFIELD</div><div class="s">Trading Operations</div></div>
+  </div>
+  <div class="status-pills" id="pills"></div>
+</header>
+
+<div id="content"><div class="mut" style="padding:40px 0;text-align:center">Loading live operations…</div></div>
+
+<footer>
+  Autonomous multi-exchange trading agents · figures are realized, net of fees.<br>
+  Updated <span id="ago">—</span> · refreshes every 30s · <a href="/">stiemfield.com</a><br>
+  Operational telemetry only — not investment advice, not an offer.
+</footer>
+</div>
+
+<script>
+const $=(s,r=document)=>r.querySelector(s);
+const money=(v,sign=true)=>{const n=Number(v||0);const s=(n<0?'-':(sign&&n>0?'+':''));return s+'$'+Math.abs(n).toLocaleString('en-US',{minimumFractionDigits:2,maximumFractionDigits:2})};
+const cls=v=>Number(v)>0?'pos':(Number(v)<0?'neg':'mut');
+function ago(iso){const s=Math.max(0,(Date.now()-new Date(iso).getTime())/1000);if(s<60)return Math.round(s)+'s ago';if(s<3600)return Math.round(s/60)+'m ago';return Math.round(s/3600)+'h ago';}
+
+function render(d){
+  const paused=d.paused, breaker=d.breaker_tripped;
+  $('#pills').innerHTML=
+    `<span class="pill ${d.mode==='LIVE'?'live':'demo'}"><b>${d.mode||'DEMO'}</b></span>`+
+    `<span class="pill">${breaker?'🛑 breaker tripped':'<span class=dot></span>engine '+(paused?'PAUSED':'live')}</span>`;
+  const firmMonth=d.firm_month, firm=d.firm_net;
+  let html=`<div class="kpis">
+    <div class="kpi"><div class="l">Realized P&L · all-time</div><div class="v ${cls(firm)}">${money(firm)}</div><div class="sub">across both desks</div></div>
+    <div class="kpi"><div class="l">This month</div><div class="v ${cls(firmMonth)}">${money(firmMonth)}</div><div class="sub">withdraw 30% of profit</div></div>
+    <div class="kpi"><div class="l">Open positions</div><div class="v">${d.open_count}</div><div class="sub">${d.agents.length} desks active</div></div>
+    <div class="kpi"><div class="l">Circuit breaker</div><div class="v ${breaker?'neg':'pos'}" style="font-size:1.15rem;padding-top:6px">${breaker?'TRIPPED':'ARMED · OK'}</div><div class="sub">firm-wide safety net</div></div>
+  </div>`;
+  html+=`<div class="section-t">Desks</div><div class="agents">`;
+  for(const a of d.agents){
+    const wr=a.win_rate||0;
+    html+=`<div class="agent">
+      <div class="top"><div><div class="nm">${a.name}</div><div class="vn">${a.desk} · ${a.venue}</div></div><div class="badge">${a.trades} trades</div></div>
+      <div class="biglbl">Realized · all-time</div><div class="big ${cls(a.net)}">${money(a.net)}</div>
+      <div class="grid2">
+        <div class="mini"><div class="ml">Today</div><div class="mv ${cls(a.day_net)}">${money(a.day_net)} <span class=mut style="font-size:.7rem">${a.day_wl[0]}W/${a.day_wl[1]}L</span></div></div>
+        <div class="mini"><div class="ml">Month</div><div class="mv ${cls(a.month_net)}">${money(a.month_net)} <span class=mut style="font-size:.7rem">${a.month_wl[0]}W/${a.month_wl[1]}L</span></div></div>
+      </div>
+      <div class="wr"><div class="ml" style="font-size:.68rem;color:var(--grey);text-transform:uppercase;letter-spacing:.5px">Win rate ${wr}% <span class=mut>· trend-following (edge is winner size)</span></div><div class="bar"><div class="fill" style="width:${Math.min(100,wr*2.2)}%"></div></div></div>
+      <div class="wd"><span class="mut">Withdrawable at month-end</span><span class="a">${money(a.month_withdraw,false)}</span></div>
+    </div>`;
+  }
+  html+=`</div>`;
+  if(d.positions&&d.positions.length){
+    html+=`<div class="section-t">Open positions · ${d.positions.length}</div><table><thead><tr><th>Instrument</th><th>Desk</th><th>Side</th><th style="text-align:right">Entry</th></tr></thead><tbody>`;
+    for(const p of d.positions){
+      html+=`<tr><td><b>${p.symbol}</b></td><td class="deskt">${(p.desk||'').toUpperCase()}</td><td><span class="side ${p.side}">${(p.side||'').toUpperCase()}</span></td><td style="text-align:right">${p.entry}</td></tr>`;
+    }
+    html+=`</tbody></table>`;
+  }
+  $('#content').innerHTML=html;
+  $('#ago').textContent=ago(d.updated);
+  window.__last=d;
+}
+async function load(){
+  try{
+    const r=await fetch('/status.json?t='+Date.now(),{cache:'no-store'});
+    if(!r.ok)throw new Error('status '+r.status);
+    render(await r.json());
+  }catch(e){
+    if(window.__last){$('#ago').textContent=ago(window.__last.updated)+' (stale)';}
+    else $('#content').innerHTML='<div class="err">Live status is not reachable yet. The agents publish it every few minutes — this page will update automatically.</div>';
+  }
+}
+load();setInterval(load,30000);
+setInterval(()=>{if(window.__last)$('#ago').textContent=ago(window.__last.updated)},1000);
+if('serviceWorker' in navigator){navigator.serviceWorker.register('/dashboard/sw.js').catch(()=>{});}
+</script>
+</body>
+</html>

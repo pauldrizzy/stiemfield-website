@@ -1,0 +1,15 @@
+{
+  "name": "Stiemfield Trading Operations",
+  "short_name": "Stiemfield",
+  "description": "Live operations dashboard for the Stiemfield autonomous trading agents.",
+  "start_url": "/dashboard/?app=1",
+  "scope": "/dashboard/",
+  "display": "standalone",
+  "background_color": "#0B1B2B",
+  "theme_color": "#0B1B2B",
+  "orientation": "portrait-primary",
+  "icons": [
+    {"src": "/favicon.png", "sizes": "256x256", "type": "image/png", "purpose": "any"},
+    {"src": "/favicon.png", "sizes": "256x256", "type": "image/png", "purpose": "maskable"}
+  ]
+}
