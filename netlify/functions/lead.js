@@ -100,6 +100,62 @@ function internalEmailHtml(d) {
   </div>`;
 }
 
+// ---- No-API-key fallback: FormSubmit.co -------------------------------------
+// Sends the lead to the owner AND an autoresponse to the person who took the
+// Self-Check, with no API key and no account. Trade-off: the autoresponse is
+// plain text, not branded HTML. Requires ONE activation click the first time
+// (FormSubmit emails OWNER_EMAIL a confirmation link on the first submission).
+const OWNER_EMAIL_DEFAULT = "asarpaul8@gmail.com";
+
+function autoresponseText({ name, ci, band, weakest, gap, booking }) {
+  const lines = [];
+  lines.push(name ? `Hi ${String(name).split(" ")[0]},` : "Hi there,");
+  lines.push("");
+  lines.push("Thank you for completing the Convergence Self-Check. Here is your snapshot to keep.");
+  lines.push("");
+  if (ci) lines.push(`Convergence Index: ${ci}/100${band ? ` (${band})` : ""}`);
+  if (weakest) lines.push(`Weakest force: ${weakest}`);
+  if (gap) lines.push(`Gap pattern: ${gap}`);
+  lines.push("");
+  lines.push("In our work the score matters less than the connection: a strong force that stands alone produces nothing. Within one working day I'll send you a short, personal read on your weakest force - no obligation.");
+  lines.push("");
+  lines.push(`Book a scoping call: ${booking}`);
+  lines.push("");
+  lines.push("- Terungwa Paul Asar");
+  lines.push("Convergence Consultant & Founding Partner");
+  lines.push("Stiemfield Global Convergence Ltd | https://stiemfield.com");
+  return lines.join("\n");
+}
+
+async function sendViaFormSubmit(data, { ci, band, weakest, gap, booking, owner }) {
+  const payload = {
+    _subject: `New Convergence lead: ${data.name || data.email}${ci ? ` - CI ${ci}` : ""}`,
+    _template: "table",
+    _captcha: "false",
+    _autoresponse: autoresponseText({ name: data.name, ci, band, weakest, gap, booking }),
+    name: data.name || "",
+    email: String(data.email || "").trim(), // FormSubmit replies to this address
+    organisation: data.organisation || "",
+    role: data.role || "",
+    convergence_index: ci || "",
+    weakest_force: weakest || "",
+    gap_pattern: gap || "",
+    score_strategy: data.score_strategy || "",
+    score_technology: data.score_technology || "",
+    score_innovation: data.score_innovation || "",
+    score_execution: data.score_execution || "",
+    score_management: data.score_management || "",
+  };
+  const res = await fetch(`https://formsubmit.co/ajax/${encodeURIComponent(owner)}`, {
+    method: "POST",
+    headers: { "Content-Type": "application/json", Accept: "application/json" },
+    body: JSON.stringify(payload),
+  });
+  const text = await res.text();
+  if (!res.ok) throw new Error(`FormSubmit ${res.status}: ${text}`);
+  return text;
+}
+
 // Shared by this endpoint and the Netlify Forms event function.
 async function sendLeadEmails(data) {
   const to = String(data.email || "").trim();
@@ -108,8 +164,22 @@ async function sendLeadEmails(data) {
   }
   const apiKey = process.env.RESEND_API_KEY;
   if (!apiKey) {
-    console.log("lead: RESEND_API_KEY not set — nothing sent for", to);
-    return { ok: false, notConfigured: true, reason: "RESEND_API_KEY not set" };
+    // No key configured -> use the keyless path so auto-mailing still works.
+    const owner = process.env.NOTIFY_EMAIL || process.env.OWNER_EMAIL || OWNER_EMAIL_DEFAULT;
+    const ci = data.convergence_index;
+    try {
+      const raw = await sendViaFormSubmit(data, {
+        ci,
+        band: bandFor(ci).label,
+        weakest: data.weakest_force,
+        gap: data.gap_pattern,
+        booking: process.env.BOOKING_URL || "https://calendly.com/asarpaul8/30min",
+        owner,
+      });
+      return { ok: true, via: "formsubmit", sent: to, owner, note: "plain-text autoresponse; no API key used", raw: raw.slice(0, 300) };
+    } catch (err) {
+      return { ok: false, via: "formsubmit", error: String(err && err.message) };
+    }
   }
   const from = process.env.FROM_EMAIL || "Stiemfield Global Convergence <onboarding@resend.dev>";
   const booking = process.env.BOOKING_URL || "https://calendly.com/asarpaul8/30min";
@@ -138,7 +208,7 @@ async function sendLeadEmails(data) {
       }),
     });
   }
-  return { ok: true, sent: to, internalAlert: Boolean(notify) };
+  return { ok: true, via: "resend", sent: to, internalAlert: Boolean(notify) };
 }
 
 function parseBody(event) {
@@ -159,9 +229,11 @@ exports.handler = async (event) => {
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({
         ok: true, endpoint: "lead",
+        mode: process.env.RESEND_API_KEY ? "resend (branded HTML)" : "formsubmit (keyless, plain text)",
         resendConfigured: Boolean(process.env.RESEND_API_KEY),
         fromConfigured: Boolean(process.env.FROM_EMAIL),
         notifyConfigured: Boolean(process.env.NOTIFY_EMAIL),
+        ownerEmail: process.env.NOTIFY_EMAIL || process.env.OWNER_EMAIL || OWNER_EMAIL_DEFAULT,
       }),
     };
   }
