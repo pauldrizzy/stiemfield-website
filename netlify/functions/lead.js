@@ -127,8 +127,13 @@ function autoresponseText({ name, ci, band, weakest, gap, booking }) {
   return lines.join("\n");
 }
 
-async function sendViaFormSubmit(data, { ci, band, weakest, gap, booking, owner }) {
-  const payload = {
+// NOTE: FormSubmit sits behind a Cloudflare bot challenge and returns 403 to
+// server-to-server calls from Netlify's datacenter IPs. So we do NOT call it
+// here — we build the payload and hand it back to the page, which posts it from
+// the visitor's real browser (which passes the challenge). All wording stays
+// server-side so there is a single source of truth.
+function buildFormSubmitPayload(data, { ci, band, weakest, gap, booking }) {
+  return {
     _subject: `New Convergence lead: ${data.name || data.email}${ci ? ` - CI ${ci}` : ""}`,
     _template: "table",
     _captcha: "false",
@@ -146,14 +151,6 @@ async function sendViaFormSubmit(data, { ci, band, weakest, gap, booking, owner 
     score_execution: data.score_execution || "",
     score_management: data.score_management || "",
   };
-  const res = await fetch(`https://formsubmit.co/ajax/${encodeURIComponent(owner)}`, {
-    method: "POST",
-    headers: { "Content-Type": "application/json", Accept: "application/json" },
-    body: JSON.stringify(payload),
-  });
-  const text = await res.text();
-  if (!res.ok) throw new Error(`FormSubmit ${res.status}: ${text}`);
-  return text;
 }
 
 // Shared by this endpoint and the Netlify Forms event function.
@@ -164,22 +161,23 @@ async function sendLeadEmails(data) {
   }
   const apiKey = process.env.RESEND_API_KEY;
   if (!apiKey) {
-    // No key configured -> use the keyless path so auto-mailing still works.
+    // No key configured -> hand the browser a ready-to-post keyless payload.
     const owner = process.env.NOTIFY_EMAIL || process.env.OWNER_EMAIL || OWNER_EMAIL_DEFAULT;
     const ci = data.convergence_index;
-    try {
-      const raw = await sendViaFormSubmit(data, {
+    return {
+      ok: false,
+      notConfigured: true,
+      fallback: "formsubmit",
+      endpoint: `https://formsubmit.co/ajax/${encodeURIComponent(owner)}`,
+      payload: buildFormSubmitPayload(data, {
         ci,
         band: bandFor(ci).label,
         weakest: data.weakest_force,
         gap: data.gap_pattern,
         booking: process.env.BOOKING_URL || "https://calendly.com/asarpaul8/30min",
-        owner,
-      });
-      return { ok: true, via: "formsubmit", sent: to, owner, note: "plain-text autoresponse; no API key used", raw: raw.slice(0, 300) };
-    } catch (err) {
-      return { ok: false, via: "formsubmit", error: String(err && err.message) };
-    }
+      }),
+      note: "no API key set; the page posts this from the browser (FormSubmit blocks server-side calls)",
+    };
   }
   const from = process.env.FROM_EMAIL || "Stiemfield Global Convergence <onboarding@resend.dev>";
   const booking = process.env.BOOKING_URL || "https://calendly.com/asarpaul8/30min";

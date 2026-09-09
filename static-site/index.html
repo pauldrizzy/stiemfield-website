@@ -371,9 +371,19 @@ function sendLead(e){
  const body=new URLSearchParams(new FormData(form)).toString();
  const opts={method:"POST",headers:{"Content-Type":"application/x-www-form-urlencoded"},body:body};
  const done=()=>{form.hidden=true;const t=document.getElementById('leadthanks');t.hidden=false;t.scrollIntoView({behavior:'smooth'});};
- // Primary: our own endpoint — sends the auto-response; needs no Netlify Forms setup.
- fetch("/.netlify/functions/lead",opts).then(done).catch(done);
- // Secondary: archive in Netlify Forms if form detection is enabled. Failures are ignored.
+ // Primary: our own endpoint. If a Resend key is set it mails the branded reply.
+ // If not, it returns a ready keyless payload for us to post from the browser —
+ // FormSubmit blocks server-side calls behind a bot challenge, but allows real browsers.
+ fetch("/.netlify/functions/lead",opts)
+  .then(r=>r.json())
+  .then(res=>{
+    if(res&&res.fallback==="formsubmit"&&res.endpoint&&res.payload){
+      return fetch(res.endpoint,{method:"POST",headers:{"Content-Type":"application/json",Accept:"application/json"},body:JSON.stringify(res.payload)});
+    }
+  })
+  .catch(()=>{})
+  .then(done);
+ // Also archive in Netlify Forms if form detection is ever enabled. Failures ignored.
  fetch("/",opts).catch(()=>{});
  return false;
 }
