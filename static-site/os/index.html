@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>STIEM OS — The Operating System for Convergence</title>
+<meta name="description" content="STIEM OS turns Stiemfield's convergence method into working software: diagnose your five forces, map their convergence live, and watch a fully autonomous AI operation run in real time.">
+<link rel="canonical" href="https://stiemfield.com/os/">
+<link rel="icon" type="image/png" href="/favicon.png">
+<link rel="apple-touch-icon" href="/favicon.png">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://stiemfield.com/os/">
+<meta property="og:site_name" content="Stiemfield Global Convergence">
+<meta property="og:title" content="STIEM OS — The Operating System for Convergence">
+<meta property="og:description" content="Stiemfield's convergence method, as working software: diagnose, map, and operate the five forces.">
+<meta property="og:image" content="https://stiemfield.com/og-social.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="STIEM OS — The Operating System for Convergence">
+<meta name="twitter:description" content="Diagnose, map, and operate the five forces — Stiemfield's method as software.">
+<meta name="twitter:image" content="https://stiemfield.com/og-social.png">
+<style>
+:root{--ink:#0B1B2B;--gold:#D9A511;--paper:#FAF8F3;--soft:#F2ECDF;--line:#E4D9BE;--grey:#5B6672}
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:Georgia,'Times New Roman',serif;color:var(--ink);background:var(--paper);line-height:1.65}
+.wrap{max-width:1080px;margin:0 auto;padding:0 24px}
+a{color:inherit}
+/* nav */
+.topnav{position:sticky;top:0;z-index:50;background:rgba(11,27,43,.97);backdrop-filter:blur(6px);border-bottom:2px solid var(--gold)}
+.navwrap{display:flex;align-items:center;justify-content:space-between;padding:12px 24px}
+.navbrand{font-weight:bold;letter-spacing:2px;color:#fff;text-decoration:none;font-size:1.02rem}
+.navbrand b{color:var(--gold)}
+.navlinks{display:flex;gap:22px;align-items:center}
+.navlinks a{color:#D8DEE6;text-decoration:none;font-size:.97rem}
+.navlinks a:hover{color:var(--gold)}
+.navcta{color:var(--ink)!important;background:var(--gold);padding:8px 16px;font-weight:bold;border-radius:2px}
+@media(max-width:720px){.navlinks a:not(.navcta){display:none}}
+/* hero */
+.hero{background:var(--ink);color:#fff;padding:70px 0 64px;position:relative;overflow:hidden}
+.hero .eyebrow{display:inline-block;letter-spacing:3px;font-size:.8rem;font-weight:bold;color:var(--gold);text-transform:uppercase;margin-bottom:16px}
+.hero h1{font-size:clamp(2.1rem,5.2vw,3.5rem);line-height:1.12;max-width:860px}
+.hero h1 em{font-style:normal;color:var(--gold)}
+.hero p{margin:24px 0 0;font-size:1.2rem;color:#C7CED7;max-width:680px}
+.hero .live{display:inline-flex;align-items:center;gap:8px;margin-top:26px;font-size:.9rem;color:#C7CED7;letter-spacing:.5px}
+.dot{width:9px;height:9px;border-radius:50%;background:#37c46a;box-shadow:0 0 0 0 rgba(55,196,106,.7);animation:pulse 2s infinite}
+@keyframes pulse{0%{box-shadow:0 0 0 0 rgba(55,196,106,.6)}70%{box-shadow:0 0 0 10px rgba(55,196,106,0)}100%{box-shadow:0 0 0 0 rgba(55,196,106,0)}}
+.btn{display:inline-block;background:var(--gold);color:var(--ink);padding:14px 30px;text-decoration:none;font-weight:bold;letter-spacing:.4px;border:none;cursor:pointer;font-family:inherit;font-size:1.02rem}
+.btn.ghost{background:transparent;color:#fff;border:1px solid #46586b}
+.sect{padding:64px 0}
+.sect h2{font-size:1.9rem;margin-bottom:10px}
+.sect .gold{color:var(--gold)}
+.lead{color:var(--grey);max-width:720px;margin-bottom:8px}
+/* convergence map tool */
+.mapgrid{display:grid;grid-template-columns:minmax(300px,1fr) minmax(280px,420px);gap:34px;align-items:center;margin-top:30px;background:#fff;border:1px solid var(--line);box-shadow:0 8px 30px rgba(11,27,43,.06);padding:30px}
+@media(max-width:820px){.mapgrid{grid-template-columns:1fr}}
+#mapsvg{width:100%;height:auto;display:block}
+.ci-live{display:flex;align-items:baseline;gap:10px;margin-bottom:6px}
+.ci-live b{font-size:3rem;color:var(--ink);line-height:1}
+.ci-live small{color:var(--grey)}
+.ci-tag{display:inline-block;padding:3px 12px;color:#fff;font-weight:bold;font-size:.78rem;letter-spacing:1px;text-transform:uppercase;margin-bottom:14px}
+.sliders label{display:block;margin:12px 0 4px;font-weight:bold;font-size:.95rem}
+.sliders .row{display:flex;align-items:center;gap:12px}
+.sliders input[type=range]{flex:1;accent-color:var(--gold)}
+.sliders .val{width:26px;text-align:right;color:var(--gold);font-weight:bold}
+.insight{margin-top:16px;color:var(--grey);font-size:.97rem;border-top:1px solid var(--line);padding-top:14px}
+.insight b{color:var(--ink)}
+/* modules */
+.mods{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:22px;margin-top:30px}
+.mod{border:1px solid var(--line);background:#fff;padding:26px;display:flex;flex-direction:column}
+.mod .tag{font-size:.72rem;letter-spacing:1.5px;text-transform:uppercase;font-weight:bold;margin-bottom:10px}
+.mod .live-tag{color:#2E7D4F}
+.mod .soon-tag{color:var(--grey)}
+.mod h3{font-size:1.25rem;margin-bottom:8px}
+.mod p{color:var(--grey);font-size:.97rem;flex:1}
+.mod a.go{margin-top:16px;font-weight:bold;color:#9a7a12;text-decoration:none}
+.mod.disabled{opacity:.72;background:var(--soft)}
+.stiem-row{display:flex;gap:10px;flex-wrap:wrap;margin-top:26px}
+.stiem-chip{border:1px solid var(--line);background:#fff;padding:10px 16px;font-size:.9rem}
+.stiem-chip b{color:var(--gold);font-size:1.1rem;margin-right:6px}
+.band{background:var(--soft);border-top:2px solid var(--gold);border-bottom:2px solid var(--gold)}
+footer{background:var(--ink);color:#C7CED7;padding:40px 0;font-size:.92rem}
+footer a{color:var(--gold);text-decoration:none}
+footer .fnav{margin-bottom:10px}
+footer .fnav a{margin-right:18px}
+</style>
+</head>
+<body>
+
+<nav class="topnav"><div class="navwrap">
+<a class="navbrand" href="/">STIEM<b>·</b>OS</a>
+<div class="navlinks">
+<a href="/">Firm</a>
+<a href="/#framework">Framework</a>
+<a href="/#services">Services</a>
+<a href="/dashboard/">Live Ops</a>
+<a class="navcta" href="/#check">Run the Diagnostic →</a>
+</div>
+</div></nav>
+
+<section class="hero"><div class="wrap">
+<span class="eyebrow">STIEM OS · v1</span>
+<h1>Most firms hand you a report.<br><em>We hand you the operating system.</em></h1>
+<p>STIEM OS turns Stiemfield's convergence method into working software. Diagnose your five forces, map their convergence live, and watch a fully autonomous AI operation run in real time — the same discipline we run the firm on.</p>
+<div style="margin-top:30px;display:flex;gap:14px;flex-wrap:wrap">
+<a class="btn" href="#map">Open the Convergence Map ↓</a>
+<a class="btn ghost" href="/#check">Run the free Diagnostic</a>
+</div>
+<div class="live"><span class="dot"></span> A live autonomous AI trading operation is running inside this platform right now.</div>
+</div></section>
+
+<section class="sect" id="map"><div class="wrap">
+<h2>The Convergence <span class="gold">Map</span></h2>
+<p class="lead">Five forces govern every organisation — and they are <b>multiplicative</b>. A near-zero force nullifies the rest. Move the sliders: watch how a single weak force collapses your whole convergence, no matter how strong the others are.</p>
+<div class="mapgrid">
+<div><svg id="mapsvg" viewBox="0 0 400 380" role="img" aria-label="Interactive convergence radar of the five STIEM forces"></svg></div>
+<div>
+<div class="ci-live"><b id="ciVal">0</b><small>/ 100 Convergence Index</small></div>
+<span class="ci-tag" id="ciTag">—</span>
+<div class="sliders" id="sliders"></div>
+<p class="insight" id="insight"></p>
+</div>
+</div>
+<div class="stiem-row">
+<span class="stiem-chip"><b>S</b>Strategy</span>
+<span class="stiem-chip"><b>T</b>Technology</span>
+<span class="stiem-chip"><b>I</b>Innovation</span>
+<span class="stiem-chip"><b>E</b>Execution</span>
+<span class="stiem-chip"><b>M</b>Management</span>
+</div>
+<p class="lead" style="margin-top:24px">This is the framework in miniature. The full <a href="/#check" style="color:#9a7a12;font-weight:bold">Convergence Self-Check</a> scores your real organisation on evidence; a <a href="/#services" style="color:#9a7a12;font-weight:bold">Fieldscan</a> tests both dimensions — each force's strength <em>and</em> its connection to the other four.</p>
+</div></section>
+
+<section class="sect band"><div class="wrap">
+<h2>The <span class="gold">modules</span></h2>
+<p class="lead">STIEM OS ships as modules. Two are live today; the rest are on the roadmap. Every module runs the same convergence logic.</p>
+<div class="mods">
+<div class="mod"><div class="tag live-tag">● Live</div><h3>Convergence Diagnostic</h3><p>A ten-question instrument that returns your scored five-force profile, your Convergence Index, your gap pattern and three priority moves — instantly, in the browser.</p><a class="go" href="/#check">Run the Diagnostic →</a></div>
+<div class="mod"><div class="tag live-tag">● Live</div><h3>Convergence Map</h3><p>The interactive radar above. See, in real time, how imbalance between the five forces destroys convergence — the multiplicative thesis made visible.</p><a class="go" href="#map">Open the Map →</a></div>
+<div class="mod"><div class="tag live-tag">● Live</div><h3>Autonomous Operations</h3><p>A real, fully autonomous AI trading operation the firm runs — dashboards, digests and risk controls, live. Proof that we automate the way we run ourselves.</p><a class="go" href="/dashboard/">Open Live Ops →</a></div>
+<div class="mod disabled"><div class="tag soon-tag">○ On the roadmap</div><h3>Convergence Pulse</h3><p>A monthly tracker that re-scores your five forces and flags drift before it costs you — so the gains from an engagement never quietly reverse.</p><span class="go" style="color:var(--grey)">In development</span></div>
+<div class="mod disabled"><div class="tag soon-tag">○ On the roadmap</div><h3>The Playbook</h3><p>The productised Fieldscan method — the exact diagnostic sequence, delivered as a guided, standardised workflow.</p><span class="go" style="color:var(--grey)">In development</span></div>
+<div class="mod disabled"><div class="tag soon-tag">○ On the roadmap</div><h3>Automation Studio</h3><p>Commission the AI agents and workflows that run your business while you sleep — scoped from your diagnostic, built by Stiemfield.</p><span class="go" style="color:var(--grey)">In development</span></div>
+</div>
+</div></section>
+
+<section class="sect"><div class="wrap" style="text-align:center">
+<h2>See where your organisation <span class="gold">stands</span></h2>
+<p class="lead" style="margin:10px auto 24px">Start with the free diagnostic. Ten questions, ten minutes, an instant Convergence Report — and a founding-partner read on your weakest force.</p>
+<a class="btn" href="/#check">Run the Convergence Diagnostic →</a>
+</div></section>
+
+<footer><div class="wrap">
+<div class="fnav">
+<a href="/">Firm</a><a href="/#framework">Framework</a><a href="/#services">Services</a><a href="/dashboard/">Live Ops</a><a href="/#check">Diagnostic</a>
+</div>
+<p><b style="color:#fff">STIEMFIELD GLOBAL CONVERGENCE LTD</b> — STIEM OS · The operating system for convergence</p>
+<p style="margin-top:6px">Founding Partner: Terungwa Paul Asar · <a href="mailto:terungwa@stiemfield.com">terungwa@stiemfield.com</a></p>
+<p style="margin-top:8px;color:#8b96a3">We sell diagnosis, architecture and engineering — never investment advice.</p>
+</div></footer>
+
+<script>
+const FORCES=[["S","Strategy"],["T","Technology"],["I","Innovation"],["E","Execution"],["M","Management"]];
+const vals={S:8,T:5,I:6,E:3,M:7};
+const cx=200,cy=180,R=130;
+const svg=document.getElementById('mapsvg');
+const NS="http://www.w3.org/2000/svg";
+function ptxy(idx,frac){const ang=(-90+idx*72)*Math.PI/180;return [cx+frac*R*Math.cos(ang),cy+frac*R*Math.sin(ang)];}
+function polyStr(fracs){return fracs.map((f,i)=>ptxy(i,f).join(",")).join(" ");}
+function el(tag,attrs){const e=document.createElementNS(NS,tag);for(const k in attrs)e.setAttribute(k,attrs[k]);return e;}
+function build(){
+ svg.innerHTML="";
+ // grid rings
+ for(let r=1;r<=5;r++){const f=r/5;
+  svg.appendChild(el("polygon",{points:polyStr([f,f,f,f,f]),fill:"none",stroke:"#E4D9BE","stroke-width":1}));}
+ // axes + labels
+ FORCES.forEach(([k,name],i)=>{
+  const [x,y]=ptxy(i,1);
+  svg.appendChild(el("line",{x1:cx,y1:cy,x2:x,y2:y,stroke:"#E4D9BE","stroke-width":1}));
+  const [lx,ly]=ptxy(i,1.17);
+  const t=el("text",{x:lx,y:ly,"text-anchor":Math.abs(lx-cx)<6?"middle":(lx>cx?"start":"end"),"dominant-baseline":ly<cy-4?"auto":(ly>cy+4?"hanging":"middle"),"font-family":"Georgia,serif","font-size":13,"font-weight":"bold",fill:"#0B1B2B"});
+  t.textContent=k;
+  svg.appendChild(t);
+  const t2=el("text",{x:lx,y:ly+(ly>cy?14:14),"text-anchor":Math.abs(lx-cx)<6?"middle":(lx>cx?"start":"end"),"font-family":"Georgia,serif","font-size":9,fill:"#5B6672"});
+  t2.textContent=name;
+  if(Math.abs(ly-cy)>30) svg.appendChild(t2);
+ });
+ // convergence core (bounded by weakest force) — faint
+ svg.appendChild(el("polygon",{id:"corePoly",points:"",fill:"rgba(11,27,43,.06)",stroke:"#0B1B2B","stroke-width":1,"stroke-dasharray":"3 3"}));
+ // value polygon
+ svg.appendChild(el("polygon",{id:"valPoly",points:"",fill:"rgba(217,165,17,.28)",stroke:"#D9A511","stroke-width":2.5,"stroke-linejoin":"round"}));
+ // vertex dots
+ FORCES.forEach(([k],i)=>{svg.appendChild(el("circle",{id:"dot"+k,r:4,fill:"#0B1B2B"}));});
+}
+function update(){
+ const fracs=FORCES.map(([k])=>vals[k]/10);
+ document.getElementById('valPoly').setAttribute("points",polyStr(fracs));
+ const mn=Math.min(...FORCES.map(([k])=>vals[k]))/10;
+ document.getElementById('corePoly').setAttribute("points",polyStr([mn,mn,mn,mn,mn]));
+ FORCES.forEach(([k],i)=>{const [x,y]=ptxy(i,vals[k]/10);const d=document.getElementById("dot"+k);d.setAttribute("cx",x);d.setAttribute("cy",y);});
+ const prod=FORCES.reduce((a,[k])=>a*vals[k],1);
+ const ci=Math.round(Math.pow(prod,1/5)*10);
+ document.getElementById('ciVal').textContent=ci;
+ let band,color;
+ if(ci<40){band="Fragile";color="#B23A2E";}
+ else if(ci<60){band="Exposed";color="#C77D0A";}
+ else if(ci<80){band="Converging";color="#B8901B";}
+ else{band="Aligned";color="#2E7D4F";}
+ const tag=document.getElementById('ciTag');tag.textContent=band;tag.style.background=color;
+ let low=FORCES[0];FORCES.forEach(f=>{if(vals[f[0]]<vals[low[0]])low=f;});
+ const avg=FORCES.reduce((a,[k])=>a+vals[k],0)/5;
+ const drag=Math.round((avg*10)-ci);
+ document.getElementById('insight').innerHTML=
+   "Weakest force: <b>"+low[1]+"</b> ("+vals[low[0]]+"/10). Your forces average "+avg.toFixed(1)+"/10, but convergence scores only <b>"+ci+"</b> — the imbalance is costing you <b>"+drag+" points</b>. Raise the weakest force and watch the whole map expand.";
+}
+function makeSliders(){
+ const c=document.getElementById('sliders');
+ FORCES.forEach(([k,name])=>{
+  const wrap=document.createElement('div');
+  wrap.innerHTML="<label>"+name+"</label><div class='row'><input type='range' min='0' max='10' step='1' value='"+vals[k]+"' data-f='"+k+"'><span class='val' id='v"+k+"'>"+vals[k]+"</span></div>";
+  c.appendChild(wrap);
+ });
+ c.addEventListener('input',e=>{const k=e.target.getAttribute('data-f');if(!k)return;vals[k]=+e.target.value;document.getElementById('v'+k).textContent=vals[k];update();});
+}
+build();makeSliders();update();
+</script>
+</body>
+</html>
