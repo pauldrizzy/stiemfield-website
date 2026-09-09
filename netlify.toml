@@ -7,6 +7,12 @@ publish = "static-site"
 [build.environment]
 NODE_VERSION = "20"
 
+# Event-triggered function that auto-responds to Convergence Self-Check leads.
+# Zero external deps (uses built-in fetch); no-ops until RESEND_API_KEY is set.
+[functions]
+directory = "netlify/functions"
+node_bundler = "esbuild"
+
 # Security & performance headers
 [[headers]]
 for = "/*"
