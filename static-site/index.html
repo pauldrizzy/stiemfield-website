@@ -369,9 +369,12 @@ function sendLead(e){
  e.preventDefault();
  const form=e.target;
  const body=new URLSearchParams(new FormData(form)).toString();
- fetch("/",{method:"POST",headers:{"Content-Type":"application/x-www-form-urlencoded"},body:body})
-  .then(()=>{form.hidden=true;const t=document.getElementById('leadthanks');t.hidden=false;t.scrollIntoView({behavior:'smooth'});})
-  .catch(()=>{form.hidden=true;document.getElementById('leadthanks').hidden=false;});
+ const opts={method:"POST",headers:{"Content-Type":"application/x-www-form-urlencoded"},body:body};
+ const done=()=>{form.hidden=true;const t=document.getElementById('leadthanks');t.hidden=false;t.scrollIntoView({behavior:'smooth'});};
+ // Primary: our own endpoint — sends the auto-response; needs no Netlify Forms setup.
+ fetch("/.netlify/functions/lead",opts).then(done).catch(done);
+ // Secondary: archive in Netlify Forms if form detection is enabled. Failures are ignored.
+ fetch("/",opts).catch(()=>{});
  return false;
 }
 show();
