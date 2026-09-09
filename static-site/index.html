@@ -34,8 +34,10 @@ header{padding:26px 0;border-bottom:1px solid #E5E0D5}
 .hero .eyebrow{display:inline-block;letter-spacing:3px;font-size:.82rem;font-weight:bold;color:var(--gold);text-transform:uppercase;margin-bottom:18px}
 .hero p.sub{margin:26px 0 34px;font-size:1.2rem;color:var(--grey);max-width:700px}
 .hero p.sub b{color:var(--ink)}
-.btn{display:inline-block;background:var(--ink);color:#fff;padding:15px 34px;text-decoration:none;font-size:1.05rem;letter-spacing:.5px;border:none;cursor:pointer}
+.btn{display:inline-block;background:var(--ink);color:#fff;padding:15px 34px;text-decoration:none;font-size:1.05rem;letter-spacing:.5px;border:none;cursor:pointer;font-family:inherit}
 .btn.gold{background:var(--gold);color:var(--ink);font-weight:bold}
+/* keep gold buttons readable even inside .band/.sect (which colour .gold spans gold) */
+a.btn.gold,button.btn.gold{color:var(--ink)}
 .band{background:var(--soft);color:var(--ink);padding:64px 0;border-top:2px solid var(--gold);border-bottom:2px solid var(--gold)}
 .band h2,.sect h2{font-size:1.9rem;margin-bottom:14px}
 .band .gold,.sect .gold{color:var(--gold)}
@@ -60,6 +62,37 @@ header{padding:26px 0;border-bottom:1px solid #E5E0D5}
 .bar{background:#EEE9DD;height:26px;margin:8px 0 18px;position:relative}
 .bar span{position:absolute;left:0;top:0;bottom:0;background:var(--ink)}
 .bar b{position:absolute;right:8px;top:2px;font-size:.9rem}
+/* ---- Self-Check engine ---- */
+#qcount{font-size:.85rem;color:var(--grey);letter-spacing:1.5px;margin-bottom:10px;text-transform:uppercase}
+#qprogress{height:8px;background:#EEE9DD;border:1px solid var(--line);margin:0 0 22px;overflow:hidden}
+#qprogress span{display:block;height:100%;background:var(--gold);width:0%;transition:width .35s ease}
+.report-ci{display:flex;align-items:center;gap:28px;flex-wrap:wrap;border:2px solid var(--ink);background:#fff;padding:26px 28px;margin-bottom:24px}
+.ci-dial{text-align:center;min-width:150px}
+.ci-num{font-size:3.6rem;font-weight:bold;line-height:1;color:var(--ink)}
+.ci-num small{font-size:1.05rem;color:var(--grey);font-weight:normal}
+.ci-band{display:inline-block;margin-top:10px;padding:4px 15px;font-weight:bold;letter-spacing:1px;font-size:.82rem;text-transform:uppercase;color:#fff}
+.ci-copy{flex:1;min-width:240px}
+.ci-copy h3{margin-bottom:6px;font-size:1.35rem}
+.report-cols{display:grid;grid-template-columns:1fr 1fr;gap:24px;margin-top:24px}
+@media(max-width:640px){.report-cols{grid-template-columns:1fr}}
+.report-card{border:1px solid var(--line);background:#fff;padding:22px}
+.report-card h4{color:var(--gold);letter-spacing:.5px;margin-bottom:8px;font-size:.9rem;text-transform:uppercase}
+.moves{margin:8px 0 0;padding-left:20px}
+.moves li{margin-bottom:9px;line-height:1.55}
+.leadbox{border:2px solid var(--gold);background:var(--soft);padding:28px;margin-top:28px}
+.leadbox h3{font-size:1.3rem;margin-bottom:6px}
+.leadfields{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin:16px 0 4px}
+@media(max-width:560px){.leadfields{grid-template-columns:1fr}}
+.leadfields input{padding:13px 14px;border:1px solid var(--line);font-family:inherit;font-size:1rem;background:#fff;width:100%}
+.leadfields input:focus{outline:2px solid var(--gold);border-color:var(--gold)}
+.report-actions{display:flex;gap:16px;flex-wrap:wrap;margin-top:16px;align-items:center}
+.hp{position:absolute!important;left:-9999px}
+@media print{
+ .topnav,header,footer,#qintro,#qcard,#qprogress,#qcount,.leadbox,.report-actions,.btn{display:none!important}
+ body{background:#fff}
+ .band,.sect{padding:0;border:none}
+ .report-ci,.report-card{break-inside:avoid}
+}
 footer{background:var(--soft);color:var(--ink);padding:44px 0;font-size:.95rem;border-top:2px solid var(--gold)}
 footer a{color:#9a7a12;text-decoration:none;font-weight:bold}
 /* top nav */
@@ -157,7 +190,6 @@ section[id]{scroll-margin-top:66px}
 <div class="cols" style="margin-top:26px">
 <div class="card"><h3>Business Automation Audit</h3><div class="price">$49 · 3 days</div><p>A custom plan showing exactly what to automate first, in what order, with the tools and AI agents to use and the hours you'll save. Fee credited toward any build.</p></div>
 <div class="card"><h3>Automation build</h3><div class="price">from $300</div><p>AI agents and workflows that connect your tools (Gmail, Sheets, Slack, CRMs) via Zapier or custom Python — tested, documented, and fully yours.</p></div>
-<div class="card"><h3>Project management</h3><div class="price">by engagement</div><p>Certified delivery leadership — plans, tracking, stakeholder reporting — from a State Project Manager on NITDA's federal DL4ALL programme.</p></div>
 </div>
 <a class="btn gold" style="margin-top:28px" href="https://www.freelancer.com/u/terungwa01" target="_blank" rel="noopener">Start an automation project →</a>
 </div></section>
@@ -172,6 +204,7 @@ section[id]{scroll-margin-top:66px}
 <p>Stiemfield is built on delivery, not theory. Paul led delivery as a State Project Manager on NITDA's federal <b>DL4ALL</b> digital-literacy programme — an effort that trained <b>500,000+ Nigerians</b> — where he saw first-hand why transformations stall: five forces managed in isolation. The STIEM Framework and the Convergence Map are his answer.</p>
 <ul>
 <li>Business, digital and organisational transformation consultant</li>
+<li>MBA in Management Information Systems (in progress) — Nasarawa State University (NSUK)</li>
 <li>Certified project delivery leadership — plans, tracking, stakeholder reporting</li>
 <li>Builds and runs fully autonomous AI operations — the firm automates the way it runs itself</li>
 <li>Based in Nigeria · works with organisations internationally</li>
@@ -182,18 +215,66 @@ section[id]{scroll-margin-top:66px}
 
 <section class="sect" id="check" style="padding-top:24px"><div class="wrap">
 <h2>The Convergence <span class="gold">Self-Check</span></h2>
-<p>Ten questions, ten minutes. Answer honestly — the instrument only works on evidence. You receive your five-force profile immediately.</p>
-<div id="checkbox"><div id="quiz">
-<div id="qtext" class="q active"><p id="qp"></p><div class="scale">
-<button onclick="ans(1)">1</button><button onclick="ans(2)">2</button><button onclick="ans(3)">3</button><button onclick="ans(4)">4</button><button onclick="ans(5)">5</button>
-</div><p class="quiet" style="margin-top:8px">1 = not at all true of us · 5 = consistently true, with recent evidence</p></div>
-<div id="result">
-<h3 style="margin-bottom:16px">Your five-force profile</h3>
+<p id="qintro">Ten questions, ten minutes. Answer honestly — the instrument only works on evidence. Your scored Convergence Report appears the moment you finish.</p>
+<div id="check-engine">
+<div id="qcount">Question <span id="qnow">1</span> of 10</div>
+<div id="qprogress"><span id="qbar"></span></div>
+<div id="qcard" class="q active">
+<p id="qp" style="font-size:1.2rem;margin-bottom:16px"></p>
+<div class="scale">
+<button type="button" onclick="ans(1)">1</button><button type="button" onclick="ans(2)">2</button><button type="button" onclick="ans(3)">3</button><button type="button" onclick="ans(4)">4</button><button type="button" onclick="ans(5)">5</button>
+</div>
+<p class="quiet" style="margin-top:8px">1 = not at all true of us · 5 = consistently true, with recent evidence</p>
+<p style="margin-top:8px"><a href="#" id="qback" onclick="back(event)" style="color:#9a7a12;font-weight:bold;display:none">← previous</a></p>
+</div>
+
+<div id="report" hidden>
+<div class="report-ci">
+<div class="ci-dial"><div class="ci-num"><span id="ciNum">0</span><small>/100</small></div><span class="ci-band" id="ciBand">—</span></div>
+<div class="ci-copy"><h3>Your Convergence Index</h3><p id="ciText" class="quiet"></p></div>
+</div>
 <div id="bars"></div>
-<p id="verdict" style="margin:14px 0;font-size:1.1rem"></p>
-<a class="btn gold" id="mailcta" href="#">Send my profile to Stiemfield — book a scoping call</a>
-<p class="quiet" style="margin-top:10px">Your answers stay in your browser. The button opens an email with your scores — nothing is sent unless you send it.</p>
-</div></div></div>
+<div class="report-cols">
+<div class="report-card"><h4>Your weakest force</h4><p id="weakLine" style="font-size:1.1rem"></p><p id="weakDesc" class="quiet" style="margin-top:8px"></p></div>
+<div class="report-card"><h4>Your gap pattern</h4><p id="gapLine" style="font-size:1.1rem"></p><p id="gapDesc" class="quiet" style="margin-top:8px"></p></div>
+</div>
+<div class="report-card" style="margin-top:24px"><h4>Three priority moves</h4><ol class="moves" id="moves"></ol>
+<p class="quiet" style="margin-top:12px">This is the STIEM Snapshot logic in miniature. A Fieldscan tests both dimensions — each force's strength <em>and</em> its connection to the other four — with evidence, across your leadership team.</p></div>
+
+<form class="leadbox" id="leadform" name="convergence-selfcheck" method="POST" data-netlify="true" netlify-honeypot="bot-field" onsubmit="return sendLead(event)">
+<input type="hidden" name="form-name" value="convergence-selfcheck">
+<p class="hp"><label>Leave blank: <input name="bot-field"></label></p>
+<h3>Get your report + a founding-partner read</h3>
+<p class="quiet">We'll send this profile to the Founding Partner. You'll get a short, personal read on your weakest force and a scoping-call option — usually within one working day.</p>
+<div class="leadfields">
+<input type="text" name="name" placeholder="Your name" required>
+<input type="email" name="email" placeholder="Work email" required>
+<input type="text" name="organisation" placeholder="Organisation" required>
+<input type="text" name="role" placeholder="Your role (optional)">
+</div>
+<input type="hidden" name="convergence_index" id="f_ci">
+<input type="hidden" name="weakest_force" id="f_weak">
+<input type="hidden" name="gap_pattern" id="f_gap">
+<input type="hidden" name="score_strategy" id="f_S">
+<input type="hidden" name="score_technology" id="f_T">
+<input type="hidden" name="score_innovation" id="f_I">
+<input type="hidden" name="score_execution" id="f_E">
+<input type="hidden" name="score_management" id="f_M">
+<div class="report-actions">
+<button type="submit" class="btn gold">Send my report &amp; request a read →</button>
+<a href="#" onclick="printReport(event)" style="color:#9a7a12;font-weight:bold">Download PDF</a>
+</div>
+</form>
+
+<div id="leadthanks" hidden><div class="leadbox">
+<h3>Sent — thank you.</h3>
+<p>Your Convergence profile is with the Founding Partner. Expect a short, personal read on your weakest force, usually within one working day.</p>
+<div class="report-actions">
+<a class="btn gold" href="https://calendly.com/asarpaul8/30min" target="_blank" rel="noopener">Book a scoping call now →</a>
+<a href="#" onclick="printReport(event)" style="color:#9a7a12;font-weight:bold">Download PDF</a>
+</div>
+</div></div>
+</div></div>
 </div></section>
 
 <footer><div class="wrap">
@@ -217,21 +298,80 @@ const QS=[["S","Our strategy visibly governed this quarter's spending and priori
 ["E","Most of last quarter's commitments shipped on time."],
 ["M","Leadership is aligned on what the strategy actually is."],
 ["M","We build capability that would outlast the current leaders."]];
-let i=0;const scores={S:0,T:0,I:0,E:0,M:0};
-function show(){document.getElementById('qp').textContent=(i+1)+" / 10 — "+QS[i][1];}
-function ans(v){scores[QS[i][0]]+=v;i++;if(i<QS.length){show();}else{done();}}
+const NAMES={S:"Strategy",T:"Technology",I:"Innovation",E:"Execution",M:"Management"};
+const DESC={
+ S:"Strategy isn't governing real decisions. Under pressure priorities blur and spend drifts from stated intent — the plan decorates a shelf instead of steering the quarter.",
+ T:"Technology is deployed but bypassed. Systems exist that management never reorganised around, so the tools serve operations without ever serving the strategy.",
+ I:"Innovation stalls before it scales. Pilots don't cross into operations, and failing ideas linger instead of being killed quickly and visibly.",
+ E:"Execution is where the value leaks. The gap between decision and delivery is wide — 90-day-old decisions still aren't live, and commitments slip.",
+ M:"Management alignment is thin. Leaders don't hold the same strategy, and the organisation isn't building capability that outlasts the current team."};
+const MOVES={
+ S:["Re-anchor this quarter's budget to your top three priorities — cut or defer whatever doesn't serve them.","Run a one-page strategy test: can each leader independently name the same three priorities?","Put a single owner and a clear decision-right on each priority, so strategy governs spend."],
+ T:["Map every core system to the strategic outcome it is meant to serve; flag the ones being bypassed.","Reorganise one management process around the system instead of working around it.","Retire your biggest shadow workaround and move that work onto the system of record."],
+ I:["Choose one stalled pilot and define its path to scale — owner, budget, and a single success metric.","Install a visible kill-rule so failing experiments end fast and free up capacity.","Move one proven pilot into standard operations before the quarter closes."],
+ E:["Audit decisions made 90 days ago: how many are fully operational today? Make the list public.","Install one delivery cadence with weekly commitment tracking and named owners.","Cut work-in-progress — finish fewer things fully rather than starting more."],
+ M:["Have each leader write the strategy independently, then reconcile the differences in one session.","Name the capability that must outlast the current leaders — and assign who builds it.","Close your single biggest alignment gap with a facilitated decision, not another memo."]};
+const GAPS={
+ "S,E":["The Strategy–Execution Gap","Strategy and Execution are your weakest pair — the most common and most costly convergence break. Good intentions don't survive the trip to delivery."],
+ "T,M":["The Technology–Management Gap","Technology and Management are your weakest link — systems get bought but leadership never reorganises around them, so the investment never converts."],
+ "I,E":["The Innovation–Execution Gap","Innovation and Execution lag together — ideas start but don't ship, and the pipeline clogs with unfinished pilots."],
+ "S,M":["The Alignment Gap","Strategy and Management are weakest — leaders aren't holding the same plan, so nothing downstream can converge."],
+ "T,I":["The Digital Stall","Technology and Innovation lag — you have systems, but they aren't compounding into new capability."]};
+let i=0, answers=[];
+function show(){
+ document.getElementById('qp').textContent=QS[i][1];
+ document.getElementById('qnow').textContent=(i+1);
+ document.getElementById('qbar').style.width=(i/QS.length*100)+"%";
+ document.getElementById('qback').style.display=i>0?"inline":"none";
+}
+function ans(v){answers[i]=v;i++;if(i<QS.length){show();}else{done();}}
+function back(e){e.preventDefault();if(i>0){i--;show();}}
 function done(){
-document.getElementById('qtext').style.display='none';
-const names={S:"Strategy",T:"Technology",I:"Innovation",E:"Execution",M:"Management"};
-let bars="",low="",lowv=11,body="My Convergence Self-Check profile:%0D%0A";
-for(const f of ["S","T","I","E","M"]){const v=scores[f];
-bars+="<div><b>"+names[f]+"</b><div class='bar'><span style='width:"+(v*10)+"%'></span><b>"+v+"/10</b></div></div>";
-body+=names[f]+": "+v+"/10%0D%0A";
-if(v<lowv){lowv=v;low=names[f];}}
-document.getElementById('bars').innerHTML=bars;
-document.getElementById('verdict').innerHTML="Your weakest force is <b>"+low+"</b> ("+lowv+"/10). In our engagements, the score matters less than the connection: a strong force that stands alone produces nothing. A Fieldscan tests both dimensions — with evidence.";
-document.getElementById('mailcta').href="mailto:terungwa@stiemfield.com?subject=Convergence%20Self-Check%20—%20scoping%20call&body="+body+"%0D%0AWeakest force: "+low+"%0D%0A%0D%0AMy organisation: %0D%0AMy role: %0D%0APreferred call times: ";
-document.getElementById('result').style.display='block';}
+ const s={S:0,T:0,I:0,E:0,M:0};
+ QS.forEach((q,idx)=>{s[q[0]]+=answers[idx];});
+ const order=["S","T","I","E","M"];
+ let bars="";
+ order.forEach(f=>{const v=s[f];
+  bars+="<div style='margin:10px 0'><b>"+NAMES[f]+"</b><div class='bar'><span style='width:"+(v*10)+"%'></span><b>"+v+"/10</b></div></div>";});
+ document.getElementById('bars').innerHTML=bars;
+ // Convergence Index = geometric mean (forces are multiplicative: a weak one drags the rest)
+ const prod=order.reduce((a,f)=>a*s[f],1);
+ const ci=Math.round(Math.pow(prod,1/5)*10);
+ document.getElementById('ciNum').textContent=ci;
+ let band,color,txt;
+ if(ci<40){band="Fragile";color="#B23A2E";txt="At least one force is near-zero and dragging the rest down. On our thesis forces are multiplicative — this is exactly where transformations quietly fail.";}
+ else if(ci<60){band="Exposed";color="#C77D0A";txt="You have real strengths, but an imbalance is leaking most of their value. Convergence — not more effort — is the unlock.";}
+ else if(ci<80){band="Converging";color="#B8901B";txt="The forces are starting to work together. Closing your weakest link would compound the strengths you already have.";}
+ else{band="Aligned";color="#2E7D4F";txt="Strong, balanced convergence. The work now is protecting it from drift as you scale.";}
+ const be=document.getElementById('ciBand');be.textContent=band;be.style.background=color;
+ document.getElementById('ciText').textContent=txt;
+ let low=order[0];order.forEach(f=>{if(s[f]<s[low])low=f;});
+ document.getElementById('weakLine').innerHTML="<b>"+NAMES[low]+"</b> — "+s[low]+"/10";
+ document.getElementById('weakDesc').textContent=DESC[low];
+ const sorted=order.slice().sort((a,b)=>s[a]-s[b]);
+ const two=[sorted[0],sorted[1]].sort((a,b)=>order.indexOf(a)-order.indexOf(b));
+ const gap=GAPS[two[0]+","+two[1]]||["The "+NAMES[two[0]]+"–"+NAMES[two[1]]+" Gap","Your two weakest forces are "+NAMES[two[0]]+" and "+NAMES[two[1]]+" — where a strong force stands alone it produces nothing. The connection is the constraint."];
+ document.getElementById('gapLine').innerHTML="<b>"+gap[0]+"</b>";
+ document.getElementById('gapDesc').textContent=gap[1];
+ document.getElementById('moves').innerHTML=MOVES[low].map(m=>"<li>"+m+"</li>").join("");
+ document.getElementById('f_ci').value=ci;
+ document.getElementById('f_weak').value=NAMES[low];
+ document.getElementById('f_gap').value=gap[0];
+ order.forEach(f=>{document.getElementById('f_'+f).value=s[f];});
+ ['qcard','qcount','qprogress','qintro'].forEach(id=>{document.getElementById(id).hidden=true;});
+ document.getElementById('report').hidden=false;
+ document.getElementById('report').scrollIntoView({behavior:'smooth'});
+}
+function printReport(e){e.preventDefault();window.print();}
+function sendLead(e){
+ e.preventDefault();
+ const form=e.target;
+ const body=new URLSearchParams(new FormData(form)).toString();
+ fetch("/",{method:"POST",headers:{"Content-Type":"application/x-www-form-urlencoded"},body:body})
+  .then(()=>{form.hidden=true;const t=document.getElementById('leadthanks');t.hidden=false;t.scrollIntoView({behavior:'smooth'});})
+  .catch(()=>{form.hidden=true;document.getElementById('leadthanks').hidden=false;});
+ return false;
+}
 show();
 </script>
 </body>
