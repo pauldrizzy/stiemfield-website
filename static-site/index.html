@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Stiemfield — Global Convergence Consultancy, Rooted in Africa</title>
-<meta name="description" content="Stiemfield is a convergence consultancy. Through Convergence Management, we diagnose why digital, business and organisational transformations fail — five forces, evidence-rated — and architect the sequence that closes the gap. Take the free 10-minute Convergence Self-Check.">
+<meta name="description" content="Stiemfield is a management and digital transformation consultancy in Nigeria, built on convergence. We diagnose why digital transformation, business transformation and organisational change stall — across strategy, technology, innovation, execution and management — and architect the sequence that closes the gap. Free 10-minute Convergence Self-Check.">
 <link rel="canonical" href="https://stiemfield.com/">
 <link rel="icon" type="image/png" href="/favicon.png">
 <link rel="apple-touch-icon" href="/favicon.png">
@@ -369,19 +369,9 @@ function sendLead(e){
  const body=new URLSearchParams(new FormData(form)).toString();
  const opts={method:"POST",headers:{"Content-Type":"application/x-www-form-urlencoded"},body:body};
  const done=()=>{form.hidden=true;const t=document.getElementById('leadthanks');t.hidden=false;t.scrollIntoView({behavior:'smooth'});};
- // Primary: our own endpoint. If a Resend key is set it mails the branded reply.
- // If not, it returns a ready keyless payload for us to post from the browser —
- // FormSubmit blocks server-side calls behind a bot challenge, but allows real browsers.
- fetch("/.netlify/functions/lead",opts)
-  .then(r=>r.json())
-  .then(res=>{
-    if(res&&res.fallback==="formsubmit"&&res.endpoint&&res.payload){
-      return fetch(res.endpoint,{method:"POST",headers:{"Content-Type":"application/json",Accept:"application/json"},body:JSON.stringify(res.payload)});
-    }
-  })
-  .catch(()=>{})
-  .then(done);
- // Also archive in Netlify Forms if form detection is ever enabled. Failures ignored.
+ // Our own endpoint mails the branded reply via Resend (needs RESEND_API_KEY).
+ fetch("/.netlify/functions/lead",opts).catch(()=>{}).then(done);
+ // Also archive in Netlify Forms if form detection is enabled. Failures ignored.
  fetch("/",opts).catch(()=>{});
  return false;
 }
