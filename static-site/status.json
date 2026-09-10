@@ -1,24 +1,71 @@
 {
-  "updated": "2026-07-29T21:22:00+00:00",
+  "updated": "2026-09-09T15:30:03+00:00",
   "mode": "DEMO",
   "breaker_tripped": false,
   "paused": false,
   "agents": [
-    {"name": "StiemTrader", "desk": "Crypto", "venue": "Bybit", "trades": 49, "wins": 4, "win_rate": 8.2, "net": -6345.56, "month_net": -6345.56, "month_wl": [4, 45], "day_net": -388.43, "day_wl": [0, 3], "month_withdraw": 0.0},
-    {"name": "Stiemfield FX", "desk": "FX", "venue": "Capital.com", "trades": 40, "wins": 7, "win_rate": 17.5, "net": -753.93, "month_net": -753.93, "month_wl": [7, 33], "day_net": 0.0, "day_wl": [0, 0], "month_withdraw": 0.0}
+    {
+      "name": "StiemTrader",
+      "desk": "Crypto",
+      "venue": "Bybit",
+      "trades": 58,
+      "wins": 7,
+      "win_rate": 12.1,
+      "net": -6005.35,
+      "month_net": -448.81,
+      "month_wl": [
+        0,
+        2
+      ],
+      "day_net": -448.81,
+      "day_wl": [
+        0,
+        2
+      ],
+      "month_withdraw": 0.0
+    },
+    {
+      "name": "Stiemfield FX",
+      "desk": "FX",
+      "venue": "Capital.com",
+      "trades": 49,
+      "wins": 9,
+      "win_rate": 18.4,
+      "net": -745.28,
+      "month_net": -67.61,
+      "month_wl": [
+        0,
+        1
+      ],
+      "day_net": 0,
+      "day_wl": [
+        0,
+        0
+      ],
+      "month_withdraw": 0.0
+    }
   ],
   "positions": [
-    {"desk": "crypto", "symbol": "TIA", "side": "short", "entry": 0.3509},
-    {"desk": "crypto", "symbol": "ATOM", "side": "short", "entry": 1.4043},
-    {"desk": "crypto", "symbol": "WLD", "side": "short", "entry": 0.3092},
-    {"desk": "crypto", "symbol": "ENA", "side": "short", "entry": 0.08169},
-    {"desk": "crypto", "symbol": "APT", "side": "short", "entry": 0.5723},
-    {"desk": "crypto", "symbol": "IMX", "side": "short", "entry": 0.10677},
-    {"desk": "fx", "symbol": "USDJPY", "side": "short", "entry": 163.842},
-    {"desk": "fx", "symbol": "NZDJPY", "side": "long", "entry": 94.652},
-    {"desk": "fx", "symbol": "GBPJPY", "side": "long", "entry": 218.362}
+    {
+      "desk": "crypto",
+      "symbol": "ATOM",
+      "side": "long",
+      "entry": 1.884
+    },
+    {
+      "desk": "crypto",
+      "symbol": "NEAR",
+      "side": "long",
+      "entry": 2.447
+    },
+    {
+      "desk": "fx",
+      "symbol": "EURUSD",
+      "side": "long",
+      "entry": 1.162905
+    }
   ],
-  "open_count": 9,
-  "firm_net": -7099.49,
-  "firm_month": -7099.49
+  "open_count": 3,
+  "firm_net": -6750.63,
+  "firm_month": -516.42
 }

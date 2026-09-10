@@ -89,13 +89,26 @@ const money=(v,sign=true)=>{const n=Number(v||0);const s=(n<0?'-':(sign&&n>0?'+'
 const cls=v=>Number(v)>0?'pos':(Number(v)<0?'neg':'mut');
 function ago(iso){const s=Math.max(0,(Date.now()-new Date(iso).getTime())/1000);if(s<60)return Math.round(s)+'s ago';if(s<3600)return Math.round(s/60)+'m ago';return Math.round(s/3600)+'h ago';}
 
+// Data is republished every 15 min. Anything older than an hour is not live and
+// must never be presented as if it were — a successful fetch of stale JSON is
+// exactly how this page silently showed month-old figures.
+const STALE_AFTER_MIN=60;
+function ageMin(iso){return (Date.now()-new Date(iso).getTime())/60000;}
+
 function render(d){
   const paused=d.paused, breaker=d.breaker_tripped;
+  const stale=!d.updated||isNaN(new Date(d.updated))||ageMin(d.updated)>STALE_AFTER_MIN;
   $('#pills').innerHTML=
     `<span class="pill ${d.mode==='LIVE'?'live':'demo'}"><b>${d.mode||'DEMO'}</b></span>`+
-    `<span class="pill">${breaker?'🛑 breaker tripped':'<span class=dot></span>engine '+(paused?'PAUSED':'live')}</span>`;
+    (stale
+      ? `<span class="pill" style="border-color:#b45309;color:#fbbf24">⚠ stale feed</span>`
+      : `<span class="pill">${breaker?'🛑 breaker tripped':'<span class=dot></span>engine '+(paused?'PAUSED':'live')}</span>`);
   const firmMonth=d.firm_month, firm=d.firm_net;
-  let html=`<div class="kpis">
+  let html='';
+  if(stale){
+    html+=`<div class="err" style="margin-bottom:16px">⚠ <b>These figures are not live.</b> The desk last published ${d.updated?ago(d.updated):'an unknown time ago'}, and publishing runs every 15 minutes — so this page is out of date. Treat every number below as historical until the feed recovers.</div>`;
+  }
+  html+=`<div class="kpis">
     <div class="kpi"><div class="l">Realized P&L · all-time</div><div class="v ${cls(firm)}">${money(firm)}</div><div class="sub">across both desks</div></div>
     <div class="kpi"><div class="l">This month</div><div class="v ${cls(firmMonth)}">${money(firmMonth)}</div><div class="sub">withdraw 30% of profit</div></div>
     <div class="kpi"><div class="l">Open positions</div><div class="v">${d.open_count}</div><div class="sub">${d.agents.length} desks active</div></div>
@@ -124,7 +137,7 @@ function render(d){
     html+=`</tbody></table>`;
   }
   $('#content').innerHTML=html;
-  $('#ago').textContent=ago(d.updated);
+  $('#ago').textContent=ago(d.updated)+(stale?' — STALE':'');
   window.__last=d;
 }
 async function load(){
