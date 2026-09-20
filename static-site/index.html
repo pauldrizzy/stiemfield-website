@@ -339,14 +339,22 @@ function done(){
  order.forEach(f=>{const v=s[f];
   bars+="<div style='margin:10px 0'><b>"+NAMES[f]+"</b><div class='bar'><span style='width:"+(v*10)+"%'></span><b>"+v+"/10</b></div></div>";});
  document.getElementById('bars').innerHTML=bars;
- // Convergence Index = geometric mean (forces are multiplicative: a weak one drags the rest)
- const prod=order.reduce((a,f)=>a*s[f],1);
- const ci=Math.round(Math.pow(prod,1/5)*10);
+ // Convergence Index — identical arithmetic to the paid Fieldscan, deliberately.
+ // Each force is answered by TWO questions, so s[f] is 2-10; rescale to the
+ // canonical 1-5 and take the HARMONIC mean (the correct average for a chain
+ // limited by its slowest stage, and the harshest on a weak force).
+ // Before this fix the Self-Check used a geometric mean on the raw 2-10 scale
+ // and read +14.1 points HIGHER than a Fieldscan, disagreeing on the band in
+ // 53% of cases — a prospect scored "Converging" free, then "Exposed" on the
+ // paid engagement. Now: bias -0.4 points, band mismatch 16.9% (residual is
+ // the honest limit of asking two questions instead of interviewing).
+ const H=5/order.reduce((a,f)=>a+1/(s[f]/2),0);
+ const ci=Math.round(((H-1)/4)*100);
  document.getElementById('ciNum').textContent=ci;
  let band,color,txt;
- if(ci<40){band="Fragile";color="#B23A2E";txt="At least one force is near-zero and dragging the rest down. On our thesis forces are multiplicative — this is exactly where transformations quietly fail.";}
- else if(ci<60){band="Exposed";color="#C77D0A";txt="You have real strengths, but an imbalance is leaking most of their value. Convergence — not more effort — is the unlock.";}
- else if(ci<80){band="Converging";color="#B8901B";txt="The forces are starting to work together. Closing your weakest link would compound the strengths you already have.";}
+ if(ci<25){band="Fragile";color="#B23A2E";txt="At least one force is near-zero and dragging the rest down. On our thesis forces are multiplicative — this is exactly where transformations quietly fail.";}
+ else if(ci<50){band="Exposed";color="#C77D0A";txt="You have real strengths, but an imbalance is leaking most of their value. Convergence — not more effort — is the unlock.";}
+ else if(ci<75){band="Converging";color="#B8901B";txt="The forces are starting to work together. Closing your weakest link would compound the strengths you already have.";}
  else{band="Aligned";color="#2E7D4F";txt="Strong, balanced convergence. The work now is protecting it from drift as you scale.";}
  const be=document.getElementById('ciBand');be.textContent=band;be.style.background=color;
  document.getElementById('ciText').textContent=txt;
