@@ -79,7 +79,7 @@ function leadEmailHtml({ name, ci, weakest, gap, booking }) {
         <a href="${esc(booking)}" style="display:inline-block;background:#D9A511;color:#0B1B2B;font-family:Georgia,serif;font-weight:bold;font-size:15px;text-decoration:none;padding:13px 28px">Book a scoping call →</a>
      </td></tr>
      <tr><td style="padding:16px 30px 26px">
-        <p style="margin:0;font-family:Georgia,serif;font-size:14px;color:#5B6672">— Terungwa Paul Asar<br>Convergence Consultant &amp; Founding Partner, Stiemfield Global Convergence Ltd<br><a href="https://stiemfield.com" style="color:#9a7a12">stiemfield.com</a> · <a href="https://stiemfield.com/os/" style="color:#9a7a12">STIEM OS</a></p>
+        <p style="margin:0;font-family:Georgia,serif;font-size:14px;color:#5B6672">— Terungwa Paul Asar<br>Founding Partner, Stiemfield Global Convergence Limited<br><i>A global convergence firm — rooted in Africa, from Nigeria</i><br><a href="https://stiemfield.com" style="color:#9a7a12">stiemfield.com</a> · +234 705 829 0711</p>
      </td></tr>
      <tr><td style="background:#F2ECDF;padding:14px 30px;border-top:2px solid #D9A511">
         <p style="margin:0;font-family:Georgia,serif;font-size:11px;color:#8b96a3">You received this because you completed the Self-Check at stiemfield.com. We sell diagnosis, architecture and engineering — never investment advice.</p>
