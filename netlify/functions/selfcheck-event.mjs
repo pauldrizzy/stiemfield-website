@@ -40,11 +40,13 @@ export default async (req, context) => {
   const store = getStore(STORE);
 
   if (req.method === "GET") {
+    // strong consistency: the relay must see every stored event, in order, at once
+    const strong = getStore({ name: STORE, consistency: "strong" });
     const after = new URL(req.url).searchParams.get("after") || "";
-    const { blobs } = await store.list();
-    const keys = blobs.map((b) => b.key).filter((k) => k > after).sort().slice(0, 50);
+    const { blobs } = await strong.list();
+    const keys = blobs.map((b) => b.key).filter((k) => k > after).sort().slice(0, 200);
     const events = [];
-    for (const k of keys) { const v = await store.get(k, { type: "json" }); if (v) events.push({ key: k, ...v }); }
+    for (const k of keys) { const v = await strong.get(k, { type: "json" }); if (v) events.push({ key: k, ...v }); }
     return reply({ ok: true, count: events.length, events });
   }
   if (req.method !== "POST") return reply({ ok: false, reason: "method not allowed" }, 405);
