@@ -43,18 +43,27 @@
     spaced("Convergence Self-Check report  ·  " + when, 27.6, 6.8, GOLD_LT, 0.7);
     doc.setFillColor(GOLD[0], GOLD[1], GOLD[2]); doc.rect(0, 32, W, 1.1, "F");
 
+    // ---- prepared for: the visitor who sent their details
+    var top = 0, L = T.lead || {};
+    if (L.name) {
+      var who = L.name + (L.role ? ", " + L.role : "") + (L.organisation ? "  ·  " + L.organisation : "");
+      font("times", "italic", 10.5, NAVY);
+      doc.text(lines("Prepared for " + who, 170, 10.5)[0], C, 41.5, { align: "center" });
+      top = 6;
+    }
+
     // ---- the Index
-    y = 43; spaced("Your Convergence Index", y, 7.5, GOLD_INK);
-    y = 59; font("times", "bold", 42, NAVY);
+    y = 43 + top; spaced("Your Convergence Index", y, 7.5, GOLD_INK);
+    y = 59 + top; font("times", "bold", 42, NAVY);
     var num = String(r.ci), nw = doc.getTextWidth(num);
     doc.text(num, C - 4, y, { align: "center" });
     font("times", "normal", 12, GREY); doc.text("/100", C - 4 + nw / 2 + 1, y);
     var band = clean(r.band).toUpperCase(); font("helvetica", "bold", 7.8, [255, 255, 255]);
     var bw = doc.getTextWidth(band) + 0.8 * (band.length - 1) + 12, bc = rgb(r.color);
-    doc.setFillColor(bc[0], bc[1], bc[2]); doc.roundedRect(C - bw / 2, 63.5, bw, 7, 1, 1, "F");
-    doc.text(band, C - (bw - 12) / 2, 68.2, { charSpace: 0.8 });
+    doc.setFillColor(bc[0], bc[1], bc[2]); doc.roundedRect(C - bw / 2, 63.5 + top, bw, 7, 1, 1, "F");
+    doc.text(band, C - (bw - 12) / 2, 68.2 + top, { charSpace: 0.8 });
     font("helvetica", "normal", 9.3, GREY);
-    y = centred(lines(r.txt, 150, 9.3), C, 77.5, 4.3);
+    y = centred(lines(r.txt, 150, 9.3), C, 77.5 + top, 4.3);
 
     // ---- the five forces
     y += 5; spaced("The five forces", y, 7.5, GOLD_INK); y += 6.5;

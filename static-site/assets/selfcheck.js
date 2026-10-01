@@ -87,8 +87,10 @@ function done(){
 function printReport(e){
  e.preventDefault();
  const r=window.sgcReport;if(!r)return;
+ // the PDF is for visitors who send their details (owner, 2026-10-01)
+ if(!window.sgcLead){const f=document.getElementById('leadform');if(f)f.scrollIntoView({behavior:'smooth'});return;}
  const card=document.documentElement.getAttribute('data-card')||'ngn';
- const go=()=>window.sgcReportPdf(window.jspdf.jsPDF,r,{NAMES,DESC,MOVES,card});
+ const go=()=>window.sgcReportPdf(window.jspdf.jsPDF,r,{NAMES,DESC,MOVES,card,lead:window.sgcLead});
  const fail=()=>window.print();
  if(window.jspdf&&window.sgcReportPdf){go().catch(fail);return;}
  sgcLoad('/assets/vendor/jspdf.umd.min.js').then(()=>sgcLoad('/assets/report-pdf.js')).then(go).catch(fail);
@@ -109,6 +111,7 @@ function sendLead(e){
  // Also archive in Netlify Forms if form detection is enabled. Failures ignored.
  fetch("/",opts).catch(()=>{});
  const fd=new FormData(form);
+ window.sgcLead={name:String(fd.get('name')||'').trim(),organisation:String(fd.get('organisation')||'').trim(),role:String(fd.get('role')||'').trim()};
  if(!fd.get('bot-field'))sgcEvent({type:'lead',name:fd.get('name')||'',email:fd.get('email')||'',organisation:fd.get('organisation')||'',role:fd.get('role')||''});
  return false;
 }
