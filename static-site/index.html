@@ -241,13 +241,14 @@
 <div class="report-card"><h4>Your gap pattern</h4><p id="gapLine" style="font-size:1.1rem"></p><p id="gapDesc" class="quiet" style="margin-top:8px"></p></div>
 </div>
 <div class="report-card" style="margin-top:24px"><h4>Three priority moves</h4><ol class="moves" id="moves"></ol>
-<p class="quiet" style="margin-top:12px">This is the STIEM Snapshot logic in miniature, and an indicator rather than a diagnosis. A Fieldscan tests both dimensions — each force's strength <em>and</em> its connection to the other four — with evidence, and an Evidence Reliability rating on every score.</p></div>
+<p class="quiet" style="margin-top:12px">The Self-Check uses the STIEM scoring logic in miniature: an indicator, not a diagnosis. A STIEM Snapshot tests it with evidence over two weeks, with three to five stakeholder interviews and a document review; a Fieldscan tests every force and connection in depth, with an Evidence Reliability rating on every score.</p></div>
 
 <form class="leadbox" id="leadform" name="convergence-selfcheck" method="POST" data-netlify="true" netlify-honeypot="bot-field" onsubmit="return sendLead(event)">
 <input type="hidden" name="form-name" value="convergence-selfcheck">
 <p class="hp"><label>Leave blank: <input name="bot-field"></label></p>
-<h3>Get your PDF report and a personal read</h3>
-<p class="quiet">Enter your details to download your Convergence Report as a PDF, prepared in your name. Your profile also comes straight to the Founding Partner, who will send you a short, personal read on your weakest force and the right starting point within 24 hours.</p>
+<h3>Get your PDF report</h3>
+<p class="quiet if-mail">Enter your details and your Convergence Report comes to your inbox as a PDF, prepared in your name; you can also download it here. In three days you will receive a short read on your weakest force, and in a week a proposal for the right next step. Reply STOP to any of them to opt out.</p>
+<p class="quiet if-nomail">Enter your details to download your Convergence Report as a PDF, prepared in your name. Your profile also comes straight to the Founding Partner.</p>
 <div class="leadfields">
 <input type="text" name="name" placeholder="Your name" autocomplete="name" required>
 <input type="email" name="email" placeholder="Work email" autocomplete="email" required>
@@ -270,7 +271,8 @@
 
 <div id="leadthanks" hidden><div class="leadbox">
 <h3>Sent — thank you.</h3>
-<p>Your Convergence Report is ready to download, and your profile is with the Founding Partner. Expect a short, personal read on your weakest force within 24 hours.</p>
+<p class="if-mail">Your Convergence Report is on its way to your inbox, and you can download it here now. Look out for a short read on your weakest force in three days.</p>
+<p class="if-nomail">Your Convergence Report is ready to download, and your profile is with the Founding Partner.</p>
 <div class="report-actions">
 <a class="btn gold" href="#" onclick="printReport(event)">Download your PDF report</a>
 <a class="btn dark" href="https://calendly.com/asarpaul8/30min" target="_blank" rel="noopener">Book a 30-minute call</a>

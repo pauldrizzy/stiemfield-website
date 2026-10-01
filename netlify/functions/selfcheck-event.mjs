@@ -20,6 +20,7 @@ LI3E3pD0EtmE+R6GfjtTLweF6W6A6cRmkblijSUHeEDLeAVG1MuCvPaT0IPjHhKa
 6f5pCkO+TqACpTFwdp0koOKr9WtD9JJCnPlASFXucFOlAgMBAAE=
 -----END PUBLIC KEY-----`;
 const STORE = "selfcheck-events";
+const STATUS = "selfcheck-status";
 const KEEP_MS = 14 * 24 * 3600 * 1000;   // events are deleted after 14 days
 const BURST = 40;                        // at most 40 events accepted per 10 minutes
 
@@ -39,6 +40,11 @@ function seal(obj) {
 export default async (req, context) => {
   const store = getStore(STORE);
 
+  if (req.method === "GET" && new URL(req.url).searchParams.get("status")) {
+    // is the firm's email sequence live? (set only by the server's signed status)
+    const s = await getStore(STATUS).get("status", { type: "json" });
+    return reply({ ok: true, mail: !!(s && s.mail && Date.now() - s.t < 2 * 3600 * 1000) });
+  }
   if (req.method === "GET") {
     // strong consistency: the relay must see every stored event, in order, at once
     const strong = getStore({ name: STORE, consistency: "strong" });
@@ -57,6 +63,16 @@ export default async (req, context) => {
     d = type.includes("json") ? await req.json() : Object.fromEntries(new URLSearchParams(await req.text()));
   } catch { return reply({ ok: false, reason: "bad request" }, 400); }
   if (d["bot-field"]) return reply({ ok: true });
+
+  if (d.type === "status") {
+    // only the holder of the private key (the firm's server) can sign this
+    let valid = false;
+    try { valid = crypto.verify("sha256", Buffer.from(`status|${d.mail}|${d.t}`), PUBLIC_KEY, Buffer.from(String(d.sig || ""), "base64")); } catch { valid = false; }
+    if (!valid || Math.abs(Date.now() - Number(d.t)) > 600000 || !["0", "1"].includes(d.mail))
+      return reply({ ok: false, reason: "unauthorised" }, 403);
+    await getStore(STATUS).setJSON("status", { mail: d.mail === "1", t: Number(d.t) });
+    return reply({ ok: true });
+  }
 
   const s = { S: score(d.score_strategy), T: score(d.score_technology), I: score(d.score_innovation),
               E: score(d.score_execution), M: score(d.score_management) };

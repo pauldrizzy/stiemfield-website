@@ -362,3 +362,7 @@ footer .flogo{margin-left:auto;margin-right:auto}
 .legal-page table{text-align:left}
 .legal-page ul{list-style-position:inside;margin-left:0}
 .legal-page .callout{border-left:0;border-top:3px solid var(--gold)}
+/* Self-Check: email wording appears only while the email sequence is live */
+.if-mail{display:none}
+#check-box.mail-on .if-mail{display:block}
+#check-box.mail-on .if-nomail{display:none}

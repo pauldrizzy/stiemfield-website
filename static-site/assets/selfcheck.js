@@ -80,6 +80,7 @@ function done(){
  order.forEach(f=>{document.getElementById('f_'+f).value=s[f];});
  window.sgcReport={s:s,ci:ci,band:band,color:color,txt:txt,low:low,gap:gap};
  sgcEvent({type:'completed'});
+ sgcMailStatus();
  ['qcard','qcount','qprogress','qintro'].forEach(id=>{document.getElementById(id).hidden=true;});
  document.getElementById('report').hidden=false;
  document.getElementById('report').scrollIntoView({behavior:'smooth'});
@@ -99,6 +100,8 @@ function sgcLoad(src){return new Promise((res,rej)=>{const s=document.createElem
 // Self-Check alerts: the result (and, if they choose to send it, the visitor's details)
 // is stored encrypted for the owner's Telegram alert. Nothing else leaves the browser.
 function sgcFields(){const r=window.sgcReport;if(!r)return{};return{convergence_index:r.ci,band:r.band,weakest_force:NAMES[r.low],gap_pattern:r.gap[0],score_strategy:r.s.S,score_technology:r.s.T,score_innovation:r.s.I,score_execution:r.s.E,score_management:r.s.M};}
+// the page promises email only while the firm's email sequence is live (the server's signed status)
+function sgcMailStatus(){fetch('/.netlify/functions/selfcheck-event?status=1',{cache:'no-store'}).then(r=>r.json()).then(j=>{if(j&&j.mail){const b=document.getElementById('check-box');if(b)b.classList.add('mail-on');}}).catch(()=>{});}
 function sgcEvent(extra){try{const b=new URLSearchParams(Object.assign(sgcFields(),extra)).toString();fetch('/.netlify/functions/selfcheck-event',{method:'POST',headers:{'Content-Type':'application/x-www-form-urlencoded'},body:b,keepalive:true}).catch(()=>{});}catch(e){}}
 function sendLead(e){
  e.preventDefault();
