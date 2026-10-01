@@ -73,16 +73,16 @@ function leadEmailHtml({ name, ci, weakest, gap, booking }) {
      </td></tr>
      ${ciBlock}${weakBlock}${gapBlock}
      <tr><td style="padding:12px 30px 4px">
-        <p style="margin:0;font-family:Georgia,serif;font-size:15px;line-height:1.65;color:#0B1B2B">In our work the score matters less than the connection: a strong force that stands alone produces nothing. Within one working day I'll send you a short, personal read on your weakest force — no obligation.</p>
+        <p style="margin:0;font-family:Georgia,serif;font-size:15px;line-height:1.65;color:#0B1B2B">In our work the score matters less than the connection: a strong force that stands alone produces nothing. Within 24 hours I'll send you a short, personal read on your weakest force — no obligation.</p>
      </td></tr>
      <tr><td style="padding:20px 30px 8px">
-        <a href="${esc(booking)}" style="display:inline-block;background:#D9A511;color:#0B1B2B;font-family:Georgia,serif;font-weight:bold;font-size:15px;text-decoration:none;padding:13px 28px">Book a scoping call →</a>
+        <a href="${esc(booking)}" style="display:inline-block;background:#D9A511;color:#0B1B2B;font-family:Georgia,serif;font-weight:bold;font-size:15px;text-decoration:none;padding:13px 28px">Book a 30-minute call →</a>
      </td></tr>
      <tr><td style="padding:16px 30px 26px">
-        <p style="margin:0;font-family:Georgia,serif;font-size:14px;color:#5B6672">— Terungwa Paul Asar<br>Founding Partner, Stiemfield Global Convergence Limited<br><i>A global convergence firm — rooted in Africa, from Nigeria</i><br><a href="https://stiemfield.com" style="color:#9a7a12">stiemfield.com</a> · +234 705 829 0711</p>
+        <p style="margin:0;font-family:Georgia,serif;font-size:14px;color:#5B6672">— Asar Paul T<br>Founding Partner, Stiemfield Global Convergence Limited<br><i>A global convergence firm — rooted in Africa, from Nigeria</i><br><a href="https://stiemfield.com" style="color:#9a7a12">stiemfield.com</a> · +234 705 829 0711</p>
      </td></tr>
      <tr><td style="background:#F2ECDF;padding:14px 30px;border-top:2px solid #D9A511">
-        <p style="margin:0;font-family:Georgia,serif;font-size:11px;color:#8b96a3">You received this because you completed the Self-Check at stiemfield.com. We sell diagnosis, architecture and engineering — never investment advice.</p>
+        <p style="margin:0;font-family:Georgia,serif;font-size:11px;color:#8b96a3">You received this because you completed the Self-Check at stiemfield.com. Stiemfield Global Convergence Limited · Rooted in Africa. We do not give legal, tax, accounting or investment advice.</p>
      </td></tr>
     </table>
    </td></tr>
@@ -130,7 +130,9 @@ async function sendLeadEmails(data) {
   }
   const from = process.env.FROM_EMAIL || "Stiemfield Global Convergence <onboarding@resend.dev>";
   const booking = process.env.BOOKING_URL || "https://calendly.com/asarpaul8/30min";
-  const replyTo = process.env.REPLY_TO || "terungwa@stiemfield.com";
+  // the firm's documented contact; there is no @stiemfield.com mailbox yet, and a
+  // reply-to that does not exist would silently lose every lead who answers
+  const replyTo = process.env.REPLY_TO || OWNER_EMAIL_DEFAULT;
 
   const ci = data.convergence_index, weakest = data.weakest_force, gap = data.gap_pattern;
 
