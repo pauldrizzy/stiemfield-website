@@ -1,5 +1,5 @@
 // Stiemfield dashboard service worker — installable PWA + offline shell.
-const C = 'stiem-dash-v1';
+const C = 'stiem-dash-v2';
 const SHELL = ['/dashboard/', '/dashboard/index.html', '/favicon.png'];
 self.addEventListener('install', e => {
   self.skipWaiting();
