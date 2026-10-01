@@ -21,6 +21,8 @@ LI3E3pD0EtmE+R6GfjtTLweF6W6A6cRmkblijSUHeEDLeAVG1MuCvPaT0IPjHhKa
 -----END PUBLIC KEY-----`;
 const STORE = "selfcheck-events";
 const STATUS = "selfcheck-status";
+const CONNECT = "selfcheck-connect";          // encrypted email-connect submissions (only the server can read them)
+const CONNECT_KEEP_MS = 2 * 3600 * 1000;
 const KEEP_MS = 14 * 24 * 3600 * 1000;   // events are deleted after 14 days
 const BURST = 40;                        // at most 40 events accepted per 10 minutes
 
@@ -40,6 +42,18 @@ function seal(obj) {
 export default async (req, context) => {
   const store = getStore(STORE);
 
+  if (req.method === "GET" && new URL(req.url).searchParams.get("connect")) {
+    // the server collects connect submissions; anything older than two hours is deleted
+    const cs = getStore({ name: CONNECT, consistency: "strong" });
+    const { blobs } = await cs.list();
+    const items = [];
+    for (const b of blobs) {
+      if (Date.now() - Number(b.key.split("-")[0]) > CONNECT_KEEP_MS) { await cs.delete(b.key); continue; }
+      const v = await cs.get(b.key, { type: "json" });
+      if (v) items.push({ key: b.key, blob: v.blob });
+    }
+    return reply({ ok: true, items });
+  }
   if (req.method === "GET" && new URL(req.url).searchParams.get("status")) {
     // is the firm's email sequence live? (set only by the server's signed status)
     const s = await getStore(STATUS).get("status", { type: "json" });
@@ -64,6 +78,17 @@ export default async (req, context) => {
   } catch { return reply({ ok: false, reason: "bad request" }, 400); }
   if (d["bot-field"]) return reply({ ok: true });
 
+  if (d.type === "connect") {
+    // encrypted in the owner's browser with the server's public key: unreadable here
+    const blob = String(d.blob || "");
+    if (!/^[A-Za-z0-9+/=]{300,1200}$/.test(blob)) return reply({ ok: false, reason: "bad request" }, 400);
+    const cs = getStore(CONNECT);
+    const { blobs } = await cs.list();
+    if (blobs.filter((b) => Date.now() - Number(b.key.split("-")[0]) < 3600000).length >= 10)
+      return reply({ ok: false, reason: "busy" }, 429);
+    await cs.setJSON(`${String(Date.now()).padStart(15, "0")}-${crypto.randomBytes(4).toString("hex")}`, { blob });
+    return reply({ ok: true });
+  }
   if (d.type === "status") {
     // only the holder of the private key (the firm's server) can sign this
     let valid = false;
