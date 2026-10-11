@@ -39,7 +39,7 @@
 
     // ---- header band: the logo, centred
     doc.setFillColor(NAVY[0], NAVY[1], NAVY[2]); doc.rect(0, 0, W, 32, "F");
-    if (logo) doc.addImage(logo, "PNG", C - 39, 6, 78, 15.6);
+    if (logo) { var lp = doc.getImageProperties(logo), lw = 15.6 * lp.width / lp.height; doc.addImage(logo, "PNG", C - lw / 2, 6, lw, 15.6); }
     spaced("Convergence Self-Check report  ·  " + when, 27.6, 6.8, GOLD_LT, 0.7);
     doc.setFillColor(GOLD[0], GOLD[1], GOLD[2]); doc.rect(0, 32, W, 1.1, "F");
 
