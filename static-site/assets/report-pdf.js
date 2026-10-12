@@ -25,7 +25,7 @@
     var doc = new jsPDF({ unit: "mm", format: "a4", compress: true });
     var W = 210, H = 297, M = 18, C = W / 2, y = 0;
     doc.setProperties({ title: "Convergence Self-Check report", subject: "Stiemfield Global Convergence",
-      author: "Stiemfield Global Convergence Limited", creator: "stiemfield.com" });
+      author: "Stiemfield Global Convergence", creator: "stiemfield.com" });
 
     function font(face, style, size, colour) { doc.setFont(face, style); doc.setFontSize(size); doc.setTextColor(colour[0], colour[1], colour[2]); }
     function spaced(text, yy, size, colour, gap) {          // centred small capitals with letter-spacing
@@ -124,7 +124,7 @@
       doc.setPage(p);
       doc.setFillColor(GOLD[0], GOLD[1], GOLD[2]); doc.rect(M, H - 15, W - 2 * M, 0.4, "F");
       font("helvetica", "bold", 7, NAVY);
-      doc.text("STIEMFIELD GLOBAL CONVERGENCE LIMITED  ·  Rooted in Africa.", C, H - 10, { align: "center" });
+      doc.text("STIEMFIELD GLOBAL CONVERGENCE  ·  Rooted in Africa.", C, H - 10, { align: "center" });
       font("helvetica", "normal", 6.4, GREY);
       doc.text("The STIEM Framework is a proprietary instrument of the firm. We do not give legal, tax, accounting or investment advice.", C, H - 6.3, { align: "center" });
     }
