@@ -70,6 +70,10 @@
     ORDER.forEach(function (f) {
       var v = r.s[f], weak = f === r.low;
       font("times", "bold", 10.5, NAVY); doc.text(T.NAMES[f], M, y);
+      if (T.ROLE) {                                    // core or amplifying force (2026-10-12)
+        var nameW = doc.getTextWidth(T.NAMES[f]); font("helvetica", "bold", 6.2, GREY);
+        doc.text(clean(T.ROLE[f]).toUpperCase(), M + nameW + 3, y, { charSpace: 0.45 });
+      }
       font("helvetica", "bold", 8.6, weak ? GOLD_INK : GREY); doc.text(v + "/10" + (weak ? "  ·  weakest" : ""), W - M, y, { align: "right" });
       doc.setFillColor(TRACK[0], TRACK[1], TRACK[2]); doc.rect(M, y + 1.8, W - 2 * M, 3, "F");
       var fill = weak ? GOLD : NAVY; doc.setFillColor(fill[0], fill[1], fill[2]); doc.rect(M, y + 1.8, (W - 2 * M) * v / 10, 3, "F");

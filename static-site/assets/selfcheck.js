@@ -11,6 +11,16 @@ const QS=[["S","Our strategy visibly governed this quarter's spending and priori
 ["M","Leadership is aligned on what the strategy actually is."],
 ["M","We build capability that would outlast the current leaders."]];
 const NAMES={S:"Strategy",T:"Technology",I:"Innovation",E:"Execution",M:"Management"};
+// The core-and-amplifier model (owner, 2026-10-12): Strategy, Execution and Management are the core
+// forces; Technology and Innovation are the amplifying forces, and Innovation is the link. These are
+// roles, not weights: the arithmetic below still weighs all five forces equally.
+const ROLE={S:"Core force",T:"Amplifying force",I:"Amplifying force · the link",E:"Core force",M:"Core force"};
+const ROLE_NOTE={
+ S:"Strategy is a core force: with Execution and Management, it decides whether a transformation stands.",
+ T:"Technology is an amplifying force: it multiplies what the core forces (Strategy, Execution and Management) can achieve.",
+ I:"Innovation is an amplifying force and the link: it connects new capability to the core forces (Strategy, Execution and Management).",
+ E:"Execution is a core force: with Strategy and Management, it decides whether a transformation stands.",
+ M:"Management is a core force: with Strategy and Execution, it decides whether a transformation stands."};
 const DESC={
  S:"Strategy isn't governing real decisions. Under pressure priorities blur and spend drifts from stated intent — the plan decorates a shelf instead of steering the quarter.",
  T:"Technology is deployed but bypassed. Systems exist that management never reorganised around, so the tools serve operations without ever serving the strategy.",
@@ -44,7 +54,7 @@ function done(){
  const order=["S","T","I","E","M"];
  let bars="";
  order.forEach(f=>{const v=s[f];
-  bars+="<div style='margin:10px 0'><b>"+NAMES[f]+"</b><div class='bar'><span style='width:"+(v*10)+"%'></span><b>"+v+"/10</b></div></div>";});
+  bars+="<div style='margin:10px 0'><b>"+NAMES[f]+"</b> <small class='frole'>"+ROLE[f]+"</small><div class='bar'><span style='width:"+(v*10)+"%'></span><b>"+v+"/10</b></div></div>";});
  document.getElementById('bars').innerHTML=bars;
  // Convergence Index — identical arithmetic to the paid Fieldscan, deliberately.
  // Each force is answered by TWO questions, so s[f] is 2-10; rescale to the
@@ -67,7 +77,7 @@ function done(){
  document.getElementById('ciText').textContent=txt;
  let low=order[0];order.forEach(f=>{if(s[f]<s[low])low=f;});
  document.getElementById('weakLine').innerHTML="<b>"+NAMES[low]+"</b> — "+s[low]+"/10";
- document.getElementById('weakDesc').textContent=DESC[low];
+ document.getElementById('weakDesc').textContent=DESC[low]+" "+ROLE_NOTE[low];
  const sorted=order.slice().sort((a,b)=>s[a]-s[b]);
  const two=[sorted[0],sorted[1]].sort((a,b)=>order.indexOf(a)-order.indexOf(b));
  const gap=GAPS[two[0]+","+two[1]]||["The "+NAMES[two[0]]+"–"+NAMES[two[1]]+" Gap","Your two weakest forces are "+NAMES[two[0]]+" and "+NAMES[two[1]]+" — where a strong force stands alone it produces nothing. The connection is the constraint."];
@@ -91,7 +101,7 @@ function printReport(e){
  // the PDF is for visitors who send their details (owner, 2026-10-01)
  if(!window.sgcLead){const f=document.getElementById('leadform');if(f)f.scrollIntoView({behavior:'smooth'});return;}
  const card=document.documentElement.getAttribute('data-card')||'ngn';
- const go=()=>window.sgcReportPdf(window.jspdf.jsPDF,r,{NAMES,DESC,MOVES,card,lead:window.sgcLead});
+ const go=()=>window.sgcReportPdf(window.jspdf.jsPDF,r,{NAMES,DESC,MOVES,ROLE,ROLE_NOTE,card,lead:window.sgcLead});
  const fail=()=>window.print();
  if(window.jspdf&&window.sgcReportPdf){go().catch(fail);return;}
  sgcLoad('/assets/vendor/jspdf.umd.min.js').then(()=>sgcLoad('/assets/report-pdf.js')).then(go).catch(fail);
